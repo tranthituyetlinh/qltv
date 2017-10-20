@@ -1,0 +1,31 @@
+@charset = "utf-8";
+*, body{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #f3f3f3;
+}
+html{
+    
+}
+#khung-trang-web{
+    width: 960px;
+    margin: 0 auto;
+    background: #fff;
+}
+#header-body{
+    float: left;
+    width: 100%;
+}
+#header-body img{
+    width: 100%;
+}
+#nav{
+    float: left;
+    width: 100%;
+}
+#noi-dung-trang-web{
+    width: 100%;
+    float: left;
+}
