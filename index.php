@@ -3,10 +3,12 @@
 <head>
   <title>Quản lý thư viện</title>
   <meta charset="utf-8">
+  <base href="http://localhost/qltv/" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+  <link href="css/vendor/font-awesome.min.css" type="text/css" rel="stylesheet">
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="bootstrap/dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -38,13 +40,122 @@
       </div>
     </nav><!-- Day la menu -->
     <!-- Day la noi dung -->
-    <div id="noi-dung-trang-web" class="container">
-      <h3>Right Aligned Navbar</h3>
-      <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
+    <div id="noi-dung-trang-web">
+      <div class="cot-mot">
+        <div class="header-cot-mot">
+          <h3>Thể loại sách theo khoa</h3>
+        </div>
+        <ul id="sach-theo-khoa">
+          <li>
+            <a href="#">+ Công nghệ thông tin</a>
+          </li>
+          <li>
+            <a href="#">+ Công nghệ thực phẩm</a>
+          </li>
+          <li>
+            <a href="#">+ Điện điện tử</a>
+          </li>
+        </ul>
+        <div class="header-cot-mot tim-kiem">
+          <h3>Tìm kiếm</h3>
+        </div>
+      </div>
+      <div class="cot-hai">
+        <div class="header-cot-hai">
+          <h3>Sách mới</h3>
+        </div>
+        <div class="bao-sach">
+          <a href="#">
+            <div class="sach">
+              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
+              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="bao-sach">
+          <a href="#">
+            <div class="sach">
+              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
+              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="bao-sach">
+          <a href="#">
+            <div class="sach">
+              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
+              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="bao-sach">
+          <a href="#">
+            <div class="sach">
+              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
+              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="bao-sach">
+          <a href="#">
+            <div class="sach">
+              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
+              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="bao-sach">
+          <a href="#">
+            <div class="sach">
+              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
+              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="bao-sach">
+          <a href="#">
+            <div class="sach">
+              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
+              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="bao-sach">
+          <a href="#">
+            <div class="sach">
+              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
+              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="bao-sach">
+          <a href="#">
+            <div class="sach">
+              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
+              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="bao-sach">
+          <a href="#">
+            <div class="sach">
+              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
+              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+            </div>
+          </a>
+        </div>
+      </div>
     </div><!-- Day la noi dung -->
   </div>  
-
-
 </body>
 </html>
 

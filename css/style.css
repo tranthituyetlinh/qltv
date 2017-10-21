@@ -5,6 +5,7 @@
 }
 body{
     background: #f3f3f3;
+    font-family: Tahoma,Helvetica,Verdana,Arial;
 }
 html{
     
@@ -28,4 +29,112 @@ html{
 #noi-dung-trang-web{
     width: 100%;
     float: left;
+}
+.cot-mot{
+    width: 230px;
+    border: 1px solid #ececec;
+}
+.cot-hai{
+    width: 725px;
+    border: 1px solid #ececec;
+    border-radius: 8px 8px 0px 0px;
+    margin-left: 5px;
+}
+.cot-ba{
+    width: 230px;
+    background-color: yellowgreen;
+}
+.cot-mot, .cot-hai, .cot-ba{
+    float: left;
+    border-radius: 8px 8px 0px 0px;
+}
+.header-cot-hai{
+    float: left;
+    width: 100%;
+    height: 30px;
+    background: #3498db;
+    border-radius: 8px 8px 0px 0px;
+}
+.header-cot-hai h3{
+    padding: 0px 13px;
+    margin: 0;
+    font-size: 16px;
+    width: fit-content;
+    line-height: 30px;
+    color: #fff;
+    font-weight: 500;
+}
+.bao-sach{
+    width: 144px;
+    float: left;
+    text-align: center;
+    padding: 2px 8px;
+}
+.bao-sach a{
+    text-decoration: none;
+}
+.sach{
+    padding: 6px;
+    /*border: 1px solid rgba(232, 232, 232, 0.43);
+    box-shadow: 1px 2px 19px 1px #ccc;*/
+    border-radius: 4px;
+}
+.sach:hover{
+    transition: all 0.222s;
+        box-shadow: 0px 3px 18px -1px #ccc;
+}
+.anh-bia-sach{
+    width: 100%;
+    height: 188px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+}
+.ten-sach{
+    color: #656565;
+    font-size: 12px;
+    padding: 6px 0px 0px 0px;
+}
+.ten-sach:hover{
+    text-decoration: underline;
+}
+.ten-sach span{
+    
+}
+.header-cot-mot{
+    float: left;
+    width: 100%;
+    height: 30px;
+    background: #1abc9c;
+    border-radius: 8px 8px 0px 0px;
+}
+.header-cot-mot h3{
+    padding: 0px 13px;
+    margin: 0;
+    font-size: 16px;
+    width: fit-content;
+    line-height: 30px;
+    color: #fff;
+    font-weight: 500;
+}
+#sach-theo-khoa{
+    list-style-type: none;
+    width: 100%;
+    float: left;
+}
+#sach-theo-khoa li{
+    display: block;
+    border-bottom: 1px dotted rgba(95, 204, 182, 0.37);
+}
+#sach-theo-khoa li:last-child{
+    border: none;
+}
+#sach-theo-khoa li a{
+    padding: 0px 0px 0px 14px;  
+    display: block;  
+    height: 25px; 
+    line-height: 25px;
+}
+.tim-kiem{
+    background: #34495e;
 }
