@@ -55,9 +55,6 @@
           <li>
             <a href="#">+ Điện điện tử</a>
           </li>
-          <li>
-            <a href="#">+ TL xi son</a>
-          </li>
         </ul>
         <div class="header-cot-mot tim-kiem">
           <h3>Tìm kiếm</h3>
