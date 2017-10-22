@@ -42,22 +42,50 @@
     <!-- Day la noi dung -->
     <div id="noi-dung-trang-web">
       <div class="cot-mot">
-        <div class="header-cot-mot">
-          <h3>Thể loại sách theo khoa</h3>
+        <div class="bao-cot-mot">
+          <div class="header-cot-mot">
+            <h3>Thể loại sách theo khoa</h3>
+          </div>
+          <ul id="sach-theo-khoa">
+            <li>
+              <a href="#">+ Công nghệ thông tin</a>
+            </li>
+            <li>
+              <a href="#">+ Công nghệ thực phẩm</a>
+            </li>
+            <li>
+              <a href="#">+ Điện điện tử</a>
+            </li>
+          </ul>
         </div>
-        <ul id="sach-theo-khoa">
-          <li>
-            <a href="#">+ Công nghệ thông tin</a>
-          </li>
-          <li>
-            <a href="#">+ Công nghệ thực phẩm</a>
-          </li>
-          <li>
-            <a href="#">+ Điện điện tử</a>
-          </li>
-        </ul>
-        <div class="header-cot-mot tim-kiem">
-          <h3>Tìm kiếm</h3>
+
+        <div class="bao-cot-mot">
+          <div class="header-cot-mot the-loai-khac">
+            <h3>Thể loại sách khác</h3>
+          </div>
+          <ul id="sach-theo-khoa">
+            <li>
+              <a href="#">+ Luận văn</a>
+            </li>
+            <li>
+              <a href="#">+ Báo cáo đồ án</a>
+            </li>
+            <li>
+              <a href="#">+ Thương mại</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bao-cot-mot">
+          <div class="header-cot-mot tim-kiem">
+            <h3>Tìm kiếm</h3>
+          </div>
+          <div class="tim">
+            <form action="" method="post">
+              <input type="text" name="" required="true" placeholder="nhập từ khóa tìm kiếm ... " class="o-tim">
+              <input type="submit" name="" value="Tìm kiếm" class="nut-tim">
+            </form>
+          </div>
         </div>
       </div>
       <div class="cot-hai">
