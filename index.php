@@ -104,8 +104,8 @@
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
-              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+              <div class="anh-bia-sach" style="background-image: url('images/ngaynang.jpg');"></div>
+              <div class="ten-sach">Ngày Nắng <span>(10)</span></div>
             </div>
           </a>
         </div>
@@ -113,8 +113,8 @@
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
-              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+              <div class="anh-bia-sach" style="background-image: url('images/kinhnghiem.jpg');"></div>
+              <div class="ten-sach">7 Thói Quen Của Bạn Trẻ <span>(10)</span></div>
             </div>
           </a>
         </div>
@@ -122,8 +122,8 @@
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
-              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+              <div class="anh-bia-sach" style="background-image: url('images/nhatban.jpg');"></div>
+              <div class="ten-sach">Nhật Bản Trong Tôi <span>(10)</span></div>
             </div>
           </a>
         </div>
@@ -131,8 +131,8 @@
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
-              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+              <div class="anh-bia-sach" style="background-image: url('images/khoingiep.jpg');"></div>
+              <div class="ten-sach">Quốc Gia Khởi Nghiệp <span>(10)</span></div>
             </div>
           </a>
         </div>
@@ -140,8 +140,8 @@
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
-              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+              <div class="anh-bia-sach" style="background-image: url('images/thanhxuan.jpg');"></div>
+              <div class="ten-sach">Thanh Xuân  <span>(10)</span></div>
             </div>
           </a>
         </div>
@@ -149,8 +149,8 @@
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
-              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+              <div class="anh-bia-sach" style="background-image: url('images/khac.jpg');"></div>
+              <div class="ten-sach">Ai Rồi Cũng Khác <span>(10)</span></div>
             </div>
           </a>
         </div>
@@ -158,8 +158,8 @@
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
-              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+              <div class="anh-bia-sach" style="background-image: url('images/thanhpho.jpg');"></div>
+              <div class="ten-sach">Thành Phố Tôi Yêu <span>(10)</span></div>
             </div>
           </a>
         </div>
@@ -167,8 +167,8 @@
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
-              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+              <div class="anh-bia-sach" style="background-image: url('images/hoahong.jpg');"></div>
+              <div class="ten-sach">Hoa Hồng Sớm Mai <span>(10)</span></div>
             </div>
           </a>
         </div>
@@ -176,8 +176,8 @@
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
-              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+              <div class="anh-bia-sach" style="background-image: url('images/tinhphutu.jpg');"></div>
+              <div class="ten-sach">Tình Phụ Tử <span>(10)</span></div>
             </div>
           </a>
         </div>
