@@ -186,22 +186,3 @@
   </div>  
 </body>
 </html>
-
-<!--
-    <li><a href="#">Hệ thống</a></li>
-    <li><a href="#">Quản lý độc giả </a>
-    	<ul class="sub-menu">
-        <li><a href="#">Form ql</a></li>
-        <li><a href="#">Hiển Thị</a></li>
-      </ul>
-    </li>
-    <li><a href="#">Quản lý sách</a>
-    	<ul class="sub-menu">
-        <li><a href="#">Cập nhật thông tin sách</a></li>
-        <li><a href="#">Cập nhật loại sách</a></li>
-    </ul>
-    </li>
-    <li><a href="#">Mượn-Trả</a></li>
-    <li><a href="#">Thống Kê Sách</a></li>
-  </ul>
-  -->
