@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="../bootstrap/dist/css/bootstrap.min.css">
   <link href="../css/vendor/font-awesome.min.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
   <link href="css/style.css" type="text/css" rel="stylesheet">
   <script src="../js/jquery-3.2.1.min.js"></script>
   <script src="../bootstrap/dist/js/bootstrap.min.js"></script>

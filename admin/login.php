@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>VLUTE LIB | Đăng nhập hệ thống</title>
+		<link rel="stylesheet" type="text/css" href="css/animate.css">
 		<style type="text/css">
 			@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 			.login-page {
@@ -16,7 +17,7 @@
 			  margin: 0 auto 100px;
 			  padding: 45px;
 			  text-align: center;
-			  box-shadow: 6px 0 20px 0 rgba(175, 175, 175, 0.2), 0 5px 5px 0 rgba(183, 183, 183, 0.24);
+		      box-shadow: 2px 2px 8px 0 rgba(175, 175, 175, 0.32);
 			}
 			.form input {
 			  font-family: "Roboto", sans-serif;
@@ -106,10 +107,10 @@
 	</head>
 	<body>
 		<div class="login-page">
-		  <div class="logo" style="text-align: center; margin-bottom: 10px;">
+		  <div class="logo animated bounceInDown" style="text-align: center; margin-bottom: 30px;margin-top: 30px;">
 		  	<img src="../images/vlute-logo.png" style="width: 100px;">
 		  </div>
-		  <div class="form">
+		  <div class="form animated bounceIn">
 		    <form class="login-form" action="control/ctrl_login.php" method="post">
 		      <input type="text" placeholder="tên đăng nhập" name="username">
 		      <input type="password" placeholder="mật khẩu" name="password">
@@ -120,18 +121,3 @@
 		</div>
 	</body>
 </html>
-<?php 
-	/*
-	if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-		if (isset($_POST['username']) && isset($_POST['password'])) {
-			if(!tv_login($_POST['username'],$_POST['password'])){
-				header("Location: login.php");
-			}
-			else
-				header("Location: http://localhost/qltv/admin");
-		}
-		else
-			header("Location: login.php");
-	}
-	*/
- ?>
