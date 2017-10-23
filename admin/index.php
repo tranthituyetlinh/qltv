@@ -1,3 +1,4 @@
+<?php include_once("control/ctrl_login_check.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
