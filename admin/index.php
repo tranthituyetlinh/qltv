@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="../bootstrap/dist/css/bootstrap.min.css">
   <link href="../css/vendor/font-awesome.min.css" type="text/css" rel="stylesheet">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
   <script src="../js/jquery-3.2.1.min.js"></script>
   <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
@@ -67,9 +68,8 @@
   </div>
 </nav>
   
-<div class="container">
-  <h3>Basic Navbar Example</h3>
-  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+<div id="khung-trang-admin" class="container">
+  
 </div>
 
 </body>
