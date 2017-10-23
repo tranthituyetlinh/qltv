@@ -1,7 +1,7 @@
 <?php 
-	include_once("config/config.php");
+	include_once("config.php");
 	function tv_login($username, $password){
-		$password = md5($password);	
+		//$password = md5($password);	
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "SELECT * FROM `nhanvien` WHERE `TenDangNhap` = '$username' and `MatKhau` = '$password'";
