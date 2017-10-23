@@ -69,8 +69,9 @@
 </nav>
   
 <div id="khung-trang-admin" class="container">
-  
+  <?php 
+    include_once("public_control.php");
+   ?>
 </div>
-
 </body>
 </html>
