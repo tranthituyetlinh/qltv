@@ -116,6 +116,7 @@
             <?php } ?>
           </select>
         </div>
+        <input type="text" hidden="hidden" name="" id="ma-lop-sua-old" value="">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -126,20 +127,20 @@
 </div><!-- Modal: Sửa lớp -->
 
 <!-- Modal: Xóa khoa -->
-<div class="modal fade in" id="qltv-modal-xoa-khoa" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade in" id="qltv-modal-xoa-lop" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h4 class="modal-title" id="myModalLabel">Xóa khoa</h4>
+        <h4 class="modal-title" id="myModalLabel">Xóa lớp</h4>
       </div>
       <div class="modal-body">
-        <div class="alert alert-danger" role="alert">Bạn có chắc muốn xóa khoa này?</div>
+        <div class="alert alert-danger" role="alert">Bạn có chắc muốn xóa lớp này?</div>
       </div>
-      <input type="text" hidden="hidden" name="" id="ma-khoa-xoa">
+      <input type="text" hidden="hidden" name="" id="ma-lop-xoa">
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Tôi không chắc</button>
-        <button type="button" class="btn btn-danger" id="nut-xoa-khoa">Tôi chắc chắn</button>
+        <button type="button" class="btn btn-danger" id="nut-xoa-lop">Tôi chắc chắn</button>
       </div>
     </div> 
   </div>
@@ -185,17 +186,16 @@
         $("#ma-lop-sua-old").val($("#id-ma-lop-"+id).val().trim());
 	    	$("#qltv-modal-sua-lop").modal("show");
 	    });
-	    $("#nut-sua-khoa").click(function(){
+	    $("#nut-sua-lop").click(function(){
 	      $.ajax({
-	        url : "ajax/ajax_sua_khoa.php",
+	        url : "ajax/ajax_sua_lop.php",
 	        type : "post",
 	        dataType:"text",
 	        data : {
-	          ma: $("#ma-khoa-sua").val(),
-            ten: $("#ten-khoa-sua").val(),
-            diachi: $("#dia-chi-khoa-sua").val(),
-            sdt: $("#so-dien-thoai-khoa-sua").val(),
-            maold: $("#ma-khoa-sua-old").val()
+	          mal: $("#ma-lop-sua").val(),
+            tenl: $("#ten-lop-sua").val(),
+            mak: $("#khoa-lop-sua").val(),
+            malold: $("#ma-lop-sua-old").val()
 	        },
 	        success : function (data){
 	            alert(data);
@@ -203,18 +203,18 @@
 	        }
 	      });
 	    });
-	    $(".btn-xoa-khoa").click(function(){
+	    $(".btn-xoa-lop").click(function(){
 	    	var id = $(this).attr("data-qltv");
-	    	$("#ma-khoa-xoa").val($("#id-ma-khoa-"+id).val().trim());
-	    	$("#qltv-modal-xoa-khoa").modal("show");
+	    	$("#ma-lop-xoa").val($("#id-ma-lop-"+id).val().trim());
+	    	$("#qltv-modal-xoa-lop").modal("show");
 	    });
-	    $("#nut-xoa-khoa").click(function(){
+	    $("#nut-xoa-lop").click(function(){
 	      $.ajax({
-	        url : "ajax/ajax_xoa_khoa.php",
+	        url : "ajax/ajax_xoa_lop.php",
 	        type : "post",
 	        dataType:"text",
 	        data : {
-	          ma: $("#ma-khoa-xoa").val()
+	          ma: $("#ma-lop-xoa").val()
 	        },
 	        success : function (data){
 	            alert(data);
