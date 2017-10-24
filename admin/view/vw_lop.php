@@ -120,7 +120,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary" id="nut-sua-lop">Thêm lớp</button>
+        <button type="button" class="btn btn-primary" id="nut-sua-lop">Hoàn tất</button>
       </div>
     </div>
   </div>

@@ -18,7 +18,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">VLUTE LIB</a>
+      <a class="navbar-brand" href=""><b style="font-family: sans-serif;">VLUTE LIB</b></a>
     </div>
     <ul class="nav navbar-nav">
       <li id="muc-trang-chu"><a href="">Trang chủ</a></li>
@@ -26,6 +26,8 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sách <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="?p=sach">Sách</a></li>
+          <li><a href="?p=nhapsach">Nhập sách</a></li>
+          <li><a href="?p=xuatsach">Xuất sách</a></li>
           <li><a href="?p=loaisach">Loại sách</a></li>
           <li><a href="?p=tacgia">Tác giả</a></li>
           <li><a href="?p=nhaxuatban">Nhà xuất bản</a></li>
@@ -65,7 +67,7 @@
           <li><a href="#">Sách theo nhà xuất bản</a></li>
         </ul>
       </li>
-      <li><a href="#">Thủ thư</a></li>
+      <li><a href="#">Quản lý thủ thư</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
