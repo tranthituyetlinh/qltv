@@ -107,8 +107,9 @@
         </div>
         <div class="form-group">
           <label>Mô tả tác giả</label>
-          <input type="text" class="form-control" name="" id="mo-ta-tac-gia-sua" placeholder="mô tả tác giả" required autocomplete="on">
+          <textarea class="form-control" id="mo-ta-tac-gia-sua" rows="10"></textarea>
         </div>
+        <input type="text" hidden="hidden" id="ma-tac-gia-cu-sua" name="" value="">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -119,20 +120,20 @@
 </div><!-- Modal: Thêm loại sách -->
 
 <!-- Modal: Xoa loại sách -->
-<div class="modal fade in" id="qltv-modal-xoa-loai" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade in" id="qltv-modal-xoa-tac-gia" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h4 class="modal-title" id="myModalLabel">Xóa giáo viên</h4>
+        <h4 class="modal-title" id="myModalLabel">Xóa tác giả</h4>
       </div>
       <div class="modal-body">
-        <div class="alert alert-danger" role="alert">Bạn có chắc muốn xóa giáo viên này?</div>
+        <div class="alert alert-danger" role="alert">Bạn có chắc muốn xóa tác giả này?</div>
       </div>
-      <input type="text" hidden="hidden" name="" id="ma-loai-sach-xoa">
+      <input type="text" hidden="hidden" name="" id="ma-tac-gia-cu-xoa">
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Tôi không chắc</button>
-        <button type="button" class="btn btn-danger" id="nut-xoa-loai-sach">Tôi chắc chắn</button>
+        <button type="button" class="btn btn-danger" id="nut-xoa-tac-gia">Tôi chắc chắn</button>
       </div>
     </div> 
   </div>
@@ -172,20 +173,22 @@
 	    });
 	    $(".btn-sua-tg").click(function(){
 	    	var id = $(this).attr("data-qltv");
-	    	$("#ten-tac-gia-them").val($("#id-ten-tg-"+id).val().trim());
-	    	$("#dia-chi-tac-gia-them").val($("#id-dia-chi-tg-"+id).val().trim());
-	    	$("#mo-ta-tac-gia-them").val($("#id-mo-ta-tg-"+id).val().trim());
+	    	$("#ten-tac-gia-sua").val($("#id-ten-tg-"+id).val().trim());
+	    	$("#dia-chi-tac-gia-sua").val($("#id-dia-chi-tg-"+id).val().trim());
+	    	$("#mo-ta-tac-gia-sua").val($("#id-mo-ta-tg-"+id).val().trim());
+        $("#ma-tac-gia-cu-sua").val($("#id-ma-tg-"+id).val().trim());
 	    	$("#qltv-modal-sua-tg").modal("show");
 	    });
 	    $("#nut-sua-tac-gia").click(function(){
 	      $.ajax({
-	        url : "ajax/ajax_sua_loai_sach.php",
+	        url : "ajax/ajax_sua_tac_gia.php",
 	        type : "post",
 	        dataType:"text",
 	        data : {
-	          loaiold: $("#ma-loai-sach-sua-old").val(),
-	          loai: $("#ma-loai-sach-sua").val(),
-	          ten: $("#ten-loai-sach-sua").val()
+	          ten: $("#ten-tac-gia-sua").val(),
+            diachi: $("#dia-chi-tac-gia-sua").val(),
+            mota: $("#mo-ta-tac-gia-sua").val(),
+            macu: $("#ma-tac-gia-cu-sua").val()
 	        },
 	        success : function (data){
 	            alert(data);
@@ -195,16 +198,16 @@
 	    });
 	    $(".btn-xoa-tg").click(function(){
 	    	var id = $(this).attr("data-qltv");
-	    	$("#ma-loai-sach-xoa").val($("#id-ma-ls-"+id).val().trim());
-	    	$("#qltv-modal-xoa-loai").modal("show");
+	    	$("#ma-tac-gia-cu-xoa").val($("#id-ma-tg-"+id).val().trim());
+	    	$("#qltv-modal-xoa-tac-gia").modal("show");
 	    });
-	    $("#nut-xoa-loai-sach").click(function(){
+	    $("#nut-xoa-tac-gia").click(function(){
 	      $.ajax({
-	        url : "ajax/ajax_xoa_loai_sach.php",
+	        url : "ajax/ajax_xoa_tac_gia.php",
 	        type : "post",
 	        dataType:"text",
 	        data : {
-	          loai: $("#ma-loai-sach-xoa").val()
+	          ma: $("#ma-tac-gia-cu-xoa").val()
 	        },
 	        success : function (data){
 	            alert(data);
