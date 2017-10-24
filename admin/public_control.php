@@ -16,6 +16,9 @@
 			case 'khoa':
 				include_once("control/ctrl_khoa.php");
 				break;
+			case 'lop':
+				include_once("control/ctrl_lop.php");
+				break;
 			default:
 				# code...
 				break;

@@ -36,7 +36,7 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Khoa - Lớp <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="?p=khoa">Khoa</a></li>
-          <li><a href="?p=loaisach">Lớp</a></li>
+          <li><a href="?p=lop">Lớp</a></li>
         </ul>
       </li>
       <li class="dropdown">
