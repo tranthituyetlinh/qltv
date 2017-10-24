@@ -34,18 +34,18 @@
                 ?>
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
-                    <td class="giua"><a><?php echo $row['MaTG']; ?></a></td>
+                    <td class="giua"><a>TG<?php echo $row['MaTG']; ?></a></td>
                     <td><?php echo $row['TenTG']; ?></td>
                     <td><?php echo $row['DiaChiTG']; ?></td>
                     <td><?php echo $row['MoTa']; ?></td>
-                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-loai" data-qltv="<?php echo $row['MaTG']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a class="btn btn-danger btn-xoa-loai" title="Xóa"
+                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-tg" data-qltv="<?php echo $row['MaTG']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="btn btn-danger btn-xoa-tg" title="Xóa"
                         data-qltv="<?php echo $row['MaTG']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
                     </td>
                     <input type="text" hidden="hidden" name="" id="id-ma-tg-<?php echo $row['MaTG']; ?>" value="<?php echo $row['MaTG']; ?>">
-                    <input type="text" hidden="hidden" name="" id="id-ten-tg-<?php echo $row['MaTG']; ?>" value="<?php echo $row['MaTG']; ?>">
-                    <input type="text" hidden="hidden" name="" id="id-dia-chi-tg-<?php echo $row['MaTG']; ?>" value="<?php echo $row['MaTG']; ?>">
-                    <input type="text" hidden="hidden" name="" id="id-mo-ta-tg-<?php echo $row['MaTG']; ?>" value="<?php echo $row['MaTG']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-ten-tg-<?php echo $row['MaTG']; ?>" value="<?php echo $row['TenTG']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-dia-chi-tg-<?php echo $row['MaTG']; ?>" value="<?php echo $row['DiaChiTG']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-mo-ta-tg-<?php echo $row['MaTG']; ?>" value="<?php echo $row['MoTa']; ?>">
                 </tr>
                 <?php
                 $stt++;
@@ -67,54 +67,52 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label>Mã tác giả</label>
-          <input type="text" class="form-control" name="" id="ma-loai-sach-them" placeholder="mã tác giả" required autocomplete="on">
-        </div>
-        <div class="form-group">
           <label>Tên tác giả</label>
-          <input type="text" class="form-control" name="" id="ten-loai-sach-them" placeholder="tên tác giả" required autocomplete="on">
+          <input type="text" class="form-control" name="" id="ten-tac-gia-them" placeholder="tên tác giả" required autocomplete="on">
         </div>
         <div class="form-group">
           <label>Địa chỉ tác giả tác giả</label>
-          <input type="text" class="form-control" name="" id="ten-loai-sach-them" placeholder="địa chỉ tác giả" required autocomplete="on">
+          <input type="text" class="form-control" name="" id="dia-chi-tac-gia-them" placeholder="địa chỉ tác giả" required autocomplete="on">
         </div>
         <div class="form-group">
           <label>Mô tả tác giả</label>
-          <input type="text" class="form-control" name="" id="ten-loai-sach-them" placeholder="mô tả tác giả" required autocomplete="on">
+          <input type="text" class="form-control" name="" id="mo-ta-tac-gia-them" placeholder="mô tả tác giả" required autocomplete="on">
         </div>
       </div>
-        <input type="text" hidden="hidden" name="" value="" id="id-id">
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary" id="nut-them-loai-sach">Thêm loại sách</button>
+        <button type="button" class="btn btn-primary" id="nut-them-tac-gia">Thêm tác giả</button>
       </div>
     </div>
   </div>
 </div><!-- Modal: Thêm loại sách -->
 
-<!-- Modal: Thêm loại sách -->
-<div class="modal fade" id="qltv-modal-sua-loai" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Modal: Sửa loại sách -->
+<div class="modal fade" id="qltv-modal-sua-tg" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Chỉnh sửa loại sách</h4>
+        <h4 class="modal-title">Chỉnh sửa tác giả</h4>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label>Mã loại sách</label>
-          <input type="text" class="form-control" name="" id="ma-loai-sach-sua" placeholder="mã loại sách" required autocomplete="on">
+          <label>Tên tác giả</label>
+          <input type="text" class="form-control" name="" id="ten-tac-gia-sua" placeholder="tên tác giả" required autocomplete="on">
         </div>
         <div class="form-group">
-          <label>Tên loại sách</label>
-          <input type="text" class="form-control" name="" id="ten-loai-sach-sua" placeholder="tên loại sách" required autocomplete="on">
+          <label>Địa chỉ tác giả tác giả</label>
+          <input type="text" class="form-control" name="" id="dia-chi-tac-gia-sua" placeholder="địa chỉ tác giả" required autocomplete="on">
+        </div>
+        <div class="form-group">
+          <label>Mô tả tác giả</label>
+          <input type="text" class="form-control" name="" id="mo-ta-tac-gia-sua" placeholder="mô tả tác giả" required autocomplete="on">
         </div>
       </div>
-        <input type="text" hidden="hidden" name="" value="" id="ma-loai-sach-sua-old">
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary" id="nut-sua-loai-sach">Hoàn tất</button>
+        <button type="button" class="btn btn-primary" id="nut-sua-tac-gia">Hoàn tất</button>
       </div>
     </div>
   </div>
@@ -156,14 +154,15 @@
         $("#themtacgia").click(function(){
         	$("#qltv-modal-them-tg").modal("show");
         });
-        $("#nut-them-loai-sach").click(function(){
+        $("#nut-them-tac-gia").click(function(){
 	      $.ajax({
-	        url : "ajax/ajax_them_loai_sach.php",
+	        url : "ajax/ajax_them_tac_gia.php",
 	        type : "post",
 	        dataType:"text",
 	        data : {
-	          loai: $("#ma-loai-sach-them").val(),
-	          ten: $("#ten-loai-sach-them").val()
+	          ten: $("#ten-tac-gia-them").val(),
+	          diachi: $("#dia-chi-tac-gia-them").val(),
+            mota: $("#mo-ta-tac-gia-them").val()
 	        },
 	        success : function (data){
 	            alert(data);
@@ -171,14 +170,14 @@
 	        }
 	      });
 	    });
-	    $(".btn-sua-loai").click(function(){
+	    $(".btn-sua-tg").click(function(){
 	    	var id = $(this).attr("data-qltv");
-	    	$("#ma-loai-sach-sua").val($("#id-ma-ls-"+id).val().trim());
-	    	$("#ten-loai-sach-sua").val($("#id-ten-ls-"+id).val().trim());
-	    	$("#ma-loai-sach-sua-old").val($("#id-ma-ls-"+id).val().trim());
-	    	$("#qltv-modal-sua-loai").modal("show");
+	    	$("#ten-tac-gia-them").val($("#id-ten-tg-"+id).val().trim());
+	    	$("#dia-chi-tac-gia-them").val($("#id-dia-chi-tg-"+id).val().trim());
+	    	$("#mo-ta-tac-gia-them").val($("#id-mo-ta-tg-"+id).val().trim());
+	    	$("#qltv-modal-sua-tg").modal("show");
 	    });
-	    $("#nut-sua-loai-sach").click(function(){
+	    $("#nut-sua-tac-gia").click(function(){
 	      $.ajax({
 	        url : "ajax/ajax_sua_loai_sach.php",
 	        type : "post",
@@ -194,7 +193,7 @@
 	        }
 	      });
 	    });
-	    $(".btn-xoa-loai").click(function(){
+	    $(".btn-xoa-tg").click(function(){
 	    	var id = $(this).attr("data-qltv");
 	    	$("#ma-loai-sach-xoa").val($("#id-ma-ls-"+id).val().trim());
 	    	$("#qltv-modal-xoa-loai").modal("show");
