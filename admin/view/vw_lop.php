@@ -36,8 +36,8 @@
                     <td class="giua"><a><?php echo $row['MaL']; ?></a></td>
                     <td><?php echo $row['TenL']; ?></td>
                     <td><?php echo $row['TenK']; ?></td>
-                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-khoa" data-qltv="<?php echo $row['MaL']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a class="btn btn-danger btn-xoa-khoa" title="Xóa"
+                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-lop" data-qltv="<?php echo $row['MaL']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="btn btn-danger btn-xoa-lop" title="Xóa"
                         data-qltv="<?php echo $row['MaL']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
                     </td>
                     <input type="text" hidden="hidden" name="" id="id-ma-lop-<?php echo $row['MaL']; ?>" value="<?php echo $row['MaL']; ?>">
@@ -53,7 +53,7 @@
       </div>
     </section>
 
-<!-- Modal: Thêm khoa -->
+<!-- Modal: Thêm lớp -->
 <div class="modal fade" id="qltv-modal-them-lop" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <!-- Modal content-->
@@ -87,43 +87,43 @@
       </div>
     </div>
   </div>
-</div><!-- Modal: Thêm khoa -->
+</div><!-- Modal: Thêm lớp -->
 
-<!-- Modal: Sửa khoa -->
-<div class="modal fade" id="qltv-modal-sua-khoa" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Modal: Sửa lớp -->
+<div class="modal fade" id="qltv-modal-sua-lop" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Chỉnh sửa khoa</h4>
+        <h4 class="modal-title">Sửa lớp</h4>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label>Mã khoa</label>
-          <input type="text" class="form-control" name="" id="ma-khoa-sua" placeholder="mã khoa" required autocomplete="on">
+          <label>Mã lớp</label>
+          <input type="text" class="form-control" name="" id="ma-lop-sua" placeholder="mã lớp" required autocomplete="on">
         </div>
         <div class="form-group">
-          <label>Tên khoa</label>
-          <input type="text" class="form-control" name="" id="ten-khoa-sua" placeholder="tên khoa" required autocomplete="on">
+          <label>Tên lớp</label>
+          <input type="text" class="form-control" name="" id="ten-lop-sua" placeholder="tên lớp" required autocomplete="on">
         </div>
         <div class="form-group">
-          <label>Địa chỉ khoa</label>
-          <input type="text" class="form-control" name="" id="dia-chi-khoa-sua" placeholder="địa chỉ khoa" required autocomplete="on">
+          <label>Thuộc khoa</label>
+          <select class="form-control" id="khoa-lop-sua">
+            <?php while ($row = mysqli_fetch_assoc($dulieu_khoa_1)) {
+            ?>
+              <option value="<?php echo $row['MaK']; ?>"><?php echo $row['TenK']; ?></option>
+            <?php } ?>
+          </select>
         </div>
-        <div class="form-group">
-          <label>Số điện thoại</label>
-          <input type="text" class="form-control" name="" id="so-dien-thoai-khoa-sua" placeholder="số điện thoại" required autocomplete="on">
-        </div>
-        <input type="text" hidden="hidden" name="" id="ma-khoa-sua-old">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary" id="nut-sua-khoa">Hoàn thành</button>
+        <button type="button" class="btn btn-primary" id="nut-sua-lop">Thêm lớp</button>
       </div>
     </div>
   </div>
-</div><!-- Modal: Sửa khoa -->
+</div><!-- Modal: Sửa lớp -->
 
 <!-- Modal: Xóa khoa -->
 <div class="modal fade in" id="qltv-modal-xoa-khoa" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -161,16 +161,15 @@
         $("#themloaisach").click(function(){
         	$("#qltv-modal-them-lop").modal("show");
         });
-        $("#nut-them-khoa").click(function(){
+        $("#nut-them-lop").click(function(){
 	      $.ajax({
-	        url : "ajax/ajax_them_khoa.php",
+	        url : "ajax/ajax_them_lop.php",
 	        type : "post",
 	        dataType:"text",
 	        data : {
-	          ma: $("#ma-khoa-them").val(),
-            ten: $("#ten-khoa-them").val(),
-            diachi: $("#dia-chi-khoa-them").val(),
-            sdt: $("#so-dien-thoai-khoa-them").val()
+	          mal: $("#ma-lop-them").val(),
+            tenl: $("#ten-lop-them").val(),
+            mak: $("#khoa-lop-them").val()
 	        },
 	        success : function (data){
 	            alert(data);
@@ -178,14 +177,13 @@
 	        }
 	      });
 	    });
-	    $(".btn-sua-khoa").click(function(){
+	    $(".btn-sua-lop").click(function(){
 	    	var id = $(this).attr("data-qltv");
-	    	$("#ma-khoa-sua").val($("#id-ma-khoa-"+id).val().trim());
-	    	$("#ten-khoa-sua").val($("#id-ten-khoa-"+id).val().trim());
-        $("#dia-chi-khoa-sua").val($("#id-dia-chi-khoa-"+id).val().trim());
-        $("#so-dien-thoai-khoa-sua").val($("#id-so-dien-thoai-khoa-"+id).val().trim());
-        $("#ma-khoa-sua-old").val($("#id-ma-khoa-"+id).val().trim());
-	    	$("#qltv-modal-sua-khoa").modal("show");
+	    	$("#ma-lop-sua").val($("#id-ma-lop-"+id).val().trim());
+	    	$("#ten-lop-sua").val($("#id-ten-lop-"+id).val().trim());
+        $("#khoa-lop-sua").val($("#id-ma-khoa-"+id).val().trim());
+        $("#ma-lop-sua-old").val($("#id-ma-lop-"+id).val().trim());
+	    	$("#qltv-modal-sua-lop").modal("show");
 	    });
 	    $("#nut-sua-khoa").click(function(){
 	      $.ajax({
