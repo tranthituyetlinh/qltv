@@ -5,12 +5,13 @@
   <title>Hệ thống quản lý thư viện</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="<?php echo $qltv['HOST']; ?>/" />
   <link rel="stylesheet" type="text/css" href="../bootstrap/dist/css/bootstrap.min.css">
   <link href="../css/vendor/font-awesome.min.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/animate.css">
   <link href="css/style.css" type="text/css" rel="stylesheet">
   <script src="../js/jquery-3.2.1.min.js"></script>
-  <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+  
 </head>
 <body>
 
@@ -20,11 +21,12 @@
       <a class="navbar-brand" href="#">VLUTE LIB</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Trang chủ</a></li>
-      <li class="dropdown">
+      <li id="muc-trang-chu"><a href="">Trang chủ</a></li>
+      <li class="dropdown" id="muc-sach">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sách <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Sách</a></li>
+          <li><a href="?p=sach">Sách</a></li>
+          <li><a href="?p=loaisach">Loại sách</a></li>
           <li><a href="#">Tìm kiếm</a></li>
         </ul>
       </li>
@@ -55,8 +57,6 @@
         </ul>
       </li>
       <li><a href="#">Thủ thư</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -70,7 +70,7 @@
   </div>
 </nav>
   
-<div id="khung-trang-admin" class="container">
+<div id="khung-trang-admin" class="container" style="width: 99%;">
   <?php 
     include_once("public_control.php");
    ?>

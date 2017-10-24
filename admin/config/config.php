@@ -1,5 +1,5 @@
 <?php 
-	$vlute = array(
+	$qltv = array(
 		'HOST' => 'http://localhost/qltv/admin' 
 	);
 
