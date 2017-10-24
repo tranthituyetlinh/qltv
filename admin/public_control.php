@@ -7,6 +7,12 @@
 			case 'loaisach':
 				include_once("control/ctrl_loai_sach.php");
 				break;
+			case 'tacgia':
+				include_once("control/ctrl_tac_gia.php");
+				break;
+			case 'nhaxuatban':
+				include_once("control/ctrl_nha_xuat_ban.php");
+				break;
 			default:
 				# code...
 				break;

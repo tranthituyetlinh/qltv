@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Loại sách
+        Tác giả
         <div class="line"></div>
       </h1>
     </section>
@@ -9,7 +9,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12 col-ms-12">
-          <a id="themloaisach" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> Thêm loại sách</a>
+          <a id="themtacgia" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> Thêm tác giả</a>
         </div>
         <div class="col-md-12 col-ms-12 cach"></div>
       </div>
@@ -19,10 +19,11 @@
                 <tr role="row">
                   <tr style="background-color: #2980b9;color: #fff;">
                     <th class="giua">STT</th>
-                    <th class="giua">Mã loại sách</th>
-                    <th class="giua">Tên loại sách</th>
+                    <th class="giua">Mã tác giả</th>
+                    <th class="giua">Tên tác giả</th>
+                    <th class="giua">Địa chỉ tác giả</th>
+                    <th class="giua">Mô tả về tác giả</th>
                     <th class="giua">Thao tác</th>
-
                   </tr>
                 </tr>
             </thead>
@@ -33,14 +34,18 @@
                 ?>
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
-                    <td class="giua"><a><?php echo $row['MaLS']; ?></a></td>
-                    <td><?php echo $row['TenLS']; ?></td>
-                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-loai" data-qltv="<?php echo $row['MaLS']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <td class="giua"><a><?php echo $row['MaTG']; ?></a></td>
+                    <td><?php echo $row['TenTG']; ?></td>
+                    <td><?php echo $row['DiaChiTG']; ?></td>
+                    <td><?php echo $row['MoTa']; ?></td>
+                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-loai" data-qltv="<?php echo $row['MaTG']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         <a class="btn btn-danger btn-xoa-loai" title="Xóa"
-                        data-qltv="<?php echo $row['MaLS']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
+                        data-qltv="<?php echo $row['MaTG']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
                     </td>
-                    <input type="text" hidden="hidden" name="" id="id-ma-ls-<?php echo $row['MaLS']; ?>" value="<?php echo $row['MaLS']; ?>">
-                    <input type="text" hidden="hidden" name="" id="id-ten-ls-<?php echo $row['MaLS']; ?>" value="<?php echo $row['TenLS']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-ma-tg-<?php echo $row['MaTG']; ?>" value="<?php echo $row['MaTG']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-ten-tg-<?php echo $row['MaTG']; ?>" value="<?php echo $row['MaTG']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-dia-chi-tg-<?php echo $row['MaTG']; ?>" value="<?php echo $row['MaTG']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-mo-ta-tg-<?php echo $row['MaTG']; ?>" value="<?php echo $row['MaTG']; ?>">
                 </tr>
                 <?php
                 $stt++;
@@ -52,22 +57,30 @@
     </section>
 
 <!-- Modal: Thêm loại sách -->
-<div class="modal fade" id="qltv-modal-them-loai" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="qltv-modal-them-tg" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Thêm loại sách</h4>
+        <h4 class="modal-title">Thêm tác giả</h4>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label>Mã loại sách</label>
-          <input type="text" class="form-control" name="" id="ma-loai-sach-them" placeholder="mã loại sách" required autocomplete="on">
+          <label>Mã tác giả</label>
+          <input type="text" class="form-control" name="" id="ma-loai-sach-them" placeholder="mã tác giả" required autocomplete="on">
         </div>
         <div class="form-group">
-          <label>Tên loại sách</label>
-          <input type="text" class="form-control" name="" id="ten-loai-sach-them" placeholder="tên loại sách" required autocomplete="on">
+          <label>Tên tác giả</label>
+          <input type="text" class="form-control" name="" id="ten-loai-sach-them" placeholder="tên tác giả" required autocomplete="on">
+        </div>
+        <div class="form-group">
+          <label>Địa chỉ tác giả tác giả</label>
+          <input type="text" class="form-control" name="" id="ten-loai-sach-them" placeholder="địa chỉ tác giả" required autocomplete="on">
+        </div>
+        <div class="form-group">
+          <label>Mô tả tác giả</label>
+          <input type="text" class="form-control" name="" id="ten-loai-sach-them" placeholder="mô tả tác giả" required autocomplete="on">
         </div>
       </div>
         <input type="text" hidden="hidden" name="" value="" id="id-id">
@@ -140,8 +153,8 @@
 <script type="text/javascript" charset="utf-8">
       $(document).ready(function() {
         $('#qltv-loai-sach').DataTable();
-        $("#themloaisach").click(function(){
-        	$("#qltv-modal-them-loai").modal("show");
+        $("#themtacgia").click(function(){
+        	$("#qltv-modal-them-tg").modal("show");
         });
         $("#nut-them-loai-sach").click(function(){
 	      $.ajax({

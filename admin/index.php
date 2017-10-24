@@ -27,6 +27,8 @@
         <ul class="dropdown-menu">
           <li><a href="?p=sach">Sách</a></li>
           <li><a href="?p=loaisach">Loại sách</a></li>
+          <li><a href="?p=tacgia">Tác giả</a></li>
+          <li><a href="?p=nhaxuatban">Nhà xuất bản</a></li>
           <li><a href="#">Tìm kiếm</a></li>
         </ul>
       </li>
