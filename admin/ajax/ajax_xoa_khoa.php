@@ -1,31 +1,27 @@
 <?php 
 	session_start();
 	include_once("ajax_config.php");
-	function vlu_sua_ls($loaiold, $ten){
+	function qltv_xoa_ls($ma){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
-				UPDATE `loaisach` 
-				SET 
-					`TenLS`='$ten'
-				WHERE 
-					`MaLS` = '$loaiold'
+				DELETE FROM `khoa` WHERE `MaK` = '$ma'
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;
 		else
 			return false;
 	}
-	if (isset($_SESSION['username']) && isset($_SESSION['password'])){
+	if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 		if(!qltv_login($_SESSION['username'],$_SESSION['password'])){
 			header("Location: ../login.php");
 		}
 		else{
-			if (vlu_sua_ls($_POST['loaiold'],$_POST['ten'])){
-				echo "Loại sách đã được sửa!";
+			if (qltv_xoa_ls($_POST['ma'])) {
+				echo "Khoa đã được xóa!";
 			}
 			else{
-				echo "Có lỗi trong quá trình sửa!";
+				echo "Có lỗi trong quá trình xóa!";
 			}
 		}
 	}

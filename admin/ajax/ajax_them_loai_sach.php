@@ -1,11 +1,11 @@
 <?php 
 	session_start();
 	include_once("ajax_config.php");
-	function vlu_them_gv($loai, $ten){
+	function vlu_them_gv($ten){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
-				INSERT INTO `loaisach`(`MaLS`, `TenLS`) VALUES ('$loai','$ten')
+				INSERT INTO `loaisach`(`MaLS`, `TenLS`) VALUES (null,'$ten')
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;
@@ -17,7 +17,7 @@
 			header("Location: ../login.php");
 		}
 		else{
-			if (vlu_them_gv($_POST['loai'], $_POST['ten'])) {
+			if (vlu_them_gv($_POST['ten'])) {
 				echo "Loại sách đã được thêm!";
 			}
 			else{

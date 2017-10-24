@@ -13,6 +13,9 @@
 			case 'nhaxuatban':
 				include_once("control/ctrl_nha_xuat_ban.php");
 				break;
+			case 'khoa':
+				include_once("control/ctrl_khoa.php");
+				break;
 			default:
 				# code...
 				break;

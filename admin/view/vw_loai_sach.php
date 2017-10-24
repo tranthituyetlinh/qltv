@@ -33,7 +33,7 @@
                 ?>
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
-                    <td class="giua"><a><?php echo $row['MaLS']; ?></a></td>
+                    <td class="giua"><a>LS<?php echo $row['MaLS']; ?></a></td>
                     <td><?php echo $row['TenLS']; ?></td>
                     <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-loai" data-qltv="<?php echo $row['MaLS']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         <a class="btn btn-danger btn-xoa-loai" title="Xóa"
@@ -62,10 +62,6 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label>Mã loại sách</label>
-          <input type="text" class="form-control" name="" id="ma-loai-sach-them" placeholder="mã loại sách" required autocomplete="on">
-        </div>
-        <div class="form-group">
           <label>Tên loại sách</label>
           <input type="text" class="form-control" name="" id="ten-loai-sach-them" placeholder="tên loại sách" required autocomplete="on">
         </div>
@@ -89,10 +85,6 @@
         <h4 class="modal-title">Chỉnh sửa loại sách</h4>
       </div>
       <div class="modal-body">
-        <div class="form-group">
-          <label>Mã loại sách</label>
-          <input type="text" class="form-control" name="" id="ma-loai-sach-sua" placeholder="mã loại sách" required autocomplete="on">
-        </div>
         <div class="form-group">
           <label>Tên loại sách</label>
           <input type="text" class="form-control" name="" id="ten-loai-sach-sua" placeholder="tên loại sách" required autocomplete="on">
@@ -149,7 +141,6 @@
 	        type : "post",
 	        dataType:"text",
 	        data : {
-	          loai: $("#ma-loai-sach-them").val(),
 	          ten: $("#ten-loai-sach-them").val()
 	        },
 	        success : function (data){
@@ -160,7 +151,6 @@
 	    });
 	    $(".btn-sua-loai").click(function(){
 	    	var id = $(this).attr("data-qltv");
-	    	$("#ma-loai-sach-sua").val($("#id-ma-ls-"+id).val().trim());
 	    	$("#ten-loai-sach-sua").val($("#id-ten-ls-"+id).val().trim());
 	    	$("#ma-loai-sach-sua-old").val($("#id-ma-ls-"+id).val().trim());
 	    	$("#qltv-modal-sua-loai").modal("show");
@@ -172,7 +162,6 @@
 	        dataType:"text",
 	        data : {
 	          loaiold: $("#ma-loai-sach-sua-old").val(),
-	          loai: $("#ma-loai-sach-sua").val(),
 	          ten: $("#ten-loai-sach-sua").val()
 	        },
 	        success : function (data){

@@ -1,31 +1,27 @@
 <?php 
 	session_start();
 	include_once("ajax_config.php");
-	function vlu_sua_ls($loaiold, $ten){
+	function vlu_them_khoa($ma, $ten, $diachi, $sdt){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
-				UPDATE `loaisach` 
-				SET 
-					`TenLS`='$ten'
-				WHERE 
-					`MaLS` = '$loaiold'
+				INSERT INTO `khoa`(`MaK`, `TenK`, `DiaChiK`, `SDT`) VALUES ('$ma','$ten','$diachi','$sdt')
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;
 		else
 			return false;
 	}
-	if (isset($_SESSION['username']) && isset($_SESSION['password'])){
+	if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 		if(!qltv_login($_SESSION['username'],$_SESSION['password'])){
 			header("Location: ../login.php");
 		}
 		else{
-			if (vlu_sua_ls($_POST['loaiold'],$_POST['ten'])){
-				echo "Loại sách đã được sửa!";
+			if (vlu_them_khoa($_POST['ma'],$_POST['ten'],$_POST['diachi'],$_POST['sdt'])) {
+				echo "Khoa đã được thêm!";
 			}
 			else{
-				echo "Có lỗi trong quá trình sửa!";
+				echo "Có lỗi trong quá trình thêm!";
 			}
 		}
 	}

@@ -1,15 +1,18 @@
 <?php 
 	session_start();
 	include_once("ajax_config.php");
-	function vlu_sua_ls($loaiold, $ten){
+	function vlu_sua_ls($ma, $ten, $diachi, $sdt, $maold){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
-				UPDATE `loaisach` 
+				UPDATE `khoa` 
 				SET 
-					`TenLS`='$ten'
+					`MaK`='$ma',
+					`TenK`='$ten',
+					`DiaChiK`='$diachi',
+					`SDT`= '$sdt' 
 				WHERE 
-					`MaLS` = '$loaiold'
+					`MaK` = '$maold'
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;
@@ -21,8 +24,8 @@
 			header("Location: ../login.php");
 		}
 		else{
-			if (vlu_sua_ls($_POST['loaiold'],$_POST['ten'])){
-				echo "Loại sách đã được sửa!";
+			if (vlu_sua_ls($_POST['ma'],$_POST['ten'],$_POST['diachi'],$_POST['sdt'],$_POST['maold'])){
+				echo "Khoa đã được sửa!";
 			}
 			else{
 				echo "Có lỗi trong quá trình sửa!";

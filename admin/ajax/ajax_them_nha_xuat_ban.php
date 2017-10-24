@@ -1,31 +1,27 @@
 <?php 
 	session_start();
 	include_once("ajax_config.php");
-	function vlu_sua_ls($loaiold, $ten){
+	function vlu_them_nxb($ten){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
-				UPDATE `loaisach` 
-				SET 
-					`TenLS`='$ten'
-				WHERE 
-					`MaLS` = '$loaiold'
+				INSERT INTO `nhaxuatban`(`MaNXB`, `TenNXB`) VALUES (null,'$ten')
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;
 		else
 			return false;
 	}
-	if (isset($_SESSION['username']) && isset($_SESSION['password'])){
+	if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 		if(!qltv_login($_SESSION['username'],$_SESSION['password'])){
 			header("Location: ../login.php");
 		}
 		else{
-			if (vlu_sua_ls($_POST['loaiold'],$_POST['ten'])){
-				echo "Loại sách đã được sửa!";
+			if (vlu_them_nxb($_POST['ten'])) {
+				echo "Nhà xuất bản đã được thêm!";
 			}
 			else{
-				echo "Có lỗi trong quá trình sửa!";
+				echo "Có lỗi trong quá trình thêm!";
 			}
 		}
 	}
