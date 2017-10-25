@@ -45,11 +45,11 @@
                     <td><?php echo $row['TenLS']; ?></td>
                     <td><?php echo $row['TenTG']; ?></td>
                     <td><?php echo $row['TenNXB']; ?></td>
-                    <td><?php echo $row['NamXB']; ?></td>
-                    <td><?php echo $row['SoTrang']; ?></td>
-                    <td><?php echo $row['SL']; ?></td>
+                    <td class="giua"><?php echo $row['NamXB']; ?></td>
+                    <td class="giua"><?php echo $row['SoTrang']; ?></td>
+                    <td class="giua"><?php echo $row['SL']; ?></td>
                     <td><?php echo $row['Gia']; ?></td>
-                    <td><?php echo $row['NgayNhap']; ?></td>
+                    <td class="giua"><?php echo $row['NgayNhap']; ?></td>
                     <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-sach" data-qltv="<?php echo $row['MaS']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         <a class="btn btn-danger btn-xoa-sach" title="Xóa"
                         data-qltv="<?php echo $row['MaS']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
