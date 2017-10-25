@@ -140,7 +140,7 @@
 </div>
 
 <script type="text/javascript">
-    document.title = "VLUTE LIB | Loại sách";
+    document.title = "VLUTE LIB | Tác giả";
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {

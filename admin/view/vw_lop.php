@@ -147,7 +147,7 @@
 </div><!-- Xóa khoa -->
 
 <script type="text/javascript">
-    document.title = "VLUTE LIB | Loại sách";
+    document.title = "VLUTE LIB | Lớp";
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
