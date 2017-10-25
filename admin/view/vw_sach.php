@@ -1,3 +1,4 @@
+<script src="ckfinder/ckfinder.js"></script>
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -73,42 +74,103 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Thêm loại sách</h4>
+        <h4 class="modal-title">Thêm sách</h4>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label>Tên loại sách</label>
-          <input type="text" class="form-control" name="" id="ten-loai-sach-them" placeholder="tên loại sách" required autocomplete="on">
+          <label>Tên sách</label>
+          <input type="text" class="form-control" name="" id="ten-sach-them" placeholder="tên sách" required autocomplete="on">
+        </div>
+        <!--<div class="form-group">-->
+        	<div class="row">
+        		<div class="col-md-6">
+        			<div class="form-group">
+			          <label>Loại sách sách</label>
+			          <select id="ma-loai-sach-them" class="form-control">
+			          	<?php 
+			          		while ($row = mysqli_fetch_assoc($dulieu_ls)) {
+			          		?>
+			          		<option value="<?php echo $row['MaLS'] ?>"><?php echo $row['TenLS'] ?></option>
+			          		<?php
+			          		}
+			          	 ?>
+			          </select>
+			        </div>
+        		</div>
+        		<div class="col-md-6">
+        			<div class="form-group">
+			          <label>Tác giả</label>
+			          <select id="ma-tac-gia-sach-them" class="form-control">
+			          	<?php 
+			          		while ($row = mysqli_fetch_assoc($dulieu_tg)) {
+			          		?>
+			          		<option value="<?php echo $row['MaTG'] ?>"><?php echo $row['TenTG'] ?></option>
+			          		<?php
+			          		}
+			          	 ?>
+			          </select>
+			        </div>
+        		</div>
+        	</div>
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        	<div class="row">
+        		<div class="col-md-6">
+        			<div class="form-group">
+			          <label>Năm xuất bản</label>
+			          <input type="text" class="form-control" name="" id="nam-xuat-ban-sach-them" placeholder="năm xuất bản" required autocomplete="on">
+			        </div>
+        		</div>
+        		<div class="col-md-6">
+        			<div class="form-group">
+			          <label>Nhà xuất bản</label>
+			          <select id="nha-xuat-ban-sach-them" class="form-control">
+			          	<?php 
+			          		while ($row = mysqli_fetch_assoc($dulieu_nxb)) {
+			          		?>
+			          		<option value="<?php echo $row['MaNXB'] ?>"><?php echo $row['TenNXB'] ?></option>
+			          		<?php
+			          		}
+			          	 ?>
+			          </select>
+			        </div>
+        		</div>
+        		</div>
+        <!--</div>-->
+        <div class="row">
+        	<div class="col-md-6">
+        		<div class="form-group">
+			          <label>Số trang</label>
+			          <input type="text" class="form-control" name="" id="so-trang-sach-them" placeholder="số trang" required autocomplete="on">
+			        </div>
+        		<div class="form-group">
+			          <label>Số lượng</label>
+			          <input type="text" class="form-control" name="" id="so-luong-sach-them" placeholder="số lượng" required autocomplete="on">
+			        </div>
+        		<div class="form-group">
+		          <label>Giá</label>
+		          <input type="text" class="form-control" name="" id="giá-sach-them" placeholder="giá sách" required autocomplete="on">
+		        </div>
+		        <div class="form-group">
+		          <label>Ngày nhập sách</label>
+		          <input type="date" class="form-control" name="" id="ngay-nhap-sach-them" placeholder="ngày nhập sách" required autocomplete="on">
+		        </div>
+        	</div>
+        	<div class="col-md-6">
+        		<div class="form-group">
+        			<button class="btn" onclick="BrowseServer()">Chọn hình ảnh ... </button>				
+        		</div>
+        		<div class="form-group">
+        			<img src="#" class="col-md-12" id="hinh-anh-sach-them" style="height: 235px;width: inherit; text-align: center;">
+        		</div>
+        		<input type="text" hidden="hidden" name="" value="" id="hinh-anh-sach-them-src">
+        	</div>
         </div>
       </div>
         <input type="text" hidden="hidden" name="" value="" id="id-id">
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
         <button type="button" class="btn btn-primary" id="nut-them-loai-sach">Thêm loại sách</button>
-      </div>
-    </div>
-  </div>
-</div><!-- Modal: Thêm loại sách -->
-
-<!-- Modal: Thêm loại sách -->
-<div class="modal fade" id="qltv-modal-sua-loai" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Chỉnh sửa loại sách</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label>Tên loại sách</label>
-          <input type="text" class="form-control" name="" id="ten-loai-sach-sua" placeholder="tên loại sách" required autocomplete="on">
-        </div>
-      </div>
-        <input type="text" hidden="hidden" name="" value="" id="ma-loai-sach-sua-old">
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary" id="nut-sua-loai-sach">Hoàn tất</button>
       </div>
     </div>
   </div>
@@ -141,6 +203,19 @@
 	$(document).ready(function() {
 		$("#muc-sach").addClass("active");
 	});
+</script>
+<script type="text/javascript">
+	var finder = new CKFinder();
+    function BrowseServer() {
+        finder.selectActionFunction = SetFileField;
+        finder.popup();
+    }
+    function SetFileField(fileUrl) {
+        document.getElementById('hinh-anh-sach-them').src = fileUrl;
+        var host = "<?php echo $qltv['HOST']; ?>";
+        host = host.substr(0,host.lastIndexOf("\/"));
+        document.getElementById('hinh-anh-sach-them-src').value=fileUrl.substr(host.length+1,fileUrl.length-host.length);
+    }
 </script>
 <link rel="stylesheet" href="css/datatables.min.css">
 <script src="js/datatables.min.js" type="text/javascript"></script>
