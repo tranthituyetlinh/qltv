@@ -64,7 +64,7 @@
           <li><a href="#">Sách đang mượn</a></li>
           <li><a href="#">Số lượng sách theo năm</a></li>
           <li><a href="#">Top 10 sách mượn nhiều nhất năm</a></li>
-          <li><a href="#">Sách theo nhà xuất bản</a></li>
+          <li><a href="#">Sách theo nhà xuất bản</a></li> 
         </ul>
       </li>
       <li><a href="#">Quản lý thủ thư</a></li>
@@ -74,7 +74,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Thông tin<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Sửa thông tin</a></li>
-            <li><a href="#">Đăng xuất</a></li>
+            <li><a href="control/ctrl_login_out.php">Đăng xuất</a></li>
           </ul>
         </li>
     </ul>
