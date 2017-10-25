@@ -74,7 +74,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Thông tin<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Sửa thông tin</a></li>
-            <li><a href="#">Đăng xuất</a></li>
+            <li><a href="control/ctrl_login_out.php">Đăng xuất</a></li>
           </ul>
         </li>
     </ul>
