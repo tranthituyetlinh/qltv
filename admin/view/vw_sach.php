@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Loại sách
+        Sách
         <div class="line"></div>
       </h1>
     </section>
@@ -9,7 +9,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12 col-ms-12">
-          <a id="themloaisach" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> Thêm loại sách</a>
+          <a id="themloaisach" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> Thêm sách</a>
         </div>
         <div class="col-md-12 col-ms-12 cach"></div>
       </div>
@@ -41,7 +41,7 @@
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
                     <td class="giua"><a>S<?php echo $row['MaS']; ?></a></td>
-                    <td><?php echo $row['TenS']; ?></td>
+                    <td><a><?php echo $row['TenS']; ?></a></td>
                     <td><?php echo $row['TenLS']; ?></td>
                     <td><?php echo $row['TenTG']; ?></td>
                     <td><?php echo $row['TenNXB']; ?></td>
