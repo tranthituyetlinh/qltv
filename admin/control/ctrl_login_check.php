@@ -9,7 +9,4 @@
 	}
 	else
 		header("Location: login.php");
-	/*$ketnoi = new clsKetnoi();
-	$hoi_user = "select * from user where (email = '".$_SESSION['username']."' or tendn = '".$_SESSION['username']."') and matkhau = '".md5($_SESSION['password'])."' and quyen!='0'";
-	$thucthi_user = mysqli_query($ketnoi->ketnoi(), $hoi_user);*/
  ?>
