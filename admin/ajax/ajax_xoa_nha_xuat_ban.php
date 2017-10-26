@@ -7,6 +7,17 @@
 		$hoi = "
 				DELETE FROM `nhaxuatban` WHERE `manxb` = '$ma'
 		";
+		// Kiểm tra xem có tồn tại trong bảng sách hay chưa, nếu chưa tồn tại thì không thể xóa
+		$kiemtra = "Select count(MaNXB) as so from sach where MaNXB = '$ma'";
+		$kiemtra_ec = mysqli_query($conn, $kiemtra);
+		$dem_kiemtra = mysqli_num_rows($kiemtra_ec);
+		if ($dem_kiemtra > 0){
+			$mang_kiemtra = mysqli_fetch_array($kiemtra_ec);
+			if($mang_kiemtra[0] > 0){
+				echo "Bạn không thể xóa NXB này\nĐang có $mang_kiemtra[0] quyển sách thuộc NXB này trong thư viện!";
+				exit();
+			}
+		}
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;
 		else

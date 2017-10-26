@@ -76,7 +76,7 @@
         </div>
         <div class="form-group">
           <label>Mô tả tác giả</label>
-          <input type="text" class="form-control" name="" id="mo-ta-tac-gia-them" placeholder="mô tả tác giả" required autocomplete="on">
+          <textarea id="mo-ta-tac-gia-them" class="form-control" name="" placeholder="mô tả tác giả" required></textarea>
         </div>
       </div>
       <div class="modal-footer">
