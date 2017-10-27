@@ -28,6 +28,9 @@
 			case 'docgia':
 				include_once("control/ctrl_doc_gia.php");
 				break;
+			case 'profile':
+				include_once("control/ctrl_profile.php");
+				break;
 			default:
 				# code...
 				break;

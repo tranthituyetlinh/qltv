@@ -42,7 +42,8 @@
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
                     <td class="giua"><a>S<?php echo $row['MaS']; ?></a></td>
-                    <td><a><?php echo $row['TenS']; ?></a></td>
+                    <td><a class="ten-a btn-sua-sach" data-qltv="<?php echo $row['MaS']; ?>" alt="Image" Tooltip rel=thongbaonho content="<div id=imagcon>
+                            <img src='../<?php echo $row['HinhAnhS']; ?>' class=thongbaonho-image/></div>"><?php echo $row['TenS']; ?></a></td>
                     <td><?php echo $row['TenLS']; ?></td>
                     <td><?php echo $row['TenTG']; ?></td>
                     <td><?php echo $row['TenNXB']; ?></td>
@@ -439,6 +440,33 @@
 	      });
 	    });
       });
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[rel=thongbaonho]').bind('mouseover', function(){
+     if ($(this).hasClass('ajax')) {
+        var ajax = $(this).attr('ajax');    
+      $.get(ajax,
+      function(noidungtooltip){
+        $('<div class="thongbaonho">'  + noidungtooltip + '</div>').appendTo('body').fadeIn('fast');});
+     }
+     else{
+            var noidungtooltip = $(this).attr('content');
+            $('<div class="thongbaonho">' + noidungtooltip + '</div>').appendTo('body').fadeIn('fast');
+            }
+            
+            $(this).bind('mousemove', function(e){
+                $('div.thongbaonho').css({
+                    'top': e.pageY - ($('div.thongbaonho').height() / 2) - 5,
+                    'left': e.pageX + 15
+                });
+            });
+        }).bind('mouseout', function(){
+            $('div.thongbaonho').fadeOut('fast', function(){
+                $(this).remove();
+            });
+        });
+});
 </script>
 <style type="text/css">
 	.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{

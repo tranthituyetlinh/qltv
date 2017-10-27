@@ -9,6 +9,9 @@
 			$_SESSION['password'] = $_POST['password'];
 			header("Location: ..");
 		}
+		else{
+			header("Location: ..");
+		}
 	}
 	else
 		header("Location: ../login.php");
