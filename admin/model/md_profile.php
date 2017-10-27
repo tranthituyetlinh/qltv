@@ -1,9 +1,9 @@
 <?php 
 	include_once("config.php");
-	function tv_get_sach(){
+	function tv_get_loai_sach(){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
-		$query = "SELECT MaS, TenS, TenLS, SoTrang, SL FROM `sach` s, `loaisach` ls WHERE s.`MaLS` = ls.`MaLS`";
+		$query = "SELECT * FROM `loaisach`";
 		$result = mysqli_query($conn, $query);
 		return $result;
 	}

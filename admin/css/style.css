@@ -24,3 +24,38 @@
 	width: fit-content;
 	margin: 0 auto;
 }
+.thongbaonho{
+    position:absolute;
+    width:116px;
+    background:#f1f1f1;
+    background-position:left center;
+    background-repeat:no-repeat;
+    color:#FFF;
+    padding:3px;
+    border-radius: 4px;
+    }
+    
+.thongbaonho-image{
+    float:left;
+}    
+.thongbaonho span{
+    font-weight:700;
+    color:#ffea00;
+}
+#imagcon{
+    overflow:hidden;
+    float:left;
+    height: auto;
+    width: inherit;
+    margin-right:5px;
+}
+#imagcon img{
+    width: 110px;
+    height: auto;
+}
+.ten-a{
+	cursor: pointer;
+}
+.khung-giua{
+    
+}

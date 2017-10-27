@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="box-shadow: 0px 3px 10px -5px #212121;">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href=""><b style="font-family: sans-serif;">VLUTE LIB</b></a>
@@ -52,7 +52,7 @@
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Độc giả <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Độc giả</a></li>
+          <li><a href="?p=docgia">Độc giả</a></li>
           <li><a href="#">Tìm kiếm</a></li>
         </ul>
       </li>
@@ -70,10 +70,10 @@
       <li><a href="#">Quản lý thủ thư</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
+        <li class="dropdown" id="quanlythongtin">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Thông tin<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Sửa thông tin</a></li>
+            <li><a href="?p=profile">Sửa thông tin</a></li>
             <li><a href="control/ctrl_login_out.php">Đăng xuất</a></li>
           </ul>
         </li>
