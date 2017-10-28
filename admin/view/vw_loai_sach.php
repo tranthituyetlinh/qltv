@@ -131,7 +131,7 @@
 <script src="js/datatables.min.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8">
       $(document).ready(function() {
-        $('#qltv-loai-sach').DataTable();
+        
         $("#themloaisach").click(function(){
         	$("#qltv-modal-them-loai").modal("show");
         });
@@ -190,4 +190,7 @@
 	      });
 	    });
       });
+</script>
+<script type="text/javascript">
+  $('#qltv-loai-sach').DataTable();
 </script>

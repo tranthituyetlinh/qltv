@@ -157,7 +157,7 @@
 <link rel="stylesheet" href="css/datatables.min.css">
 <script src="js/datatables.min.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8">
-    $('#qltv-loai-sach').DataTable();
+    
       $(document).ready(function() {
         $('#qltv-khoa-sach').DataTable();
         $("#themloaisach").click(function(){
@@ -224,4 +224,7 @@
 	      });
 	    });
       });
+</script>
+<script type="text/javascript">
+  $('#qltv-loai-sach').DataTable();
 </script>

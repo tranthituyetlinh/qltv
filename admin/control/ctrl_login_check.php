@@ -9,4 +9,14 @@
 	}
 	else
 		header("Location: login.php");
+	$ketnoi = new clsKetnoi();
+	$hoi_user = "SELECT * FROM `nhanvien` WHERE BINARY `TenDangNhap` = '".$_SESSION['username']."' and `MatKhau` = '".$_SESSION['password']."' and trangthainv='1'";
+	$thucthi_user = mysqli_query($ketnoi->ketnoi(), $hoi_user);
+	$row_user = mysqli_fetch_assoc($thucthi_user);
+	$manv = $row_user['MaNV'];
+	$tennv = $row_user['TenNV'];
+	$tendn = $row_user['TenDangNhap'];
+	$diachi = $row_user['DiaChiNV'];
+	$mail = $row_user['Mail'];
+	$hspc = $row_user['HeSoPhuCap'];
  ?>

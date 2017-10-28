@@ -354,7 +354,7 @@
       	document.getElementById('ngay-nhap-sach-them').valueAsDate = new Date();
       	document.getElementById("ngay-nhap-sach-them").readOnly = true;
       	document.getElementById("ngay-nhap-sach-sua").readOnly = true;
-        $('#qltv-loai-sach').DataTable();
+        
         $("#themloaisach").click(function(){
         	$("#qltv-modal-them-sach").modal("show");
         });
@@ -474,3 +474,6 @@ $(document).ready(function(){
 	padding-left: 4px;
 }
 </style>
+<script type="text/javascript">
+    $('#qltv-loai-sach').DataTable();
+</script>

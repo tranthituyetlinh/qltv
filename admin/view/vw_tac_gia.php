@@ -151,7 +151,7 @@
 <script src="js/datatables.min.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8">
       $(document).ready(function() {
-        $('#qltv-loai-sach').DataTable();
+        
         $("#themtacgia").click(function(){
         	$("#qltv-modal-them-tg").modal("show");
         });
@@ -216,4 +216,7 @@
 	      });
 	    });
       });
+</script>
+<script type="text/javascript">
+  $('#qltv-loai-sach').DataTable();
 </script>
