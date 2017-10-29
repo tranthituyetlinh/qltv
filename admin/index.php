@@ -47,7 +47,7 @@
           <li><a href="#">Sách mượn quá hạn</a></li>
         </ul>
       </li>
-      <li class="dropdown">
+      <li class="dropdown" id="doc-gia">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Độc giả <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="?p=docgia">Độc giả</a></li>

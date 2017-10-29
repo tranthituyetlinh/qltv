@@ -64,7 +64,7 @@
         <table id="qltv-loai-sach-t" class="table table-striped">
             <thead>
                 <tr role="row">
-                  <tr style="background-color: #2980b9;color: #fff;">
+                  <tr style="background-color: #16a085;color: #fff;">
                     <th class="giua">STT</th>
                     <th class="giua">Mã sách</th>
                     <th class="giua">Tên sách</th>
@@ -150,7 +150,7 @@
 
 
 <script type="text/javascript">
-    document.title = "VLUTE LIB | Loại sách";
+    document.title = "VLUTE LIB | Nhập sách";
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
