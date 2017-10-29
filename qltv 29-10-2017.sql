@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 29, 2017 lúc 06:39 SA
+-- Thời gian đã tạo: Th10 29, 2017 lúc 03:36 CH
 -- Phiên bản máy phục vụ: 5.7.14
 -- Phiên bản PHP: 5.6.25
 
@@ -34,20 +34,21 @@ CREATE TABLE `docgia` (
   `NgayLapThe` date NOT NULL,
   `TaiKhoanDG` varchar(50) NOT NULL,
   `MatKhauDG` varchar(50) NOT NULL,
-  `HinhAnhDG` text NOT NULL,
-  `MaL` varchar(10) NOT NULL
+  `Mail` varchar(100) NOT NULL,
+  `MaL` varchar(10) NOT NULL,
+  `TrangThai` int(2) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `docgia`
 --
 
-INSERT INTO `docgia` (`MaDG`, `TenDG`, `NgaySinh`, `DiaChiDG`, `NgayLapThe`, `TaiKhoanDG`, `MatKhauDG`, `HinhAnhDG`, `MaL`) VALUES
-(1, 'Tran Thi Tuyet Linh', '1996-10-11', 'Cao lãnh-Đồng Tháp', '2017-10-01', 'Tuyetlinh', '123456', '', ''),
-(2, 'Nguyen Thanh Liem', '1996-10-10', 'Long Hồ-Vĩnh Long', '2017-10-11', 'Thanhliem', '123456', '', ''),
-(3, 'Lê Thị Huế Minh', '1996-10-09', 'Tam Bình-Vĩnh Long', '2017-10-01', 'Hueminh', '123456', '', ''),
-(4, 'Lê Huyền Thanh', '1996-10-01', 'Long Hồ-Vĩnh Long', '2014-12-05', 'huyenthanh', '123456', '', ''),
-(5, 'Nguyễn Quốc Duy', '1996-10-15', 'Long Hồ-Vĩnh Long', '2017-10-29', 'Quocduy', '123456', '\r\n', '');
+INSERT INTO `docgia` (`MaDG`, `TenDG`, `NgaySinh`, `DiaChiDG`, `NgayLapThe`, `TaiKhoanDG`, `MatKhauDG`, `Mail`, `MaL`, `TrangThai`) VALUES
+(1, 'Tran Thi Tuyet Linh', '1996-10-11', 'Cao lãnh-Đồng Tháp', '2017-10-01', 'Tuyetlinh', '123456', '', '1CTT14A', 1),
+(2, 'Nguyen Thanh Liem', '1996-10-10', 'Long Hồ-Vĩnh Long', '2017-10-11', 'Thanhliem', '123456', '', '1CTT14A', 1),
+(3, 'Lê Thị Huế Minh', '1996-10-09', 'Tam Bình-Vĩnh Long', '2017-10-01', 'Hueminh', '123456', '', '1CTT14A', 1),
+(4, 'Lê Huyền Thanh', '1996-10-01', 'Long Hồ-Vĩnh Long', '2014-12-05', 'huyenthanh', '123456', '', '1CTT14A', 1),
+(5, 'Nguyễn Quốc Duy', '1996-10-15', 'Long Hồ-Vĩnh Long', '2017-10-29', 'Quocduy', '123456', '', '1CTT14A', 1);
 
 -- --------------------------------------------------------
 
@@ -67,10 +68,10 @@ CREATE TABLE `khoa` (
 --
 
 INSERT INTO `khoa` (`MaK`, `TenK`, `DiaChiK`, `SDT`) VALUES
-('CKC', 'Khoa Công Nghệ Cơ Khí', 'Khu A-Tầng1', '0178256173'),
+('CKC', 'Công Nghệ Cơ Khí', 'Khu A-Tầng1', '0178256173'),
 ('CTP', 'Công nghệ thực phẩm', 'Khu C- Lầu 6', '0134567192'),
-('CTT', 'Khoa Cong Nghe Thong Tin', 'Khu C- Lầu 6', '0123456789'),
-('OTO', 'Khoa Công Nghệ Ô Tô', 'Khu C- Lầu 8', '01256381755');
+('CTT', 'Công nghệ thông tin', 'Khu C- Lầu 6', '0123456789'),
+('OTO', 'Công Nghệ Ô Tô', 'Khu C- Lầu 8', '01256381755');
 
 -- --------------------------------------------------------
 
@@ -109,11 +110,11 @@ CREATE TABLE `lop` (
 --
 
 INSERT INTO `lop` (`MaL`, `TenL`, `MaK`) VALUES
-('14A1CNOTO', 'Công Nghệ Ô Tô', 'OTO'),
-('14A1CTP', 'Công Nghệ Thực Phẩm', ''),
-('14A1CTT', 'Công Nghệ Thông Tin', ''),
-('14A1DT', 'Điện Tử', ''),
-('14A1KTCK', 'Kỹ thuật Cơ Khí', '');
+('1CKC14A', 'Kỹ thuật Cơ Khí', 'CKC'),
+('1CTP14A', 'Công Nghệ Thực Phẩm', 'CTP'),
+('1CTT14A', 'Công Nghệ Thông Tin', 'CTT'),
+('1DDT14A', 'Điện Tử', 'DDT'),
+('1OTO14A', 'Công Nghệ Ô Tô', 'OTO');
 
 -- --------------------------------------------------------
 
@@ -169,6 +170,17 @@ CREATE TABLE `nhapsach` (
   `GhiChu` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `nhapsach`
+--
+
+INSERT INTO `nhapsach` (`id`, `NgayNhap`, `MaS`, `SoLuong`, `GhiChu`) VALUES
+(1, '2017-10-29', 5, 20, 'ghichu'),
+(2, '2017-10-29', 5, 20, 'ghichu'),
+(3, '2017-10-29', 4, 1, 'ghichu'),
+(4, '2017-10-29', 4, 9, 'ghichu'),
+(5, '2017-10-29', 5, 1, '');
+
 -- --------------------------------------------------------
 
 --
@@ -218,8 +230,8 @@ INSERT INTO `sach` (`MaS`, `TenS`, `MaLS`, `MaTG`, `MaNXB`, `NamXB`, `SoTrang`, 
 (1, 'Cơ Sở Dữ Liệu', 2, 1, 3, 1996, 60, 'images/hoahong.jpg', 26, '350000', '2017-10-01'),
 (2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, 'images/sach.jpg', 25, '20000', '2017-07-10'),
 (3, 'Phân Tích Thiết Kế Hệ Thống', 3, 2, 2, 2003, 30, 'images/hoahong.jpg', 15, '40000', '2017-04-11'),
-(4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, 'images/kinhnghiem.jpg', 10, '30000', '2017-03-27'),
-(5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 50, 'images/thanhpho.jpg', 180, '123000', '2017-06-12');
+(4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, 'images/kinhnghiem.jpg', 20, '30000', '2017-03-27'),
+(5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 50, 'images/thanhpho.jpg', 200, '123000', '2017-06-12');
 
 -- --------------------------------------------------------
 
@@ -258,6 +270,15 @@ CREATE TABLE `xuatsach` (
   `SoLuong` int(10) NOT NULL,
   `GhiChu` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `xuatsach`
+--
+
+INSERT INTO `xuatsach` (`id`, `NgayXuat`, `MaS`, `SoLuong`, `GhiChu`) VALUES
+(1, '2017-10-29', 1, 1, ''),
+(2, '2017-10-29', 5, 1, ''),
+(3, '2017-10-29', 5, 20, 'Tại thích');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -333,7 +354,7 @@ ALTER TABLE `xuatsach`
 -- AUTO_INCREMENT cho bảng `docgia`
 --
 ALTER TABLE `docgia`
-  MODIFY `MaDG` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MaDG` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT cho bảng `loaisach`
 --
@@ -348,7 +369,7 @@ ALTER TABLE `nhanvien`
 -- AUTO_INCREMENT cho bảng `nhapsach`
 --
 ALTER TABLE `nhapsach`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT cho bảng `nhaxuatban`
 --
@@ -368,7 +389,7 @@ ALTER TABLE `tacgia`
 -- AUTO_INCREMENT cho bảng `xuatsach`
 --
 ALTER TABLE `xuatsach`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
