@@ -25,6 +25,7 @@
                     <th class="giua">Địa chi</th>
                     <th class="giua">Ngày lập thẻ</th>
                     <th class="giua">Tên đăng nhập</th>
+                    <th class="giua">Mail</th>
                     <th class="giua">Học lớp</th>
                     <th class="giua">Thuộc khoa</th>
                     <th class="giua">Thao tác</th>
@@ -38,19 +39,23 @@
                 ?>
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
-                    <td class="giua"><a>DG<?php echo $row['MaDG']; ?></a></td>
-                    <td><a><?php echo $row['TenDG']; ?></a></td>
-                    <td><?php echo $row['NgaySinh']; ?></td>
-                    <td><?php echo $row['DiaChiDG']; ?></td>
-                    <td><?php echo $row['NgayLapThe']; ?></td>
-                    <td><a><?php echo $row['TaiKhoanDG']; ?></a></td>
-                    <td><?php echo $row['TenL']; ?></td>
+                    <td class="giua" id="id-ma-dg-<?php echo $row['MaDG']; ?>"><a>DG<?php echo $row['MaDG']; ?></a></td>
+                    <td id="id-ten-dg-<?php echo $row['MaDG']; ?>"><a><?php echo $row['TenDG']; ?></a></td>
+                    <td id="id-ngay-sinh-dg-<?php echo $row['MaDG']; ?>"><?php echo $row['NgaySinh']; ?></td>
+                    <td id="id-dia-chi-dg-<?php echo $row['MaDG']; ?>"><?php echo $row['DiaChiDG']; ?></td>
+                    <td id="id-ngay-lap-the-dg-<?php echo $row['MaDG']; ?>"><?php echo $row['NgayLapThe']; ?></td>
+                    <td id="id-ten-dang-nhap-dg-<?php echo $row['MaDG']; ?>"><a><?php echo $row['TaiKhoanDG']; ?></a></td>
+                    <td id="id-mail-dg-<?php echo $row['MaDG']; ?>"><a><?php echo $row['Mail']; ?></a></td>
+                    <td id="id-ten-lop-dg-<?php echo $row['MaDG']; ?>"><?php echo $row['TenL']; ?></td>
                     <td><?php echo $row['TenK']; ?></td>
                     <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-dg" data-qltv="<?php echo $row['MaDG']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
                         <a class="btn btn-danger btn-xoa-dg" title="Xóa"
                         data-qltv="<?php echo $row['MaDG']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
                     </td>
-                    <input type="text" hidden="hidden" name="" id="id-ma-lop-<?php echo $row['MaDG']; ?>" value="<?php echo $row['MaDG']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-ma-dg-<?php echo $row['MaDG']; ?>" value="<?php echo $row['MaDG']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-ma-khoa-dg-<?php echo $row['MaDG']; ?>" value="<?php echo $row['MaL']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-trang-thai-dg-<?php echo $row['MaDG']; ?>" value="<?php echo $row['TrangThai']; ?>">
                 </tr>
                 <?php
                 $stt++;
@@ -61,7 +66,7 @@
       </div>
     </section>
 
-<!-- Modal: Thêm lớp -->
+<!-- Modal: Thêm độc giả -->
 <div class="modal fade" id="qltv-modal-them-dg" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <!-- Modal content-->
@@ -104,6 +109,10 @@
           <textarea class="form-control" id="dia-chi-dg-them" rows="5"></textarea>
         </div>
         <div class="form-group">
+          <label>Địa chỉ mail</label>
+          <input type="email" class="form-control" id="mail-dg-them" value="">
+        </div>
+        <div class="form-group">
           <label>Thuộc khoa</label>
           <select class="form-control" id="khoa-dg-them">
             <?php while ($row = mysqli_fetch_assoc($dulieu_lop)) {
@@ -120,23 +129,97 @@
       </div>
     </div>
   </div>
-</div><!-- Modal: Thêm lớp -->
+</div><!-- Modal: Thêm độc giả -->
+
+<!-- Modal: Thêm độc giả -->
+<div class="modal fade" id="qltv-modal-sua-dg" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Chỉnh sửa độc giả</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Họ tên</label>
+              <input type="text" class="form-control" name="" id="ho-ten-dg-sua" placeholder="họ tên độc giả" required autocomplete="on" disabled="disabled">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Tên đăng nhập(*)</label>
+              <input type="text" class="form-control" name="" id="ten-dang-nhap-dg-sua" placeholder="tên đăng nhập" required autocomplete="on" disabled="disabled">
+            </div>
+          </div>  
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Ngày sinh</label>
+              <input type="date" class="form-control" name="" id="ngay-sinh-dg-sua" placeholder="họ tên độc giả" required autocomplete="on" disabled="disabled">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Ngày lập thẻ</label>
+              <input type="date" class="form-control" name="" id="ngay-lap-the-dg-sua" required autocomplete="on" disabled="disabled">
+            </div>
+          </div>  
+        </div>
+        <div class="form-group">
+          <label>Địa chỉ</label>
+          <textarea class="form-control" id="dia-chi-dg-sua" rows="5" disabled="disabled"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Địa chỉ mail</label>
+          <input type="email" class="form-control" id="mail-dg-sua" value="">
+        </div>
+        <div class="form-group">
+          <label>Thuộc khoa</label>
+          <select class="form-control" id="khoa-dg-sua" disabled="disabled">
+            <?php while ($row = mysqli_fetch_assoc($dulieu_lop_s)) {
+            ?>
+              <option value="<?php echo $row['MaL']; ?>"><?php echo $row['TenL']; ?></option>
+            <?php } ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Trạng thái</label>
+          <select class="form-control" id="trang-thai-dg-sua">
+              <option value="1">Bình thường</option>
+              <option value="2">Tạm khóa (không cho đăng nhập)</option>
+          </select>
+        </div>
+        <p class="help-block"> (<b>*</b>) Mật khẩu mặc định khi reset là: <b style="color: red;">123456</b></p>
+        <input type="text" hidden="hidden" name="" value="" id="ma-dg-sua">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-warning" id="nut-reset-mk-dg">Reset mật khẩu</button>
+        <button type="button" class="btn btn-primary" id="nut-sua-dg">Hoàn tất</button>
+      </div>
+    </div>
+  </div>
+</div><!-- Modal: Thêm độc giả -->
 
 <!-- Modal: Xóa khoa -->
-<div class="modal fade in" id="qltv-modal-xoa-lop" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade in" id="qltv-modal-xoa-dg" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h4 class="modal-title" id="myModalLabel">Xóa lớp</h4>
+        <h4 class="modal-title" id="myModalLabel">Xóa độc giả</h4>
       </div>
       <div class="modal-body">
-        <div class="alert alert-danger" role="alert">Bạn có chắc muốn xóa lớp này?</div>
+        <div class="alert alert-danger" role="alert">Bạn có chắc muốn xóa độc giả này?</div>
       </div>
-      <input type="text" hidden="hidden" name="" id="ma-lop-xoa">
+      <input type="text" hidden="hidden" name="" id="ma-dg-xoa">
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Tôi không chắc</button>
-        <button type="button" class="btn btn-danger" id="nut-xoa-lop">Tôi chắc chắn</button>
+        <button type="button" class="btn btn-danger" id="nut-xoa-dg">Tôi chắc chắn</button>
       </div>
     </div> 
   </div>
@@ -163,7 +246,15 @@
               delay: 2000
             });
            $("#qltv-modal-them-dg").modal("hide");
-           setTimeout(function(){ location.reload(); }, 3000);
+      }
+      function tailai() {
+        setTimeout(function(){ location.reload(); }, 3000);
+      }
+      function dongsua() {
+        $("#qltv-modal-sua-dg").modal("hide");
+      }
+      function dongxoa(){
+        $("#qltv-modal-xoa-dg").modal("hide");
       }
       function khongthanhcong(chuoi) {
            $.notify(chuoi, {
@@ -194,6 +285,7 @@
               sinh: $("#ngay-sinh-dg-them").val(),
               lap: $("#ngay-lap-the-dg-them").val(),
               diachi: $("#dia-chi-dg-them").val(),
+              mail: $("#mail-dg-them").val(),
               lop: $("#khoa-dg-them").val()
   	        },
   	        success : function (data){
@@ -202,47 +294,64 @@
   	        }
   	      });
 	     });
-	    $(".btn-sua-lop").click(function(){
+	    $(".btn-sua-dg").click(function(){
 	    	var id = $(this).attr("data-qltv");
-	    	$("#ma-lop-sua").val($("#id-ma-lop-"+id).val().trim());
-	    	$("#ten-lop-sua").val($("#id-ten-lop-"+id).val().trim());
-        $("#khoa-lop-sua").val($("#id-ma-khoa-"+id).val().trim());
-        $("#ma-lop-sua-old").val($("#id-ma-lop-"+id).val().trim());
-	    	$("#qltv-modal-sua-lop").modal("show");
+	    	$("#ho-ten-dg-sua").val($("#id-ten-dg-"+id).text().trim());
+	    	$("#ten-dang-nhap-dg-sua").val($("#id-ten-dang-nhap-dg-"+id).text().trim());
+        $("#ngay-sinh-dg-sua").val($("#id-ngay-sinh-dg-"+id).text().trim());
+        $("#dia-chi-dg-sua").val($("#id-dia-chi-dg-"+id).text().trim());
+        $("#ngay-lap-the-dg-sua").val($("#id-ngay-lap-the-dg-"+id).text().trim());
+        $("#mail-dg-sua").val($("#id-mail-dg-"+id).text().trim());
+        $("#khoa-dg-sua").val($("#id-ma-khoa-dg-"+id).val().trim());
+        $("#trang-thai-dg-sua").val($("#id-trang-thai-dg-"+id).val().trim());
+        $("#ma-dg-sua").val($("#id-ma-dg-"+id).val().trim());
+	    	$("#qltv-modal-sua-dg").modal("show");
 	    });
-	    $("#nut-sua-lop").click(function(){
+	    $("#nut-sua-dg").click(function(){
 	      $.ajax({
-	        url : "ajax/ajax_sua_lop.php",
+	        url : "ajax/ajax_sua_doc_gia.php",
 	        type : "post",
 	        dataType:"text",
 	        data : {
-	          mal: $("#ma-lop-sua").val(),
-            tenl: $("#ten-lop-sua").val(),
-            mak: $("#khoa-lop-sua").val(),
-            malold: $("#ma-lop-sua-old").val()
+	          mail: $("#mail-dg-sua").val(),
+            tt: $("#trang-thai-dg-sua").val(),
+            ma: $("#ma-dg-sua").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+	            $("body").append(data);
+	            //location.reload();
 	        }
 	      });
 	    });
-	    $(".btn-xoa-lop").click(function(){
+      $("#nut-reset-mk-dg").click(function(){
+        $.ajax({
+          url : "ajax/ajax_reset_mk_doc_gia.php",
+          type : "post",
+          dataType:"text",
+          data : {
+            ma: $("#ma-dg-sua").val()
+          },
+          success : function (data){
+              $("body").append(data);
+              //location.reload();
+          }
+        });
+      });
+	    $(".btn-xoa-dg").click(function(){
 	    	var id = $(this).attr("data-qltv");
-	    	$("#ma-lop-xoa").val($("#id-ma-lop-"+id).val().trim());
-	    	$("#qltv-modal-xoa-lop").modal("show");
+	    	$("#ma-dg-xoa").val($("#id-ma-dg-"+id).val().trim());
+	    	$("#qltv-modal-xoa-dg").modal("show");
 	    });
-	    $("#nut-xoa-lop").click(function(){
+	    $("#nut-xoa-dg").click(function(){
 	      $.ajax({
-	        url : "ajax/ajax_xoa_lop.php",
+	        url : "ajax/ajax_xoa_doc_gia.php",
 	        type : "post",
 	        dataType:"text",
 	        data : {
-	          ma: $("#ma-lop-xoa").val()
+	          ma: $("#ma-dg-xoa").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+	            $("body").append(data);
 	        }
 	      });
 	    });
