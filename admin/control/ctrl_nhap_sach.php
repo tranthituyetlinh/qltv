@@ -10,5 +10,6 @@
 	#$dulieu_tg_s = tv_get_tac_gia();
 	#$dulieu_nxb = tv_get_nha_xuat_ban();
 	#$dulieu_nxb_s = tv_get_nha_xuat_ban();
-	include_once("view/vw_sach.php");
+	$dulieu_lich_su = tv_lich_su_nhap_sach();
+	include_once("view/vw_nhap_sach.php");
  ?>

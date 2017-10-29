@@ -11,7 +11,6 @@
   <link rel="stylesheet" type="text/css" href="css/animate.css">
   <link href="css/style.css" type="text/css" rel="stylesheet">
   <script src="../js/jquery-3.2.1.min.js"></script>
-  
 </head>
 <body>
 
@@ -31,7 +30,6 @@
           <li><a href="?p=loaisach">Loại sách</a></li>
           <li><a href="?p=tacgia">Tác giả</a></li>
           <li><a href="?p=nhaxuatban">Nhà xuất bản</a></li>
-          <li><a href="#">Tìm kiếm</a></li>
         </ul>
       </li>
       <li class="dropdown" id="khoa-lop">
@@ -53,7 +51,6 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Độc giả <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="?p=docgia">Độc giả</a></li>
-          <li><a href="#">Tìm kiếm</a></li>
         </ul>
       </li>
       <li class="dropdown">

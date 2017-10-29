@@ -15,7 +15,7 @@
         <div class="col-md-12 col-ms-12 cach"></div>
       </div>
       <div class="windows-table">
-        <table id="qltv-loai-sach" class="table table-striped table-bordered">
+        <table id="qltv-loai-sach" class="table table-striped">
             <thead>
                 <tr role="row">
                   <tr style="background-color: #2980b9;color: #fff;">
@@ -155,7 +155,7 @@
 			        </div>
         		<div class="form-group">
 			          <label>Số lượng</label>
-			          <input type="text" class="form-control" name="" id="so-luong-sach-them" placeholder="số lượng" required autocomplete="on">
+			          <input type="text" class="form-control" name="" id="so-luong-sach-them" placeholder="số lượng" required autocomplete="on" value="0">
 			        </div>
         		<div class="form-group">
 		          <label>Giá</label>
@@ -354,7 +354,8 @@
       	document.getElementById('ngay-nhap-sach-them').valueAsDate = new Date();
       	document.getElementById("ngay-nhap-sach-them").readOnly = true;
       	document.getElementById("ngay-nhap-sach-sua").readOnly = true;
-        
+        document.getElementById("so-luong-sach-sua").readOnly = true;
+        document.getElementById("so-luong-sach-them").readOnly = true;
         $("#themloaisach").click(function(){
         	$("#qltv-modal-them-sach").modal("show");
         });
