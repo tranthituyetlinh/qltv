@@ -55,6 +55,46 @@
             </tbody>
         </table>
       </div>
+    <section class="content-header">
+      <h1>
+        Lịch sử nhập sách
+        <div class="line"></div>
+      </h1>
+    </section>
+      <div class="windows-table">
+        <table id="qltv-loai-sach-t" class="table table-striped">
+            <thead>
+                <tr role="row">
+                  <tr style="background-color: #2980b9;color: #fff;">
+                    <th class="giua">STT</th>
+                    <th class="giua">Mã sách</th>
+                    <th class="giua">Tên sách</th>
+                    <th class="giua">Tên loại sách</th>
+                    <th class="giua">Số lượng</th>
+                    <th class="giua">Ngày nhập</th>
+                  </tr>
+                </tr>
+            </thead>
+            <tbody>
+            <?php 
+              $stt = 1;
+              while ($row = mysqli_fetch_assoc($dulieu_lich_su)) {
+                ?>
+                  <tr>
+                    <th class="giua"><?php echo $stt; ?></th>
+                    <td class="giua"><a>S<?php echo $row['MaS']; ?></a></td>
+                    <td><a><?php echo $row['TenS']; ?></a></td>
+                    <td><?php echo $row['TenLS']; ?></td>
+                    <td class="giua"><?php echo $row['SoLuong']; ?></td>
+                    <td class="giua"><?php echo $row['NgayNhap']; ?></td>
+                </tr>
+                <?php
+                $stt++;
+              }
+            ?>
+            </tbody>
+        </table>
+      </div>
     </section>
 
 <!-- Modal: Thêm loại sách -->
@@ -128,6 +168,7 @@
               type: 'success',
               delay: 2000
             });
+           setTimeout(function(){ location.reload(); }, 3000);
       }
       function khongthanhcong(chuoi) {
            $.notify(chuoi, {
@@ -138,6 +179,7 @@
               type: 'danger',
               delay: 4000
             });
+
       }
       $(document).ready(function() {
         document.getElementById('ngay-nhap-sach').valueAsDate = new Date();
@@ -194,6 +236,7 @@
 	    	$("#qltv-modal-nhap-sach").modal("show");
 	    });
         $('#qltv-loai-sach').DataTable();
+        $('#qltv-loai-sach-t').DataTable();
       });
 </script>
 <style type="text/css">
@@ -202,5 +245,3 @@
 	padding-left: 4px;
 }
 </style>
-
-<div data-notify="container" class="col-xs-11 col-sm-4 alert alert-danger animated bounceIn" role="alert" data-notify-position="top-right" style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out; z-index: 1031; top: 20px; right: 20px; animation-iteration-count: 1;"><button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button><span data-notify="icon"></span> <span data-notify="title"></span> <span data-notify="message"><strong>Chưa lưu</strong> số lượng sách phải lớn hơn 0!</span><a href="#" target="_blank" data-notify="url"></a></div>

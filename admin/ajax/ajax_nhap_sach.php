@@ -10,15 +10,16 @@
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
-				UPDATE `lop` 
-				SET 
-					`MaL`='$mal',
-					`TenL`='$tenl',
-					`MaK`='$mak' 
-				WHERE 
-					`MaL` = '$malold'
+				INSERT INTO `nhapsach`(`NgayNhap`, `MaS`, `SoLuong`, `GhiChu`) VALUES ('$ngay','$ma','$sl','ghichu')
 		";
-		if(mysqli_query($conn, $hoi)===TRUE)
+		$hoi1 = "
+				UPDATE `sach` 
+				SET 
+					`SL`= `SL`+'$sl'
+				WHERE 
+					`MaS` = '$ma'
+		";
+		if(mysqli_query($conn, $hoi)===TRUE && mysqli_query($conn, $hoi1)===TRUE)
 			return true;
 		else
 			return false;
@@ -29,10 +30,12 @@
 		}
 		else{
 			if (vlu_sua_lop($_POST['ngay'],$_POST['ma'],$_POST['sl'],$_POST['ghichu'])){
-				echo "Khoa đã được sửa!";
+				echo "<script type=\"text/javascript\">thanhcong(\"<strong>Nhập sách </strong> thành công!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình sửa!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa nhập</strong> có lỗi trong quá trình nhập!\")</script>";
+				exit();
 			}
 		}
 	}

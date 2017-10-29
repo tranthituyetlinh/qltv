@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 24, 2017 lúc 07:14 SA
+-- Thời gian đã tạo: Th10 29, 2017 lúc 06:39 SA
 -- Phiên bản máy phục vụ: 5.7.14
 -- Phiên bản PHP: 5.6.25
 
@@ -67,10 +67,10 @@ CREATE TABLE `khoa` (
 --
 
 INSERT INTO `khoa` (`MaK`, `TenK`, `DiaChiK`, `SDT`) VALUES
-('1CKC', 'Khoa Công Nghệ Cơ Khí', 'Khu A-Tầng1', '0178256173'),
-('1CTP', 'Khoa Cong Nghe Thuc Pham', 'Khu C- Lầu 6', '0134567192'),
-('1CTT', 'Khoa Cong Nghe Thong Tin', 'Khu C- Lầu 6', '0123456789'),
-('1OTO', 'Khoa Công Nghệ Ô Tô', 'Khu C- Lầu 8', '01256381755');
+('CKC', 'Khoa Công Nghệ Cơ Khí', 'Khu A-Tầng1', '0178256173'),
+('CTP', 'Công nghệ thực phẩm', 'Khu C- Lầu 6', '0134567192'),
+('CTT', 'Khoa Cong Nghe Thong Tin', 'Khu C- Lầu 6', '0123456789'),
+('OTO', 'Khoa Công Nghệ Ô Tô', 'Khu C- Lầu 8', '01256381755');
 
 -- --------------------------------------------------------
 
@@ -109,7 +109,7 @@ CREATE TABLE `lop` (
 --
 
 INSERT INTO `lop` (`MaL`, `TenL`, `MaK`) VALUES
-('14A1CNOTO', 'Công Nghệ Ô Tô', ''),
+('14A1CNOTO', 'Công Nghệ Ô Tô', 'OTO'),
 ('14A1CTP', 'Công Nghệ Thực Phẩm', ''),
 ('14A1CTT', 'Công Nghệ Thông Tin', ''),
 ('14A1DT', 'Điện Tử', ''),
@@ -142,18 +142,32 @@ CREATE TABLE `nhanvien` (
   `DiaChiNV` text NOT NULL,
   `TenDangNhap` varchar(50) NOT NULL,
   `MatKhau` varchar(50) NOT NULL,
-  `HinhAnhNV` text NOT NULL,
-  `TrangThaiNV` tinyint(1) NOT NULL,
-  `HeSoPhuCap` float NOT NULL
+  `Mail` varchar(100) NOT NULL,
+  `TrangThaiNV` int(1) DEFAULT '1',
+  `HeSoPhuCap` float NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
-INSERT INTO `nhanvien` (`MaNV`, `TenNV`, `DiaChiNV`, `TenDangNhap`, `MatKhau`, `HinhAnhNV`, `TrangThaiNV`, `HeSoPhuCap`) VALUES
-(1, 'Nguyen Thi Rang', '72 Nguyen Hue-P2-TPVL', 'rangvlute', '1234567', '', 1, 2.53),
+INSERT INTO `nhanvien` (`MaNV`, `TenNV`, `DiaChiNV`, `TenDangNhap`, `MatKhau`, `Mail`, `TrangThaiNV`, `HeSoPhuCap`) VALUES
+(1, 'Nguyễn Thị Ràng', '72 Nguyen Hue-P2-TPVL', 'rangvlute', '1234567', 'lythanhngodev@gmail.com', 1, 2.53),
 (2, 'Tran Thi Hoa', '82/7C Phó cơ điều-p3-TPVL', 'hoavlute', '1234567', '', 1, 2.1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `nhapsach`
+--
+
+CREATE TABLE `nhapsach` (
+  `id` bigint(20) NOT NULL,
+  `NgayNhap` date NOT NULL,
+  `MaS` bigint(10) NOT NULL,
+  `SoLuong` int(10) NOT NULL,
+  `GhiChu` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -192,21 +206,20 @@ CREATE TABLE `sach` (
   `SoTrang` int(11) NOT NULL,
   `HinhAnhS` text NOT NULL,
   `SL` int(11) NOT NULL,
-  `Gia` int(11) NOT NULL,
-  `NgayNhap` date NOT NULL,
-  `TrangThaiS` tinyint(1) NOT NULL
+  `Gia` decimal(11,0) NOT NULL,
+  `NgayNhap` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `sach`
 --
 
-INSERT INTO `sach` (`MaS`, `TenS`, `MaLS`, `MaTG`, `MaNXB`, `NamXB`, `SoTrang`, `HinhAnhS`, `SL`, `Gia`, `NgayNhap`, `TrangThaiS`) VALUES
-(1, 'Cơ Sở Dữ Liệu', 2, 1, 3, 1996, 60, '', 5, 350000, '2017-10-01', 1),
-(2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, '', 12, 20000, '2017-07-10', 1),
-(3, 'Phân Tích Thiết Kế Hệ Thống', 3, 2, 4, 2003, 30, '', 13, 40000, '2017-04-11', 1),
-(4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, '', 10, 30000, '2017-03-27', 1),
-(5, 'Trí Tuệ Nhân Tạo', 1, 2, 2, 2000, 50, '', 18, 30000, '2017-06-12', 1);
+INSERT INTO `sach` (`MaS`, `TenS`, `MaLS`, `MaTG`, `MaNXB`, `NamXB`, `SoTrang`, `HinhAnhS`, `SL`, `Gia`, `NgayNhap`) VALUES
+(1, 'Cơ Sở Dữ Liệu', 2, 1, 3, 1996, 60, 'images/hoahong.jpg', 26, '350000', '2017-10-01'),
+(2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, 'images/sach.jpg', 25, '20000', '2017-07-10'),
+(3, 'Phân Tích Thiết Kế Hệ Thống', 3, 2, 2, 2003, 30, 'images/hoahong.jpg', 15, '40000', '2017-04-11'),
+(4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, 'images/kinhnghiem.jpg', 10, '30000', '2017-03-27'),
+(5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 50, 'images/thanhpho.jpg', 180, '123000', '2017-06-12');
 
 -- --------------------------------------------------------
 
@@ -231,6 +244,20 @@ INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChiTG`, `MoTa`) VALUES
 (3, 'Tô Hoài', 'Làng Nghĩa Đô, huyện Từ Liêm, phủ Hoài Đức, tỉnh Hà Đông ', 'Tô Hoài sinh ra tại quê nội ở thôn Cát Động, Thị trấn Kim Bài, huyện Thanh Oai, tỉnh Hà Đông cũ trong một gia đình thợ thủ công. Tuy nhiên, ông lớn lên ở quê ngoại là làng Nghĩa Đô, huyện Từ Liêm, phủ Hoài Đức, tỉnh Hà Đông (nay thuộc phường Nghĩa Đô, quận Cầu Giấy, Hà Nội, Việt Nam[2]). Bút danh Tô Hoài gắn với hai địa danh: sông Tô Lịch và phủ Hoài Đức.\r\n\r\nBước vào tuổi thanh niên, ông đã phải làm nhiều công việc để kiếm sống như dạy trẻ, bán hàng, kế toán hiệu buôn,... nhưng có những lúc thất nghiệp. Khi đến với văn chương, ông nhanh chóng được người đọc chú ý, nhất là qua truyện Dế Mèn phiêu lưu ký. Năm 1943, Tô Hoài gia nhập Hội Văn hóa cứu quốc. Trong chiến tranh Đông Dương, ông chủ yếu hoạt động trong lĩnh vực báo chí, nhưng vẫn có một số thành tựu quan trọng như Truyện Tây Bắc.'),
 (4, 'Nguyễn Tuân', 'Phố Hàng Bạc, Hà Nội, quê ở thôn Thượng Đình, xã Nhân Mục (tên nôm là làng Mọc), nay thuộc phường Nhân Chính, quận Thanh Xuân, Hà Nội', 'Nguyễn Tuân (10/ 7/ 1910 – 28 / 7/1987) quê ở Hà Nội, là một nhà văn của Việt Nam, sở trường về tùy bút và ký, được tặng Giải thưởng Hồ Chí Minh về văn học nghệ thuật năm 1996. Tác phẩm của Nguyễn Tuân luôn thể hiện phong cách độc đáo, tài hoa, sự hiểu biết phong phú nhiều mặt và vốn ngôn ngữ, giàu có, điêu luyện. Sách giáo khoa hiện hành xếp ông vào một trong 9 tác giả tiêu biểu của văn học Việt Nam hiện đại. Ông viết văn với một phong cách tài hoa uyên bác và được xem là bậc thầy trong việc sáng tạo và sử dụng Tiếng Việt. Hiện nay, ở Hà Nội có một con đường mang tên ông, nối từ đường Nguyễn Trãi cắt ngang qua các phố Nguyễn Huy Tưởng, Ngụy Như Kon Tum đến đường Lê Văn Lương, nối với phố Hoàng Minh Giám.'),
 (5, 'Tố Hữu', 'Làng Phù Lai, nay thuộc xã Quảng Thọ, huyện Quảng Điền, tỉnh Thừa Thiên-Huế.', 'Tố Hữu, tên thật là Nguyễn Kim Thành (4 tháng 10 năm 1920 – 9 tháng 12 năm 2002), quê gốc ở làng Phù Lai, nay thuộc xã Quảng Thọ, huyện Quảng Điền, tỉnh Thừa Thiên-Huế.\r\n\r\nÔng là một nhà thơ tiêu biểu của thơ cách mạng Việt Nam, đồng thời là một chính trị gia. Ông đã từng giữ các chức vụ quan trọng trong hệ thống chính trị của Việt Nam như Ủy viên Bộ Chính trị, Bí thư Ban Chấp hành Trung ương Đảng Cộng sản Việt Nam, Phó Chủ tịch thứ Nhất Hội đồng Bộ trưởng nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `xuatsach`
+--
+
+CREATE TABLE `xuatsach` (
+  `id` bigint(20) NOT NULL,
+  `NgayXuat` date NOT NULL,
+  `MaS` bigint(10) NOT NULL,
+  `SoLuong` int(10) NOT NULL,
+  `GhiChu` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -264,7 +291,15 @@ ALTER TABLE `lop`
 -- Chỉ mục cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  ADD PRIMARY KEY (`MaNV`);
+  ADD PRIMARY KEY (`MaNV`),
+  ADD UNIQUE KEY `TenDangNhap` (`TenDangNhap`),
+  ADD UNIQUE KEY `Mail` (`Mail`);
+
+--
+-- Chỉ mục cho bảng `nhapsach`
+--
+ALTER TABLE `nhapsach`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `nhaxuatban`
@@ -285,6 +320,12 @@ ALTER TABLE `tacgia`
   ADD PRIMARY KEY (`MaTG`);
 
 --
+-- Chỉ mục cho bảng `xuatsach`
+--
+ALTER TABLE `xuatsach`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -297,27 +338,37 @@ ALTER TABLE `docgia`
 -- AUTO_INCREMENT cho bảng `loaisach`
 --
 ALTER TABLE `loaisach`
-  MODIFY `MaLS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MaLS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
   MODIFY `MaNV` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT cho bảng `nhapsach`
+--
+ALTER TABLE `nhapsach`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT cho bảng `nhaxuatban`
 --
 ALTER TABLE `nhaxuatban`
-  MODIFY `MaNXB` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `MaNXB` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT cho bảng `sach`
 --
 ALTER TABLE `sach`
-  MODIFY `MaS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MaS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT cho bảng `tacgia`
 --
 ALTER TABLE `tacgia`
-  MODIFY `MaTG` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MaTG` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT cho bảng `xuatsach`
+--
+ALTER TABLE `xuatsach`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
