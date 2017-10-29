@@ -15,7 +15,7 @@
         <div class="col-md-12 col-ms-12 cach"></div>
       </div>
       <div class="windows-table">
-        <table id="qltv-loai-sach" class="table table-striped table-bordered">
+        <table id="qltv-loai-sach" class="table table-striped">
             <thead>
                 <tr role="row">
                   <tr style="background-color: #2980b9;color: #fff;">
