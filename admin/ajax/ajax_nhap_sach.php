@@ -10,7 +10,7 @@
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
-				INSERT INTO `nhapsach`(`NgayNhap`, `MaS`, `SoLuong`, `GhiChu`) VALUES ('$ngay','$ma','$sl','ghichu')
+				INSERT INTO `nhapsach`(`NgayNhap`, `MaS`, `SoLuong`, `GhiChu`) VALUES ('$ngay','$ma','$sl','$ghichu')
 		";
 		$hoi1 = "
 				UPDATE `sach` 

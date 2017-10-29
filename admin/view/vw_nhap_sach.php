@@ -1,4 +1,3 @@
-<script src="ckfinder/ckfinder.js"></script>
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -72,6 +71,7 @@
                     <th class="giua">Tên loại sách</th>
                     <th class="giua">Số lượng</th>
                     <th class="giua">Ngày nhập</th>
+                    <th class="giua">Ghi chú</th>
                   </tr>
                 </tr>
             </thead>
@@ -87,6 +87,7 @@
                     <td><?php echo $row['TenLS']; ?></td>
                     <td class="giua"><?php echo $row['SoLuong']; ?></td>
                     <td class="giua"><?php echo $row['NgayNhap']; ?></td>
+                    <td><?php echo $row['GhiChu']; ?></td>
                 </tr>
                 <?php
                 $stt++;
@@ -104,7 +105,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Nhập sách sách</h4>
+        <h4 class="modal-title">Nhập sách</h4>
       </div>
       <div class="modal-body">
         <div class="form-group">
@@ -135,7 +136,7 @@
         </div>
         <div class="form-group">
           <label>Ghi chú</label>
-          <textarea id="ghi-chu-nhap" class="form-control" rows="5" placeholder="ghi chú ..."></textarea>
+          <textarea id="ghi-chu-nhap" class="form-control" rows="5" placeholder=""></textarea>
         </div>
         <input type="text" id="ma-sach-nhap" hidden="hidden" name="" value="">
       </div>
@@ -168,6 +169,7 @@
               type: 'success',
               delay: 2000
             });
+           $("#qltv-modal-nhap-sach").modal("hide");
            setTimeout(function(){ location.reload(); }, 3000);
       }
       function khongthanhcong(chuoi) {
