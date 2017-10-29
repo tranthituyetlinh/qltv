@@ -1,5 +1,5 @@
 <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header animated fadeIn">
       <h1>
         Xuất sách
         <div class="line"></div>
@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-12 col-ms-12 cach"></div>
       </div>
-      <div class="windows-table">
+      <div class="windows-table animated fadeIn">
         <table id="qltv-loai-sach" class="table table-striped">
             <thead>
                 <tr role="row">
@@ -54,13 +54,13 @@
             </tbody>
         </table>
       </div>
-    <section class="content-header">
+    <section class="content-header animated fadeIn">
       <h1>
         Lịch sử xuất sách
         <div class="line"></div>
       </h1>
     </section>
-      <div class="windows-table">
+      <div class="windows-table animated fadeIn">
         <table id="qltv-loai-sach-t" class="table table-striped">
             <thead>
                 <tr role="row">

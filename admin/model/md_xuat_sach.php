@@ -10,7 +10,7 @@
 	function tv_lich_su_xuat_sach(){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
-		$query = "SELECT xs.MaS, s.TenS, ls.TenLS, xs.NgayXuat, xs.SoLuong, xs.GhiChu FROM `XuatSach` xs, sach s, loaisach ls WHERE s.MaS = xs.MaS and s.MaLS = ls.MaLS ORDER BY `NgayXuat` DESC";
+		$query = "SELECT xs.MaS, s.TenS, ls.TenLS, xs.NgayXuat, xs.SoLuong, xs.GhiChu FROM `XuatSach` xs, sach s, loaisach ls WHERE s.MaS = xs.MaS and s.MaLS = ls.MaLS ORDER BY `id` DESC";
 		$result = mysqli_query($conn, $query);
 		return $result;
 	}

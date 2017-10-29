@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-12 col-ms-12 cach"></div>
       </div>
-      <div class="windows-table">
+      <div class="windows-table animated fadeIn">
         <table id="qltv-loai-sach" class="table table-striped table-bordered">
             <thead>
                 <tr role="row">

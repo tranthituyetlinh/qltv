@@ -10,7 +10,7 @@
       <div class="noi-dung">
         <div class="khung-giua">
           <div class="col-md-6">
-            <div class="bao-khung">
+            <div class="bao-khung animated fadeInUp">
                 <div class="form-group">
                   <label>Tên nhân viên</label>
                    <input type="text" class="form-control" name="" id="ten-nhan-vien" placeholder="tên nhân viên" required autocomplete="on" value="<?php echo $tennv; ?>">
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="bao-khung">
+            <div class="bao-khung animated fadeInUp">
                 <div class="form-group">
                 <label>Mật khẩu cũ</label>
                  <input type="password" class="form-control" name="" id="mat-khau-cu" placeholder="mật khẩu cũ" required autocomplete="on">
