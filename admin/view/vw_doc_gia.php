@@ -156,13 +156,13 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label>Mã độc giả(*)</label>
+              <label>Mã độc giả</label>
               <input type="text" class="form-control" name="" id="ma-dg-sua" placeholder="mã độc giả" required autocomplete="on">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label>Tên đăng nhập(**)</label>
+              <label>Tên đăng nhập</label>
               <input type="text" class="form-control" name="" id="ten-dang-nhap-dg-sua" placeholder="tên đăng nhập" required autocomplete="on" disabled="disabled">
             </div>
           </div>  
