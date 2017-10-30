@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Lớp
+        Độc giả
         <div class="line"></div>
       </h1>
     </section>
