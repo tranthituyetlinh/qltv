@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 29, 2017 lúc 03:36 CH
+-- Thời gian đã tạo: Th10 30, 2017 lúc 11:22 SA
 -- Phiên bản máy phục vụ: 5.7.14
 -- Phiên bản PHP: 5.6.25
 
@@ -27,7 +27,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `docgia` (
-  `MaDG` bigint(10) NOT NULL,
+  `Id` bigint(20) NOT NULL,
+  `MaDG` varchar(20) NOT NULL,
   `TenDG` varchar(50) NOT NULL,
   `NgaySinh` date NOT NULL,
   `DiaChiDG` text NOT NULL,
@@ -43,12 +44,8 @@ CREATE TABLE `docgia` (
 -- Đang đổ dữ liệu cho bảng `docgia`
 --
 
-INSERT INTO `docgia` (`MaDG`, `TenDG`, `NgaySinh`, `DiaChiDG`, `NgayLapThe`, `TaiKhoanDG`, `MatKhauDG`, `Mail`, `MaL`, `TrangThai`) VALUES
-(1, 'Tran Thi Tuyet Linh', '1996-10-11', 'Cao lãnh-Đồng Tháp', '2017-10-01', 'Tuyetlinh', '123456', '', '1CTT14A', 1),
-(2, 'Nguyen Thanh Liem', '1996-10-10', 'Long Hồ-Vĩnh Long', '2017-10-11', 'Thanhliem', '123456', '', '1CTT14A', 1),
-(3, 'Lê Thị Huế Minh', '1996-10-09', 'Tam Bình-Vĩnh Long', '2017-10-01', 'Hueminh', '123456', '', '1CTT14A', 1),
-(4, 'Lê Huyền Thanh', '1996-10-01', 'Long Hồ-Vĩnh Long', '2014-12-05', 'huyenthanh', '123456', '', '1CTT14A', 1),
-(5, 'Nguyễn Quốc Duy', '1996-10-15', 'Long Hồ-Vĩnh Long', '2017-10-29', 'Quocduy', '123456', '', '1CTT14A', 1);
+INSERT INTO `docgia` (`Id`, `MaDG`, `TenDG`, `NgaySinh`, `DiaChiDG`, `NgayLapThe`, `TaiKhoanDG`, `MatKhauDG`, `Mail`, `MaL`, `TrangThai`) VALUES
+(1, '14004038', 'Trần Thị Tuyết Linh', '1996-11-15', 'Đồng Tháp', '2017-10-30', 'tuyetlinh', 'e10adc3949ba59abbe56e057f20f883e', 'tuyetlinhcntt2014@gmail.com', '1CTT14A', 1);
 
 -- --------------------------------------------------------
 
@@ -145,16 +142,17 @@ CREATE TABLE `nhanvien` (
   `MatKhau` varchar(50) NOT NULL,
   `Mail` varchar(100) NOT NULL,
   `TrangThaiNV` int(1) DEFAULT '1',
-  `HeSoPhuCap` float NOT NULL DEFAULT '1'
+  `HeSoPhuCap` float NOT NULL DEFAULT '1',
+  `LoaiNV` int(2) NOT NULL DEFAULT '2'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
-INSERT INTO `nhanvien` (`MaNV`, `TenNV`, `DiaChiNV`, `TenDangNhap`, `MatKhau`, `Mail`, `TrangThaiNV`, `HeSoPhuCap`) VALUES
-(1, 'Nguyễn Thị Ràng', '72 Nguyen Hue-P2-TPVL', 'rangvlute', '1234567', 'lythanhngodev@gmail.com', 1, 2.53),
-(2, 'Tran Thi Hoa', '82/7C Phó cơ điều-p3-TPVL', 'hoavlute', '1234567', '', 1, 2.1);
+INSERT INTO `nhanvien` (`MaNV`, `TenNV`, `DiaChiNV`, `TenDangNhap`, `MatKhau`, `Mail`, `TrangThaiNV`, `HeSoPhuCap`, `LoaiNV`) VALUES
+(1, 'Nguyễn Thị Ràng', '72 Nguyen Hue-P2-TPVL', 'rangvlute', '1234567', 'lythanhngodev@gmail.com', 1, 2.53, 0),
+(2, 'Tran Thi Hoa', '82/7C Phó cơ điều-p3-TPVL', 'hoavlute', '1234567', '', 1, 2.1, 0);
 
 -- --------------------------------------------------------
 
@@ -288,7 +286,8 @@ INSERT INTO `xuatsach` (`id`, `NgayXuat`, `MaS`, `SoLuong`, `GhiChu`) VALUES
 -- Chỉ mục cho bảng `docgia`
 --
 ALTER TABLE `docgia`
-  ADD PRIMARY KEY (`MaDG`);
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `MaDG` (`MaDG`);
 
 --
 -- Chỉ mục cho bảng `khoa`
@@ -354,7 +353,7 @@ ALTER TABLE `xuatsach`
 -- AUTO_INCREMENT cho bảng `docgia`
 --
 ALTER TABLE `docgia`
-  MODIFY `MaDG` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT cho bảng `loaisach`
 --
