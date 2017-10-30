@@ -47,7 +47,7 @@
           <li><a href="#">Sách mượn quá hạn</a></li>
         </ul>
       </li>
-      <li class="dropdown">
+      <li class="dropdown" id="doc-gia">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Độc giả <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="?p=docgia">Độc giả</a></li>
@@ -64,7 +64,7 @@
           <li><a href="#">Sách theo nhà xuất bản</a></li> 
         </ul>
       </li>
-      <li><a href="#">Quản lý thủ thư</a></li>
+      <li class="dropdown" id="nhanvien"><a href="?p=nhanvien">Quản lý thủ thư</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" id="quanlythongtin">

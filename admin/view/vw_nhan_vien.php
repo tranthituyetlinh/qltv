@@ -1,12 +1,18 @@
 <!-- Content Header (Page header) -->
-    <section class="content-header animated fadeIn">
+    <section class="content-header">
       <h1>
-        Nhập sách
+        Nhân viên
         <div class="line"></div>
       </h1>
     </section>
     <!-- Main content -->
     <section class="content">
+      <div class="row">
+        <div class="col-md-12 col-ms-12">
+          <a id="themtacgia" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> Thêm nhân viên</a>
+        </div>
+        <div class="col-md-12 col-ms-12 cach"></div>
+      </div>
       <div class="row">
         <div class="col-md-12 col-ms-12 cach"></div>
       </div>
@@ -16,12 +22,14 @@
                 <tr role="row">
                   <tr style="background-color: #2980b9;color: #fff;">
                     <th class="giua">STT</th>
-                    <th class="giua">Mã sách</th>
-                    <th class="giua">Tên sách</th>
-                    <th class="giua">Loại sách</th>
-                    <th class="giua">Số trang</th>
-                    <th class="giua">Số lượng</th>
-                    <th class="giua">Nhập sách</th>
+                    <th class="giua">Mã nhân viên</th>
+                    <th class="giua">Tên nhân viên</th>
+                    <th class="giua">Tên đăng nhập</th>
+                    <th class="giua">Mail</th>
+                    <th class="giua">Loại nhân viên</th>
+                    <th class="giua">Trạng thái</th>
+                    <th class="giua">HS Phụ cấp</th>
+                    <th class="giua">Thao tác</th>
                   </tr>
                 </tr>
             </thead>
@@ -32,62 +40,20 @@
                 ?>
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
-                    <td class="giua"><a>S<?php echo $row['MaS']; ?></a></td>
-                    <td><a class="ten-a btn-sua-sach" data-qltv="<?php echo $row['MaS']; ?>" alt="Image" Tooltip rel=thongbaonho content="<div id=imagcon>
-                            <img src='../<?php echo $row['HinhAnhS']; ?>' class=thongbaonho-image/></div>"><?php echo $row['TenS']; ?></a></td>
-                    <td><?php echo $row['TenLS']; ?></td>
-                    <td class="giua"><?php echo $row['SoTrang']; ?></td>
-                    <td class="giua"><?php echo $row['SL']; ?></td>
-                    <td class="giua"><div class="nam-giua"><a class="btn btn-success btn-nhap-sach" data-qltv="<?php echo $row['MaS']; ?>" title="Sửa"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                    <td class="giua"><a>SNV<?php echo $row['MaNV']; ?></a></td>
+                    <td><?php echo $row['TenNV']; ?></td>
+                    <td class="giua"><?php echo $row['TenDangNhap']; ?></td>
+                    <td class="giua"><?php echo $row['Mail']; ?></td>
+                    <td class="giua"><?php echo $row['LoaiNV']; ?></td>
+                    <td class="giua"><?php echo $row['TrangThaiNV']; ?></td>
+                    <td class="giua"><?php echo $row['HeSoPhuCap']; ?></td>
+                    <td class="giua">
+                      <div class="nam-giua">
+                        <a class="btn btn-primary btn-sua-nhan-vien" data-qltv="<?php echo $row['MaNV']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="btn btn-danger btn-xoa-nhan-vien" data-qltv="<?php echo $row['MaNV']; ?>" title="Xóa"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                      </div>
                     </td>
-                    <input type="text" hidden="hidden" name="" id="id-ma-s-<?php echo $row['MaS']; ?>" value="<?php echo $row['MaS']; ?>">
-                    <input type="text" hidden="hidden" name="" id="id-ten-s-<?php echo $row['MaS']; ?>" value="<?php echo $row['TenS']; ?>">
-                    <input type="text" hidden="hidden" name="" id="id-ten-ls-s-<?php echo $row['MaS']; ?>" value="<?php echo $row['TenLS']; ?>">
-                    <input type="text" hidden="hidden" name="" id="id-so-trang-s-<?php echo $row['MaS']; ?>" value="<?php echo $row['SoTrang']; ?>">
-                    <input type="text" hidden="hidden" name="" id="id-so-luong-s-<?php echo $row['MaS']; ?>" value="<?php echo $row['SL']; ?>">
-                    <input type="text" hidden="hidden" name="" id="id-anh-s-<?php echo $row['MaS']; ?>" value="<?php echo $row['HinhAnhS']; ?>">
-                </tr>
-                <?php
-                $stt++;
-              }
-            ?>
-            </tbody>
-        </table>
-      </div>
-    <section class="content-header animated fadeIn">
-      <h1>
-        Lịch sử nhập sách
-        <div class="line"></div>
-      </h1>
-    </section>
-      <div class="windows-table animated fadeIn">
-        <table id="qltv-loai-sach-t" class="table table-striped">
-            <thead>
-                <tr role="row">
-                  <tr style="background-color: #16a085;color: #fff;">
-                    <th class="giua">STT</th>
-                    <th class="giua">Mã sách</th>
-                    <th class="giua">Tên sách</th>
-                    <th class="giua">Tên loại sách</th>
-                    <th class="giua">Số lượng</th>
-                    <th class="giua">Ngày nhập</th>
-                    <th class="giua">Ghi chú</th>
-                  </tr>
-                </tr>
-            </thead>
-            <tbody>
-            <?php 
-              $stt = 1;
-              while ($row = mysqli_fetch_assoc($dulieu_lich_su)) {
-                ?>
-                  <tr>
-                    <th class="giua"><?php echo $stt; ?></th>
-                    <td class="giua"><a>S<?php echo $row['MaS']; ?></a></td>
-                    <td><a><?php echo $row['TenS']; ?></a></td>
-                    <td><?php echo $row['TenLS']; ?></td>
-                    <td class="giua"><?php echo $row['SoLuong']; ?></td>
-                    <td class="giua"><?php echo $row['NgayNhap']; ?></td>
-                    <td><?php echo $row['GhiChu']; ?></td>
+                    <input type="text" hidden="hidden" name="" id="id-ma-s-<?php echo $row['MaNV']; ?>" value="<?php echo $row['MaNV']; ?>">
                 </tr>
                 <?php
                 $stt++;
@@ -154,7 +120,7 @@
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#muc-sach").addClass("active");
+		$("#nhanvien").addClass("active");
 	});
 </script>
 <link rel="stylesheet" href="css/datatables.min.css">

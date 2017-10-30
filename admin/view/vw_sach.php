@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-12 col-ms-12 cach"></div>
       </div>
-      <div class="windows-table">
+      <div class="windows-table animated fadeIn">
         <table id="qltv-loai-sach" class="table table-striped">
             <thead>
                 <tr role="row">
@@ -317,7 +317,7 @@
 </div>
 
 <script type="text/javascript">
-    document.title = "VLUTE LIB | Loại sách";
+    document.title = "VLUTE LIB | Sách";
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
