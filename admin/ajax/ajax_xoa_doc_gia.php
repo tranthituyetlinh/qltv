@@ -6,7 +6,7 @@
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
-				DELETE FROM `docgia` WHERE `MaDG` = '$ma'
+				DELETE FROM `docgia` WHERE `Id` = '$ma'
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;

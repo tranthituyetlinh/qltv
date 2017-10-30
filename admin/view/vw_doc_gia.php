@@ -39,23 +39,23 @@
                 ?>
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
-                    <td class="giua" id="id-ma-dg-<?php echo $row['MaDG']; ?>"><a>DG<?php echo $row['MaDG']; ?></a></td>
-                    <td id="id-ten-dg-<?php echo $row['MaDG']; ?>"><a><?php echo $row['TenDG']; ?></a></td>
-                    <td id="id-ngay-sinh-dg-<?php echo $row['MaDG']; ?>"><?php echo $row['NgaySinh']; ?></td>
-                    <td id="id-dia-chi-dg-<?php echo $row['MaDG']; ?>"><?php echo $row['DiaChiDG']; ?></td>
-                    <td id="id-ngay-lap-the-dg-<?php echo $row['MaDG']; ?>"><?php echo $row['NgayLapThe']; ?></td>
-                    <td id="id-ten-dang-nhap-dg-<?php echo $row['MaDG']; ?>"><a><?php echo $row['TaiKhoanDG']; ?></a></td>
-                    <td id="id-mail-dg-<?php echo $row['MaDG']; ?>"><a><?php echo $row['Mail']; ?></a></td>
-                    <td id="id-ten-lop-dg-<?php echo $row['MaDG']; ?>"><?php echo $row['TenL']; ?></td>
+                    <td class="giua" id="id-ma-dg-<?php echo $row['Id']; ?>"><a><?php echo $row['MaDG']; ?></a></td>
+                    <td id="id-ten-dg-<?php echo $row['Id']; ?>"><a><?php echo $row['TenDG']; ?></a></td>
+                    <td id="id-ngay-sinh-dg-<?php echo $row['Id']; ?>"><?php echo $row['NgaySinh']; ?></td>
+                    <td id="id-dia-chi-dg-<?php echo $row['Id']; ?>"><?php echo $row['DiaChiDG']; ?></td>
+                    <td id="id-ngay-lap-the-dg-<?php echo $row['Id']; ?>"><?php echo $row['NgayLapThe']; ?></td>
+                    <td id="id-ten-dang-nhap-dg-<?php echo $row['Id']; ?>"><a><?php echo $row['TaiKhoanDG']; ?></a></td>
+                    <td id="id-mail-dg-<?php echo $row['Id']; ?>"><a><?php echo $row['Mail']; ?></a></td>
+                    <td id="id-ten-lop-dg-<?php echo $row['Id']; ?>"><?php echo $row['TenL']; ?></td>
                     <td><?php echo $row['TenK']; ?></td>
-                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-dg" data-qltv="<?php echo $row['MaDG']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-dg" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 
                         <a class="btn btn-danger btn-xoa-dg" title="Xóa"
-                        data-qltv="<?php echo $row['MaDG']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
+                        data-qltv="<?php echo $row['Id']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
                     </td>
-                    <input type="text" hidden="hidden" name="" id="id-ma-dg-<?php echo $row['MaDG']; ?>" value="<?php echo $row['MaDG']; ?>">
-                    <input type="text" hidden="hidden" name="" id="id-ma-khoa-dg-<?php echo $row['MaDG']; ?>" value="<?php echo $row['MaL']; ?>">
-                    <input type="text" hidden="hidden" name="" id="id-trang-thai-dg-<?php echo $row['MaDG']; ?>" value="<?php echo $row['TrangThai']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-id-dg-<?php echo $row['Id']; ?>" value="<?php echo $row['Id']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-ma-khoa-dg-<?php echo $row['Id']; ?>" value="<?php echo $row['MaL']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-trang-thai-dg-<?php echo $row['Id']; ?>" value="<?php echo $row['TrangThai']; ?>">
                 </tr>
                 <?php
                 $stt++;
@@ -79,15 +79,32 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label>Họ tên</label>
+              <label>Mã độc giả(*)</label>
+              <input type="text" class="form-control" name="" id="ma-dg-them" placeholder="mã độc giả" required autocomplete="on">
+            </div>
+            <p class="help-block"> (<b>*</b>) Chấp nhận <b>MSSV</b>, <b>CMND</b> hoặc <b>Id</b> thẻ ATM.</p>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Tên đăng nhập(**)</label>
+              <input type="text" class="form-control" name="" id="ten-dang-nhap-dg-them" placeholder="tên đăng nhập" required autocomplete="on">
+            </div>
+          <p class="help-block"> (<b>**</b>) Mật khẩu mặc định là: <b style="color: red;">123456</b></p>
+          </div>  
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Họ & Tên</label>
               <input type="text" class="form-control" name="" id="ho-ten-dg-them" placeholder="họ tên độc giả" required autocomplete="on">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label>Tên đăng nhập(*)</label>
-              <input type="text" class="form-control" name="" id="ten-dang-nhap-dg-them" placeholder="tên đăng nhập" required autocomplete="on">
+              <label>Địa chỉ mail(***)</label>
+              <input type="text" class="form-control" name="" id="mail-dg-them" placeholder="địa chỉ mail" required autocomplete="on">
             </div>
+          <p class="help-block"> (<b>***</b>) Nên dùng địa chỉ mail trường do cung cấp.</p>
           </div>  
         </div>
         <div class="row">
@@ -109,11 +126,7 @@
           <textarea class="form-control" id="dia-chi-dg-them" rows="5"></textarea>
         </div>
         <div class="form-group">
-          <label>Địa chỉ mail</label>
-          <input type="email" class="form-control" id="mail-dg-them" value="">
-        </div>
-        <div class="form-group">
-          <label>Thuộc khoa</label>
+          <label>Thuộc lớp</label>
           <select class="form-control" id="khoa-dg-them">
             <?php while ($row = mysqli_fetch_assoc($dulieu_lop)) {
             ?>
@@ -121,7 +134,6 @@
             <?php } ?>
           </select>
         </div>
-        <p class="help-block"> (<b>*</b>) Mật khẩu mặc định là: <b style="color: red;">123456</b></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -144,14 +156,28 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
+              <label>Mã độc giả(*)</label>
+              <input type="text" class="form-control" name="" id="ma-dg-sua" placeholder="mã độc giả" required autocomplete="on">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Tên đăng nhập(**)</label>
+              <input type="text" class="form-control" name="" id="ten-dang-nhap-dg-sua" placeholder="tên đăng nhập" required autocomplete="on" disabled="disabled">
+            </div>
+          </div>  
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
               <label>Họ tên</label>
               <input type="text" class="form-control" name="" id="ho-ten-dg-sua" placeholder="họ tên độc giả" required autocomplete="on" disabled="disabled">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label>Tên đăng nhập(*)</label>
-              <input type="text" class="form-control" name="" id="ten-dang-nhap-dg-sua" placeholder="tên đăng nhập" required autocomplete="on" disabled="disabled">
+              <label>Mail</label>
+              <input type="text" class="form-control" name="" id="mail-dg-sua" placeholder="tên đăng nhập" required autocomplete="on">
             </div>
           </div>  
         </div>
@@ -174,10 +200,6 @@
           <textarea class="form-control" id="dia-chi-dg-sua" rows="5" disabled="disabled"></textarea>
         </div>
         <div class="form-group">
-          <label>Địa chỉ mail</label>
-          <input type="email" class="form-control" id="mail-dg-sua" value="">
-        </div>
-        <div class="form-group">
           <label>Thuộc khoa</label>
           <select class="form-control" id="khoa-dg-sua" disabled="disabled">
             <?php while ($row = mysqli_fetch_assoc($dulieu_lop_s)) {
@@ -194,7 +216,7 @@
           </select>
         </div>
         <p class="help-block"> (<b>*</b>) Mật khẩu mặc định khi reset là: <b style="color: red;">123456</b></p>
-        <input type="text" hidden="hidden" name="" value="" id="ma-dg-sua">
+        <input type="text" hidden="hidden" name="" value="" id="id-id-dg-sua">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -216,7 +238,7 @@
       <div class="modal-body">
         <div class="alert alert-danger" role="alert">Bạn có chắc muốn xóa độc giả này?</div>
       </div>
-      <input type="text" hidden="hidden" name="" id="ma-dg-xoa">
+      <input type="text" hidden="hidden" name="" id="id-id-dg-xoa">
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Tôi không chắc</button>
         <button type="button" class="btn btn-danger" id="nut-xoa-dg">Tôi chắc chắn</button>
@@ -280,6 +302,7 @@
   	        type : "post",
   	        dataType:"text",
   	        data : {
+              ma: $("#ma-dg-them").val(),
   	          ten: $("#ho-ten-dg-them").val(),
               tdn: $("#ten-dang-nhap-dg-them").val(),
               sinh: $("#ngay-sinh-dg-them").val(),
@@ -296,6 +319,7 @@
 	     });
 	    $(".btn-sua-dg").click(function(){
 	    	var id = $(this).attr("data-qltv");
+        $("#ma-dg-sua").val($("#id-ma-dg-"+id).text().trim());
 	    	$("#ho-ten-dg-sua").val($("#id-ten-dg-"+id).text().trim());
 	    	$("#ten-dang-nhap-dg-sua").val($("#id-ten-dang-nhap-dg-"+id).text().trim());
         $("#ngay-sinh-dg-sua").val($("#id-ngay-sinh-dg-"+id).text().trim());
@@ -304,7 +328,7 @@
         $("#mail-dg-sua").val($("#id-mail-dg-"+id).text().trim());
         $("#khoa-dg-sua").val($("#id-ma-khoa-dg-"+id).val().trim());
         $("#trang-thai-dg-sua").val($("#id-trang-thai-dg-"+id).val().trim());
-        $("#ma-dg-sua").val($("#id-ma-dg-"+id).val().trim());
+        $("#id-id-dg-sua").val($("#id-id-dg-"+id).val().trim());
 	    	$("#qltv-modal-sua-dg").modal("show");
 	    });
 	    $("#nut-sua-dg").click(function(){
@@ -315,7 +339,8 @@
 	        data : {
 	          mail: $("#mail-dg-sua").val(),
             tt: $("#trang-thai-dg-sua").val(),
-            ma: $("#ma-dg-sua").val()
+            ma: $("#ma-dg-sua").val(),
+            id: $("#id-id-dg-sua").val()
 	        },
 	        success : function (data){
 	            $("body").append(data);
@@ -329,7 +354,7 @@
           type : "post",
           dataType:"text",
           data : {
-            ma: $("#ma-dg-sua").val()
+            ma: $("#id-id-dg-sua").val()
           },
           success : function (data){
               $("body").append(data);
@@ -339,7 +364,7 @@
       });
 	    $(".btn-xoa-dg").click(function(){
 	    	var id = $(this).attr("data-qltv");
-	    	$("#ma-dg-xoa").val($("#id-ma-dg-"+id).val().trim());
+	    	$("#id-id-dg-xoa").val(id);
 	    	$("#qltv-modal-xoa-dg").modal("show");
 	    });
 	    $("#nut-xoa-dg").click(function(){
@@ -348,14 +373,14 @@
 	        type : "post",
 	        dataType:"text",
 	        data : {
-	          ma: $("#ma-dg-xoa").val()
+	          ma: $("#id-id-dg-xoa").val()
 	        },
 	        success : function (data){
 	            $("body").append(data);
 	        }
 	      });
 	    });
-      });
+    });
 </script>
 <script type="text/javascript">
   $('#qltv-loai-sach').DataTable();

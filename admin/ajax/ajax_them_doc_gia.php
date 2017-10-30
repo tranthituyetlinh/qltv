@@ -1,7 +1,11 @@
 <?php 
 	session_start();
 	include_once("ajax_config.php");
-	function vlu_them_lop($ten, $tdn, $sinh, $lap, $diachi, $lop, $mail){
+	function vlu_them_lop($ma, $ten, $tdn, $sinh, $lap, $diachi, $lop, $mail){
+		if (empty($ma)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> mã tên độc giả không để trống!\")</script>";
+			exit();
+		}
 		if (empty($ten)) {
 			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> tên độc giả không để trống!\")</script>";
 			exit();
@@ -41,7 +45,7 @@
 			exit();
 		}
 		$hoi = "
-				INSERT INTO `docgia`(`MaDG`, `TenDG`, `NgaySinh`, `DiaChiDG`, `NgayLapThe`, `TaiKhoanDG`, `MatKhauDG`, `MaL`,`Mail`) VALUES (null,'$ten','$sinh','$diachi','$lap','$tdn','$mk','$lop','$mail')
+				INSERT INTO `docgia`(`Id`,`MaDG`, `TenDG`, `NgaySinh`, `DiaChiDG`, `NgayLapThe`, `TaiKhoanDG`, `MatKhauDG`, `MaL`,`Mail`) VALUES (null,'$ma','$ten','$sinh','$diachi','$lap','$tdn','$mk','$lop','$mail')
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;
@@ -53,7 +57,7 @@
 			header("Location: ../login.php");
 		}
 		else{
-			if (vlu_them_lop($_POST['ten'],$_POST['tdn'],$_POST['sinh'],$_POST['lap'],$_POST['diachi'],$_POST['lop'],$_POST['mail'])) {
+			if (vlu_them_lop($_POST['ma'],$_POST['ten'],$_POST['tdn'],$_POST['sinh'],$_POST['lap'],$_POST['diachi'],$_POST['lop'],$_POST['mail'])) {
 				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã lưu</strong> độc giả!\")</script>";
 				exit();
 			}

@@ -11,7 +11,7 @@
 				SET 
 					`MatKhauDG`='$mk'
 				WHERE
-					`MaDG` = '$ma'
+					`Id` = '$ma'
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;
