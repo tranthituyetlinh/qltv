@@ -64,7 +64,7 @@
           <li><a href="#">Sách theo nhà xuất bản</a></li> 
         </ul>
       </li>
-      <li class="dropdown" id="nhanvien"><a href="?p=nhanvien">Quản lý thủ thư</a></li>
+      <li class="dropdown" id="nhanvien"><a href="?p=nhanvien">Quản lý nhân viên</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" id="quanlythongtin">

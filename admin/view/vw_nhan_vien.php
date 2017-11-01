@@ -44,8 +44,24 @@
                     <td><?php echo $row['TenNV']; ?></td>
                     <td class="giua"><?php echo $row['TenDangNhap']; ?></td>
                     <td class="giua"><?php echo $row['Mail']; ?></td>
-                    <td class="giua"><?php echo $row['LoaiNV']; ?></td>
-                    <td class="giua"><?php echo $row['TrangThaiNV']; ?></td>
+                    <td class="giua">
+                      <?php if ($row['LoaiNV']=='1') {
+                      ?>
+                      <a class="btn btn-primary btn-loai-nhan-vien" data-l="1" data-qltv="<?php echo $row['MaNV']; ?>" title="Thủ thư">Thủ thư</a>
+                      <?php
+                      } else { ?>
+                      <a class="btn btn-success btn-loai-nhan-vien" data-l="0" data-qltv="<?php echo $row['MaNV']; ?>" title="Admin">Admin</i></a>
+                      <?php } ?>
+                    </td>
+                    <td class="giua">
+                      <?php if ($row['TrangThaiNV']=='1') {
+                      ?>
+                      <a class="btn btn-success btn-trang-thai-nhan-vien" data-tt="1" data-qltv="<?php echo $row['MaNV']; ?>" title="Sửa"><i class="fa fa-check" aria-hidden="true"></i></a>
+                      <?php
+                      } else { ?>
+                      <a class="btn btn-warning btn-trang-thai-nhan-vien" data-tt="0" data-qltv="<?php echo $row['MaNV']; ?>" title="Sửa"><i class="fa fa-close" aria-hidden="true"></i></a>
+                      <?php } ?>
+                    </td>
                     <td class="giua"><?php echo $row['HeSoPhuCap']; ?></td>
                     <td class="giua">
                       <div class="nam-giua">
@@ -68,7 +84,7 @@
 <div class="modal fade" id="qltv-modal-nhap-sach" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <!-- Modal content-->
-    <div class="modal-content">
+    <div class="modal-content">`
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Nhập sách</h4>
