@@ -17,7 +17,7 @@
 		}
 	}
 	function qltv_login($username, $password){	
-		//$password = md5($password);
+		$password = md5($password);
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "SELECT * FROM `nhanvien` WHERE BINARY `TenDangNhap` = '$username' and `MatKhau` = '$password' and trangthainv='1'";

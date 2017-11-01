@@ -10,7 +10,7 @@
 	else
 		header("Location: login.php");
 	$ketnoi = new clsKetnoi();
-	$hoi_user = "SELECT * FROM `nhanvien` WHERE BINARY `TenDangNhap` = '".$_SESSION['username']."' and `MatKhau` = '".$_SESSION['password']."' and trangthainv='1'";
+	$hoi_user = "SELECT * FROM `nhanvien` WHERE BINARY `TenDangNhap` = '".$_SESSION['username']."' and `MatKhau` = '".md5($_SESSION['password'])."' and trangthainv='1'";
 	$thucthi_user = mysqli_query($ketnoi->ketnoi(), $hoi_user);
 	$row_user = mysqli_fetch_assoc($thucthi_user);
 	$manv = $row_user['MaNV'];

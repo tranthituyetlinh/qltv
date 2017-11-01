@@ -20,6 +20,8 @@
 		}
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
+		$moi=md5($moi);
+		$cu=md5($cu);
 		$hoi = "
 			UPDATE `nhanvien` 
 			SET 
@@ -30,6 +32,7 @@
 		$hoimk = "
 			SELECT * from nhanvien where MatKhau = '$cu' and MaNV = '$ma'
 		";
+		echo $hoimk;
 		$ktmk = mysqli_query($conn, $hoimk);
 		$demmk = mysqli_num_rows($ktmk);
 		if ($demmk<=0) {
