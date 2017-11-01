@@ -40,7 +40,7 @@
                 ?>
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
-                    <td class="giua"><a>SNV<?php echo $row['MaNV']; ?></a></td>
+                    <td class="giua"><a><?php echo $row['MaNV']; ?></a></td>
                     <td><?php echo $row['TenNV']; ?></td>
                     <td class="giua"><?php echo $row['TenDangNhap']; ?></td>
                     <td class="giua"><?php echo $row['Mail']; ?></td>
