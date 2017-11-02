@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2017 lúc 11:22 SA
+-- Thời gian đã tạo: Th10 02, 2017 lúc 02:14 SA
 -- Phiên bản máy phục vụ: 5.7.14
 -- Phiên bản PHP: 5.6.25
 
@@ -45,7 +45,7 @@ CREATE TABLE `docgia` (
 --
 
 INSERT INTO `docgia` (`Id`, `MaDG`, `TenDG`, `NgaySinh`, `DiaChiDG`, `NgayLapThe`, `TaiKhoanDG`, `MatKhauDG`, `Mail`, `MaL`, `TrangThai`) VALUES
-(1, '14004038', 'Trần Thị Tuyết Linh', '1996-11-15', 'Đồng Tháp', '2017-10-30', 'tuyetlinh', 'e10adc3949ba59abbe56e057f20f883e', 'tuyetlinhcntt2014@gmail.com', '1CTT14A', 1);
+(1, '14004038', 'Trần Thị Tuyết Linh', '1996-11-15', 'Đồng Tháp', '2017-10-30', 'tuyetlinh', 'e10adc3949ba59abbe56e057f20f883e', 'tuyetlinhcntt2014@gmail.com', '1CTT14A', 2);
 
 -- --------------------------------------------------------
 
@@ -135,7 +135,8 @@ CREATE TABLE `muon-tra` (
 --
 
 CREATE TABLE `nhanvien` (
-  `MaNV` bigint(10) NOT NULL,
+  `Id` bigint(20) NOT NULL,
+  `MaNV` varchar(10) NOT NULL,
   `TenNV` varchar(50) NOT NULL,
   `DiaChiNV` text NOT NULL,
   `TenDangNhap` varchar(50) NOT NULL,
@@ -150,9 +151,9 @@ CREATE TABLE `nhanvien` (
 -- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
-INSERT INTO `nhanvien` (`MaNV`, `TenNV`, `DiaChiNV`, `TenDangNhap`, `MatKhau`, `Mail`, `TrangThaiNV`, `HeSoPhuCap`, `LoaiNV`) VALUES
-(1, 'Nguyễn Thị Ràng', '72 Nguyen Hue-P2-TPVL', 'rangvlute', '1234567', 'lythanhngodev@gmail.com', 1, 2.53, 0),
-(2, 'Tran Thi Hoa', '82/7C Phó cơ điều-p3-TPVL', 'hoavlute', '1234567', '', 1, 2.1, 0);
+INSERT INTO `nhanvien` (`Id`, `MaNV`, `TenNV`, `DiaChiNV`, `TenDangNhap`, `MatKhau`, `Mail`, `TrangThaiNV`, `HeSoPhuCap`, `LoaiNV`) VALUES
+(1, '331892182', 'Nguyễn Thị Ràng', '72 Nguyen Hue-P2-TPVL', 'rangvlute', 'fcea920f7412b5da7be0cf42b8c93759', 'lythanhngodev@gmail.com', 1, 2.53, 0),
+(2, '331298374', 'Tran Thi Hoa', '82/7C Phó cơ điều-p3-TPVL', 'hoavlute', 'fcea920f7412b5da7be0cf42b8c93759', '', 1, 2.1, 0);
 
 -- --------------------------------------------------------
 
@@ -311,7 +312,7 @@ ALTER TABLE `lop`
 -- Chỉ mục cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  ADD PRIMARY KEY (`MaNV`),
+  ADD PRIMARY KEY (`Id`),
   ADD UNIQUE KEY `TenDangNhap` (`TenDangNhap`),
   ADD UNIQUE KEY `Mail` (`Mail`);
 
@@ -353,17 +354,17 @@ ALTER TABLE `xuatsach`
 -- AUTO_INCREMENT cho bảng `docgia`
 --
 ALTER TABLE `docgia`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT cho bảng `loaisach`
 --
 ALTER TABLE `loaisach`
-  MODIFY `MaLS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `MaLS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `MaNV` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT cho bảng `nhapsach`
 --
@@ -373,17 +374,17 @@ ALTER TABLE `nhapsach`
 -- AUTO_INCREMENT cho bảng `nhaxuatban`
 --
 ALTER TABLE `nhaxuatban`
-  MODIFY `MaNXB` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `MaNXB` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT cho bảng `sach`
 --
 ALTER TABLE `sach`
-  MODIFY `MaS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `MaS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT cho bảng `tacgia`
 --
 ALTER TABLE `tacgia`
-  MODIFY `MaTG` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `MaTG` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT cho bảng `xuatsach`
 --
