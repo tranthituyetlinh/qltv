@@ -19,11 +19,8 @@
                 <tr role="row">
                   <tr style="background-color: #2980b9;color: #fff;">
                     <th class="giua">STT</th>
-                    <th class="giua">Mã NV</th>
                     <th class="giua">Tên NV</th>
-                    <th class="giua">Mã ĐG</th>
                     <th class="giua">Tên ĐG</th>
-                    <th class="giua">Mã sách</th>
                     <th class="giua">Tên sách</th>
                     <th class="giua">Ngày mượn</th>
                     <th class="giua">Ngày trả</th>
@@ -41,11 +38,11 @@
                 ?>
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
-                    <td id="id-ma-nv-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['MaNV']; ?></a></td>
+                    <input type="text" hidden="hidden" id="id-ma-nv-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaNV'] ?>" >
                     <td id="id-ten-nv-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenNV']; ?></a></td>
-                    <td id="id-ma-dg-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['MaDG']; ?></a></td>
+                    <input type="text" hidden="hidden" id="id-ma-dg-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaDG'] ?>" >
                     <td id="id-ten-dg-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenDG']; ?></a></td>
-                    <td class="giua" id="id-ma-s-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['MaS']; ?></a></td>
+                    <input type="text" hidden="hidden" class="giua" id="id-ma-s-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaS'] ?>" >
                     <td id="id-ten-s-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenS']; ?></a></td>
                     <td class="giua" id="id-ngay-muon-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['NgayMuon']; ?></a></td>
                     <td class="giua" id="id-ngay-tra-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['NgayTra']; ?></a></td>
