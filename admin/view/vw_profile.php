@@ -31,7 +31,7 @@
                   <label>Hệ số phụ cấp</label>
                    <input type="text" class="form-control" name="" id="he-so-phu-cap" placeholder="hệ số phụ cấp" required autocomplete="on" value="<?php echo $hspc; ?>">
                 </div>
-                <input type="text" hidden="hidden" id="ma-nhan-vien" name="" value="<?php echo $manv; ?>">
+                <input type="text" hidden="hidden" id="ma-nhan-vien" name="" value="<?php echo $id; ?>">
                 <div class="form-group trai">
                   <button type="button" class="btn btn-primary" id="nut-doi-thong-tin">Lưu sửa đổi</button>
                 </div>
@@ -79,6 +79,9 @@
           delay: 2000
         });
   }
+    function tailai() {
+      setTimeout(function(){ location.reload(); }, 2000);
+    }
   function luukhongthanhcong(chuoi) {
        $.notify(chuoi, {
           animate: {
@@ -90,7 +93,6 @@
         });
   }
   $(document).ready(function() {
-
     $("#quanlythongtin").addClass("active");
     $("#nut-doi-thong-tin").click(function(){
         $.ajax({
@@ -118,7 +120,7 @@
             cu: $("#mat-khau-cu").val(),
             moi: $("#mat-khau-moi").val(),
             xnmoi: $("#xac-nhan-mat-khau").val(),
-            ma: $("#ma-nhan-vien").val(),
+            ma: $("#ma-nhan-vien").val()
           },
           success : function (data){
               $("body").append(data);
