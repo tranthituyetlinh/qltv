@@ -46,7 +46,14 @@
                     <td id="id-ten-s-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenS']; ?></a></td>
                     <td class="giua" id="id-ngay-muon-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['NgayMuon']; ?></a></td>
                     <td class="giua" id="id-ngay-tra-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['NgayTra']; ?></a></td>
-                    <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TrangThai']; ?></a></td>
+                    <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>">
+                    <?php 
+                      if ($row['TrangThai']==0) { ?>
+                        <span class="chuatra" >Chưa trả</span>
+                    <?php } else { ?>
+                        <span class="datra" >Đã trả</span>
+                    <?php } ?>
+                    </td>
                     <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['SLMuon']; ?></a></td>
                     <td class="giua" id="id-so-lan-gia-han-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['SLGiaHan']; ?></a></td>
                     <td class="giua">
