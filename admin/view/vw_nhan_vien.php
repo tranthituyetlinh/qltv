@@ -69,19 +69,19 @@
                     <td class="giua">
                       <?php if ($row['LoaiNV']=='1') {
                       ?>
-                      <a class="btn btn-primary btn-loai-nhan-vien" data-l="1" data-qltv="<?php echo $row['Id']; ?>" title="Thủ thư">Thủ thư</a>
+                      <a class="btn btn-primary" data-l="1" data-qltv="<?php echo $row['Id']; ?>" title="Thủ thư">Thủ thư</a>
                       <?php
                       } else { ?>
-                      <a class="btn btn-success btn-loai-nhan-vien" data-l="0" data-qltv="<?php echo $row['Id']; ?>" title="Admin">Admin</i></a>
+                      <a class="btn btn-success" data-l="0" data-qltv="<?php echo $row['Id']; ?>" title="Admin">Admin</i></a>
                       <?php } ?>
                     </td>
-                    <td class="giua" id="id-trang-thai-nhan-vien-<?php echo $row['Id']; ?>">
+                    <td class="giua trangthainhanvien" id="id-trang-thai-nhan-vien-<?php echo $row['Id']; ?>" data-qltv="<?php echo $row['Id']; ?>">
                       <?php if ($row['TrangThaiNV']=='1') {
                       ?>
-                      <a class="btn btn-success btn-trang-thai-nhan-vien" data-tt="1" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-check" aria-hidden="true"></i></a>
+                      <a class="btn btn-success" title="Bình thường"><i class="fa fa-check" aria-hidden="true"></i></a>
                       <?php
                       } else { ?>
-                      <a class="btn btn-warning btn-trang-thai-nhan-vien" data-tt="0" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-close" aria-hidden="true"></i></a>
+                      <a class="btn btn-warning" title="Không được đăng nhập"><i class="fa fa-close" aria-hidden="true"></i></a>
                       <?php } ?>
                     </td>
                     <td class="giua"><?php echo $row['HeSoPhuCap']; ?></td>
@@ -166,22 +166,17 @@
 <script type="text/javascript" charset="utf-8">
 
       $(document).ready(function() {
-        $(".btn-trang-thai-nhan-vien").click(function(){
-          var tt = $(this).attr("data-tt");
+        $(".trangthainhanvien").click(function(){
           var id = $(this).attr("data-qltv");
-          alert(1);
           $.ajax({
             url : "ajax/ajax_sua_trang_thai_nhan_vien.php",
             type : "post",
             dataType:"text",
             data : {
-                ma: id,
-              tt: tt
+                ma: id
             },
             success : function (data){
                 $("#id-trang-thai-nhan-vien-"+id).html(data);
-                //$("body").append(data);
-                //location.reload();
             }
           });
         });
@@ -192,9 +187,9 @@
 	        dataType:"text",
 	        data : {
               ngay: $("#ngay-nhap-sach").val(),
-	          ma: $("#ma-sach-nhap").val(),
-	          sl: $("#so-luong-sach-nhap").val(),
-	          ghichu: $("#ghi-chu-nhap").val()
+  	          ma: $("#ma-sach-nhap").val(),
+  	          sl: $("#so-luong-sach-nhap").val(),
+  	          ghichu: $("#ghi-chu-nhap").val()
 	        },
 	        success : function (data){
 	            $("body").append(data);
