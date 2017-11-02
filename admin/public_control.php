@@ -34,11 +34,8 @@
 			case 'profile':
 				include_once("control/ctrl_profile.php");
 				break;
-			case 'muon':
-				include_once("control/ctrl_muon.php");
-				break;
-			case 'tra':
-				include_once("control/ctrl_tra.php");
+			case 'muon-tra':
+				include_once("control/ctrl_muon_tra.php");
 				break;
 			case 'sachquahan':
 				include_once("control/ctrl_sach_qua_han.php");

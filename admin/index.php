@@ -39,11 +39,10 @@
           <li><a href="?p=lop">Lớp</a></li>
         </ul>
       </li>
-      <li class="dropdown">
+      <li class="dropdown" id="muon-tra">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mượn - Trả <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="?p=muon">Mượn sách</a></li>
-          <li><a href="?p=tra">Trả sách</a></li>
+          <li><a href="?p=muon-tra">Mượn - Trả sách</a></li>
           <li><a href="?p=muonquahan">Sách mượn quá hạn</a></li>
         </ul>
       </li>
