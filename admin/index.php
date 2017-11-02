@@ -42,9 +42,9 @@
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mượn - Trả <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Mượn sách</a></li>
-          <li><a href="#">Trả sách</a></li>
-          <li><a href="#">Sách mượn quá hạn</a></li>
+          <li><a href="?p=muon">Mượn sách</a></li>
+          <li><a href="?p=tra">Trả sách</a></li>
+          <li><a href="?p=muonquahan">Sách mượn quá hạn</a></li>
         </ul>
       </li>
       <li class="dropdown" id="doc-gia">
