@@ -1,3 +1,25 @@
+<script type="text/javascript">
+  function thanhcongtt(chuoi) {
+       $.notify(chuoi, {
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+          type: 'success',
+          delay: 2000
+        });
+  }
+  function khongthanhcong(chuoi) {
+       $.notify(chuoi, {
+          animate: {
+            enter: 'animated bounceIn',
+            exit: 'animated bounceOut'
+          },
+          type: 'danger',
+          delay: 4000
+        });
+  }
+</script>
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -40,36 +62,36 @@
                 ?>
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
-                    <td class="giua"><a>SNV<?php echo $row['MaNV']; ?></a></td>
+                    <td class="giua"><a><?php echo $row['MaNV']; ?></a></td>
                     <td><?php echo $row['TenNV']; ?></td>
                     <td class="giua"><?php echo $row['TenDangNhap']; ?></td>
                     <td class="giua"><?php echo $row['Mail']; ?></td>
                     <td class="giua">
                       <?php if ($row['LoaiNV']=='1') {
                       ?>
-                      <a class="btn btn-primary btn-loai-nhan-vien" data-l="1" data-qltv="<?php echo $row['MaNV']; ?>" title="Thủ thư">Thủ thư</a>
+                      <a class="btn btn-primary" data-l="1" data-qltv="<?php echo $row['Id']; ?>" title="Thủ thư">Thủ thư</a>
                       <?php
                       } else { ?>
-                      <a class="btn btn-success btn-loai-nhan-vien" data-l="0" data-qltv="<?php echo $row['MaNV']; ?>" title="Admin">Admin</i></a>
+                      <a class="btn btn-success" data-l="0" data-qltv="<?php echo $row['Id']; ?>" title="Admin">Admin</i></a>
                       <?php } ?>
                     </td>
-                    <td class="giua">
+                    <td class="giua trangthainhanvien" id="id-trang-thai-nhan-vien-<?php echo $row['Id']; ?>" data-qltv="<?php echo $row['Id']; ?>">
                       <?php if ($row['TrangThaiNV']=='1') {
                       ?>
-                      <a class="btn btn-success btn-trang-thai-nhan-vien" data-tt="1" data-qltv="<?php echo $row['MaNV']; ?>" title="Sửa"><i class="fa fa-check" aria-hidden="true"></i></a>
+                      <a class="btn btn-success" title="Bình thường"><i class="fa fa-check" aria-hidden="true"></i></a>
                       <?php
                       } else { ?>
-                      <a class="btn btn-warning btn-trang-thai-nhan-vien" data-tt="0" data-qltv="<?php echo $row['MaNV']; ?>" title="Sửa"><i class="fa fa-close" aria-hidden="true"></i></a>
+                      <a class="btn btn-warning" title="Không được đăng nhập"><i class="fa fa-close" aria-hidden="true"></i></a>
                       <?php } ?>
                     </td>
                     <td class="giua"><?php echo $row['HeSoPhuCap']; ?></td>
                     <td class="giua">
                       <div class="nam-giua">
-                        <a class="btn btn-primary btn-sua-nhan-vien" data-qltv="<?php echo $row['MaNV']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a class="btn btn-danger btn-xoa-nhan-vien" data-qltv="<?php echo $row['MaNV']; ?>" title="Xóa"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        <a class="btn btn-primary btn-sua-nhan-vien" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="btn btn-danger btn-xoa-nhan-vien" data-qltv="<?php echo $row['Id']; ?>" title="Xóa"><i class="fa fa-trash" aria-hidden="true"></i></a>
                       </div>
                     </td>
-                    <input type="text" hidden="hidden" name="" id="id-ma-s-<?php echo $row['MaNV']; ?>" value="<?php echo $row['MaNV']; ?>">
+                    <input type="text" hidden="hidden" name="" id="id-ma-s-<?php echo $row['Id']; ?>" value="<?php echo $row['Id']; ?>">
                 </tr>
                 <?php
                 $stt++;
@@ -142,58 +164,22 @@
 <link rel="stylesheet" href="css/datatables.min.css">
 <script src="js/datatables.min.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8">
-      function thanhcong(chuoi) {
-           $.notify(chuoi, {
-              animate: {
-                enter: 'animated bounceIn',
-                exit: 'animated bounceOut'
-              },
-              type: 'success',
-              delay: 2000
-            });
-           $("#qltv-modal-nhap-sach").modal("hide");
-           setTimeout(function(){ location.reload(); }, 3000);
-      }
-      function khongthanhcong(chuoi) {
-           $.notify(chuoi, {
-              animate: {
-                enter: 'animated bounceIn',
-                exit: 'animated bounceOut'
-              },
-              type: 'danger',
-              delay: 4000
-            });
 
-      }
       $(document).ready(function() {
-        document.getElementById('ngay-nhap-sach').valueAsDate = new Date();
-        document.getElementById("ngay-nhap-sach").readOnly = true;
-        document.getElementById("ten-sach-nhap").readOnly = true;
-        document.getElementById("loai-sach-nhap").readOnly = true;
-        document.getElementById("so-trang-sach-nhap").readOnly = true;
-        $('[rel=thongbaonho]').bind('mouseover', function(){
-         if ($(this).hasClass('ajax')) {
-            var ajax = $(this).attr('ajax');    
-          $.get(ajax,
-          function(noidungtooltip){
-            $('<div class="thongbaonho">'  + noidungtooltip + '</div>').appendTo('body').fadeIn('fast');});
-         }
-         else{
-                var noidungtooltip = $(this).attr('content');
-                $('<div class="thongbaonho">' + noidungtooltip + '</div>').appendTo('body').fadeIn('fast');
-                }
-                
-                $(this).bind('mousemove', function(e){
-                    $('div.thongbaonho').css({
-                        'top': e.pageY - ($('div.thongbaonho').height() / 2) - 5,
-                        'left': e.pageX + 15
-                    });
-                });
-            }).bind('mouseout', function(){
-                $('div.thongbaonho').fadeOut('fast', function(){
-                    $(this).remove();
-                });
-            });
+        $(".trangthainhanvien").click(function(){
+          var id = $(this).attr("data-qltv");
+          $.ajax({
+            url : "ajax/ajax_sua_trang_thai_nhan_vien.php",
+            type : "post",
+            dataType:"text",
+            data : {
+                ma: id
+            },
+            success : function (data){
+                $("#id-trang-thai-nhan-vien-"+id).html(data);
+            }
+          });
+        });
         $("#nut-nhap-sach").click(function(){
 	      $.ajax({
 	        url : "ajax/ajax_nhap_sach.php",
@@ -201,9 +187,9 @@
 	        dataType:"text",
 	        data : {
               ngay: $("#ngay-nhap-sach").val(),
-	          ma: $("#ma-sach-nhap").val(),
-	          sl: $("#so-luong-sach-nhap").val(),
-	          ghichu: $("#ghi-chu-nhap").val()
+  	          ma: $("#ma-sach-nhap").val(),
+  	          sl: $("#so-luong-sach-nhap").val(),
+  	          ghichu: $("#ghi-chu-nhap").val()
 	        },
 	        success : function (data){
 	            $("body").append(data);
