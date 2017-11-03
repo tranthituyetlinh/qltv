@@ -23,12 +23,11 @@
 			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa cho mượn</strong> số lượng sách mượn không quá 2 quyển!\")</script>";
 			exit();
 		}
-		$time = strtotime($nm);
-		$newnm = date('Y-m-d',$time);
-		date_sub($newnm, 3);
-		echo $newnm;
-		//$nt = $newnm + 3;
-		//echo "Ngay 3: ".$nt;
+		// Khởi tạo ngày trả cách ngày mượn là 7 ngày
+		$newnm = date_create($nm);
+		$ds = 7;
+		date_add($newnm,date_interval_create_from_date_string("$ds days"));
+		$nt =  date_format($newnm,"Y-m-d");
 		// Ràng buộc 'Không được mượn thêm sách khi chưa trả sách'
 		// Số lượng mượn tối đa là 2 quyển
 
