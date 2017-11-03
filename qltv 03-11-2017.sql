@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 02, 2017 lúc 02:14 SA
+-- Thời gian đã tạo: Th10 03, 2017 lúc 02:43 SA
 -- Phiên bản máy phục vụ: 5.7.14
 -- Phiên bản PHP: 5.6.25
 
@@ -45,7 +45,7 @@ CREATE TABLE `docgia` (
 --
 
 INSERT INTO `docgia` (`Id`, `MaDG`, `TenDG`, `NgaySinh`, `DiaChiDG`, `NgayLapThe`, `TaiKhoanDG`, `MatKhauDG`, `Mail`, `MaL`, `TrangThai`) VALUES
-(1, '14004038', 'Trần Thị Tuyết Linh', '1996-11-15', 'Đồng Tháp', '2017-10-30', 'tuyetlinh', 'e10adc3949ba59abbe56e057f20f883e', 'tuyetlinhcntt2014@gmail.com', '1CTT14A', 2);
+(1, '14004038', 'Trần Thị Tuyết Linh', '1996-11-15', 'Đồng Tháp', '2017-10-30', 'tuyetlinh', 'e10adc3949ba59abbe56e057f20f883e', 'tuyetlinhcntt2014@gmail.com', '1CTT14A', 0);
 
 -- --------------------------------------------------------
 
@@ -116,17 +116,27 @@ INSERT INTO `lop` (`MaL`, `TenL`, `MaK`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `muon-tra`
+-- Cấu trúc bảng cho bảng `muontra`
 --
 
-CREATE TABLE `muon-tra` (
+CREATE TABLE `muontra` (
+  `Id` bigint(20) NOT NULL,
   `MaNV` bigint(10) NOT NULL,
   `MaDG` bigint(10) NOT NULL,
+  `MaS` bigint(10) NOT NULL,
   `NgayMuon` date NOT NULL,
   `NgayTra` date NOT NULL,
   `TrangThai` tinyint(1) NOT NULL,
-  `SLMuon` int(11) NOT NULL
+  `SLMuon` int(11) NOT NULL,
+  `SLGiaHan` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `muontra`
+--
+
+INSERT INTO `muontra` (`Id`, `MaNV`, `MaDG`, `MaS`, `NgayMuon`, `NgayTra`, `TrangThai`, `SLMuon`, `SLGiaHan`) VALUES
+(1, 331892182, 14004038, 2, '2017-10-05', '2017-11-02', 1, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -144,16 +154,18 @@ CREATE TABLE `nhanvien` (
   `Mail` varchar(100) NOT NULL,
   `TrangThaiNV` int(1) DEFAULT '1',
   `HeSoPhuCap` float NOT NULL DEFAULT '1',
-  `LoaiNV` int(2) NOT NULL DEFAULT '2'
+  `LoaiNV` int(2) NOT NULL DEFAULT '2',
+  `DaXoa` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
-INSERT INTO `nhanvien` (`Id`, `MaNV`, `TenNV`, `DiaChiNV`, `TenDangNhap`, `MatKhau`, `Mail`, `TrangThaiNV`, `HeSoPhuCap`, `LoaiNV`) VALUES
-(1, '331892182', 'Nguyễn Thị Ràng', '72 Nguyen Hue-P2-TPVL', 'rangvlute', 'fcea920f7412b5da7be0cf42b8c93759', 'lythanhngodev@gmail.com', 1, 2.53, 0),
-(2, '331298374', 'Tran Thi Hoa', '82/7C Phó cơ điều-p3-TPVL', 'hoavlute', 'fcea920f7412b5da7be0cf42b8c93759', '', 1, 2.1, 0);
+INSERT INTO `nhanvien` (`Id`, `MaNV`, `TenNV`, `DiaChiNV`, `TenDangNhap`, `MatKhau`, `Mail`, `TrangThaiNV`, `HeSoPhuCap`, `LoaiNV`, `DaXoa`) VALUES
+(1, '331892182', 'Nguyễn Thị Ràng', '72 Nguyen Hue-P2-TPVL', 'rangvlute', 'fcea920f7412b5da7be0cf42b8c93759', 'lythanhngodev@gmail.com', 1, 2.53, 0, 0),
+(2, '331298374', 'Tran Thi Hoa', '82/7C Phó cơ điều-p3-TPVL', 'hoavlute', 'fcea920f7412b5da7be0cf42b8c93759', 'trenthituyetlinhcntt2014@gmail.com', 1, 2.1, 0, 0),
+(7, '331256324', 'Nguyễn Thanh Hoàng', 'TP. Vĩnh Long', 'thanhhoang', 'e10adc3949ba59abbe56e057f20f883e', 'nguyenth@vlite.edu.vn', 1, 3.2, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -218,19 +230,20 @@ CREATE TABLE `sach` (
   `HinhAnhS` text NOT NULL,
   `SL` int(11) NOT NULL,
   `Gia` decimal(11,0) NOT NULL,
-  `NgayNhap` date NOT NULL
+  `NgayNhap` date NOT NULL,
+  `XoaSach` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `sach`
 --
 
-INSERT INTO `sach` (`MaS`, `TenS`, `MaLS`, `MaTG`, `MaNXB`, `NamXB`, `SoTrang`, `HinhAnhS`, `SL`, `Gia`, `NgayNhap`) VALUES
-(1, 'Cơ Sở Dữ Liệu', 2, 1, 3, 1996, 60, 'images/hoahong.jpg', 26, '350000', '2017-10-01'),
-(2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, 'images/sach.jpg', 25, '20000', '2017-07-10'),
-(3, 'Phân Tích Thiết Kế Hệ Thống', 3, 2, 2, 2003, 30, 'images/hoahong.jpg', 15, '40000', '2017-04-11'),
-(4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, 'images/kinhnghiem.jpg', 20, '30000', '2017-03-27'),
-(5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 50, 'images/thanhpho.jpg', 200, '123000', '2017-06-12');
+INSERT INTO `sach` (`MaS`, `TenS`, `MaLS`, `MaTG`, `MaNXB`, `NamXB`, `SoTrang`, `HinhAnhS`, `SL`, `Gia`, `NgayNhap`, `XoaSach`) VALUES
+(1, 'Cơ Sở Dữ Liệu', 2, 1, 3, 1996, 60, 'images/hoahong.jpg', 26, '350000', '2017-10-01', 0),
+(2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, 'images/sach.jpg', 25, '20000', '2017-07-10', 0),
+(3, 'Phân Tích Thiết Kế Hệ Thống', 3, 2, 2, 2003, 30, 'images/hoahong.jpg', 15, '40000', '2017-04-11', 0),
+(4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, 'images/kinhnghiem.jpg', 20, '30000', '2017-03-27', 0),
+(5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 50, 'images/thanhpho.jpg', 200, '123000', '2017-06-12', 0);
 
 -- --------------------------------------------------------
 
@@ -309,12 +322,19 @@ ALTER TABLE `lop`
   ADD PRIMARY KEY (`MaL`);
 
 --
+-- Chỉ mục cho bảng `muontra`
+--
+ALTER TABLE `muontra`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Chỉ mục cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
   ADD PRIMARY KEY (`Id`),
   ADD UNIQUE KEY `TenDangNhap` (`TenDangNhap`),
-  ADD UNIQUE KEY `Mail` (`Mail`);
+  ADD UNIQUE KEY `Mail` (`Mail`),
+  ADD UNIQUE KEY `MaNV` (`MaNV`);
 
 --
 -- Chỉ mục cho bảng `nhapsach`
@@ -361,10 +381,15 @@ ALTER TABLE `docgia`
 ALTER TABLE `loaisach`
   MODIFY `MaLS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT cho bảng `muontra`
+--
+ALTER TABLE `muontra`
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT cho bảng `nhapsach`
 --

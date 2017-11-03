@@ -5,7 +5,7 @@
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
-				DELETE FROM `sach` WHERE `MaS` = '$ma'
+				UPDATE `sach` SET `XoaSach`= '1' WHERE `MaS`= '$ma'
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;

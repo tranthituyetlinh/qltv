@@ -61,13 +61,23 @@
     
 }
 .bao-khung{
-    
-padding: 20px;
-    
-border: 1px solid #dcdcdc;
-    
-border-radius: 4px;
+    padding: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
 }
 .trai{
     text-align: right;
+}
+.chuatra, .datra{
+    border-radius: 3px;
+}
+.chuatra{
+    background: #34495e;
+    color: #fff;
+    padding: 3px 6px;
+}
+.datra{
+    background: #27ae60;
+    color: #fff;
+    padding: 3px 6px;
 }

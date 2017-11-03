@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	include_once("ajax_config.php");
-	function tv_sua_profile($ma, $tt){
+	function tv_sua_profile($ten, $diachi, $tdn, $mail, $ma){
 		if (empty($ten)) {
 			echo "<script type=\"text/javascript\">luukhongthanhcong(\"<strong>Chưa lưu</strong> tên không để trống!\")</script>";
 			exit();
@@ -28,7 +28,7 @@
 				`TenDangNhap`='$tdn',
 				`Mail`='$mail'
 			WHERE
-				`MaNV`='$ma'
+				`Id`='$ma'
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;
@@ -40,7 +40,7 @@
 			header("Location: ../login.php");
 		}
 		else{
-			if(tv_sua_profile($_POST['ma'],$_POST['tt'])) {
+			if(tv_sua_profile($_POST['ten'],$_POST['diachi'],$_POST['tdn'],$_POST['mail'],$_POST['ma'])) {
 				echo "<script type=\"text/javascript\">luuthanhcong(\"<strong>Đã lưu</strong> thông tin!\")</script>";
 			}
 			else{

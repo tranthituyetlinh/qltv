@@ -1,15 +1,16 @@
 <?php 
 	session_start();
 	include_once("ajax_config.php");
-	function tv_xoa_doc_gia($ma){
+	function tv_xoa_nhan_vien($id){
 		// kiem tra ngay sinh
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
-				UPDATE `docgia`
+				UPDATE `nhanvien` 
 				SET 
-					`TrangThai` = '1' 
-				WHERE `Id` = '$ma'
+					`DaXoa`='1'
+				WHERE 
+					`Id` = '$id'
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;
@@ -21,8 +22,8 @@
 			header("Location: ../login.php");
 		}
 		else{
-			if (tv_xoa_doc_gia($_POST['ma'])) {
-				echo "<script type=\"text/javascript\">dongxoa();thanhcong(\"<strong>Đã xóa</strong> thông tin độc giả!\");tailai();</script>";
+			if (tv_xoa_nhan_vien($_POST['id'])) {
+				echo "<script type=\"text/javascript\">dongxoa();thanhcong(\"<strong>Đã xóa</strong> thông tin nhân viên!\");tailai();</script>";
 				exit();
 			}
 			else{
