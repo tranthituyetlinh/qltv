@@ -34,7 +34,9 @@
 
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
+
 		exit();
+
 		$hoi = "
 				INSERT INTO `muontra`(`MaNV`, `MaDG`, `MaS`, `NgayMuon`, `NgayTra`, `SLMuon`) VALUES ('$nv','$dg','$s','$nm','$nt','$sl')
 		";
@@ -49,10 +51,12 @@
 		}
 		else{
 			if (vlu_them_khoa($_POST['s'],$_POST['dg'],$_POST['nm'],$_POST['sl'],$_POST['nv'])) {
-				echo "Khoa đã được thêm!";
+				echo "<script type=\"text/javascript\">thanhcong(\"<strong>Đã cho mượn</strong> thành công!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình thêm!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa cho mượn</strong> có lỗi trong quá trình cho mượn !\")</script>";
+				exit();
 			}
 		}
 	}
