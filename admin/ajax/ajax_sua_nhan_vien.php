@@ -14,7 +14,7 @@
 			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> HSPC không để trống!\")</script>";
 			exit();
 		}
-		settype($hspc, 'int');
+		settype($hspc, 'float');
 		$mk = md5("123456");
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();

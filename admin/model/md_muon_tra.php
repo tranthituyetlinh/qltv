@@ -7,4 +7,19 @@
 		$result = mysqli_query($conn, $query);
 		return $result;
 	}
+	function tv_get_sach_muon(){
+		$ketnoi = new clsKetnoi();
+		$conn = $ketnoi->ketnoi();
+		$query = "SELECT `MaS`, `TenS` FROM `sach` WHERE `XoaSach` = '0' ORDER BY `TenS` ASC";
+		$result = mysqli_query($conn, $query);
+		return $result;
+	}
+	function tv_get_doc_gia_muon(){
+		$ketnoi = new clsKetnoi();
+		$conn = $ketnoi->ketnoi();
+		$query = "SELECT `MaDG`, `TenDG` FROM `docgia` WHERE `TrangThai` = '0' ORDER BY `TenDG` ASC";
+		$result = mysqli_query($conn, $query);
+		return $result;
+	}
+	
  ?>

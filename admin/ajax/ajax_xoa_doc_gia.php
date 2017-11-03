@@ -6,7 +6,10 @@
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
-				DELETE FROM `docgia` WHERE `Id` = '$ma'
+				UPDATE `docgia`
+				SET 
+					`TrangThai` = '1' 
+				WHERE `Id` = '$ma'
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
 			return true;

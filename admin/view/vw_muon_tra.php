@@ -9,7 +9,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12 col-ms-12">
-          <a id="themdocgia" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> Cho mượn sách</a>
+          <a id="muonsach" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> Cho mượn sách</a>
         </div>
         <div class="col-md-12 col-ms-12 cach"></div>
       </div>
@@ -69,6 +69,51 @@
       </div>
     </section>
 
+<!-- Modal: Thêm lớp -->
+<div class="modal fade" id="qltv-modal-muon-sach" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Mượn sách</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Mã sách - Tên sách</label>
+          <select id="ma-ten-sach-muon" class="form-control selectpicker" data-live-search="true" title="chọn mã sách hoặc tên sách">
+            <?php while ($row = mysqli_fetch_assoc($dulieu_sach_muon)) {
+            ?>
+              <option data-tokens="<?php echo "S".$row['MaS']." ".$row['TenS']; ?>" value="<?php echo $row['MaS']; ?>"><?php echo "S".$row['MaS']." - ".$row['TenS']; ?></option>
+            <?php } ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mã độc giả - Tên độc giả</label>
+          <select id="ma-ten-doc-gia-muon" class="form-control selectpicker" data-live-search="true" title="chọn mã độc giả hoặc tên độc giả">
+            <?php while ($row = mysqli_fetch_assoc($dulieu_doc_gia_muon)) {
+            ?>
+              <option data-tokens="<?php echo $row['MaDG']." ".$row['TenDG']; ?>" value="<?php echo $row['MaDG']; ?>"><?php echo $row['MaDG']." - ".$row['TenDG']; ?></option>
+            <?php } ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ngày mượn</label>
+          <input type="date" class="form-control" name="" id="ngay-muon" required autocomplete="on">
+        </div>
+        <div class="form-group">
+          <label>Số lượng</label>
+          <input type="text" class="form-control" name="" id="so-luong-muon" placeholder="số lượng" required autocomplete="on">
+        </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary" id="nut-them-lop">Cho mượn</button>
+      </div>
+    </div>
+  </div>
+</div><!-- Modal: Thêm lớp -->
+
 <script type="text/javascript">
     document.title = "VLUTE LIB | Mượn - Trả";
 </script>
@@ -103,9 +148,16 @@
               type: 'danger',
               delay: 4000
             });
-
       }
+      $(document).ready(function(){
+        document.getElementById('ngay-muon').valueAsDate = new Date();
+        document.getElementById("ngay-muon").readOnly = true;
+        $("#muonsach").click(function(){
+          $("#qltv-modal-muon-sach").modal("show");
+        });
+      });
 </script>
+<script src="../bootstrap/dist/js/bootstrap-select.min.js"></script>
 <script type="text/javascript">
   $('#qltv-loai-sach').DataTable();
 </script>
