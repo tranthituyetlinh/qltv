@@ -105,10 +105,9 @@
           <label>Số lượng</label>
           <input type="text" class="form-control" name="" id="so-luong-muon" placeholder="số lượng" required autocomplete="on">
         </div>
-
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary" id="nut-them-lop">Cho mượn</button>
+        <button type="button" class="btn btn-primary" id="nut-cho-muon">Cho mượn</button>
       </div>
     </div>
   </div>
@@ -134,7 +133,7 @@
               type: 'success',
               delay: 2000
             });
-           $("#qltv-modal-them-dg").modal("hide");
+           $("#qltv-modal-muon-sach").modal("hide");
       }
       function tailai() {
         setTimeout(function(){ location.reload(); }, 3000);
@@ -154,6 +153,26 @@
         document.getElementById("ngay-muon").readOnly = true;
         $("#muonsach").click(function(){
           $("#qltv-modal-muon-sach").modal("show");
+        });
+        $("#nut-cho-muon").click(function(){
+          var manv = '<?php echo $manv; ?>';
+          $.ajax({
+            url : "ajax/ajax_cho_muon_sach.php",
+            type : "post",
+            dataType:"text",
+            data : {
+              s: $("#ma-ten-sach-muon").val(),
+              dg: $("#ma-ten-doc-gia-muon").val(),
+              nm: $("#ngay-muon").val(),
+              sl: $("#so-luong-muon").val(),
+              nv: manv
+            },
+            success : function (data){
+              alert(data);
+                //$("body").append(data);
+                //location.reload();
+            }
+          });
         });
       });
 </script>
