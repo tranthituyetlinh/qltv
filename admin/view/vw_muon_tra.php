@@ -168,8 +168,8 @@
               nv: manv
             },
             success : function (data){
-              alert(data);
-                //$("body").append(data);
+              //alert(data);
+                $("body").append(data);
                 //location.reload();
             }
           });
