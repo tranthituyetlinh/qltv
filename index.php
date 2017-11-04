@@ -1,3 +1,8 @@
+<?php include_once("model/md_index.php"); 
+      $loaisach = tv_get_loai_sach();
+      $khoa = tv_get_khoa();
+      $sachmoi = tv_get_sach_moi();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,15 +52,12 @@
             <h3>Thể loại sách theo khoa</h3>
           </div>
           <ul id="sach-theo-khoa">
+          <?php while ($row = mysqli_fetch_assoc($khoa)) {
+          ?>
             <li>
-              <a href="#">+ Công nghệ thông tin</a>
+              <a href="#">+ <?php echo $row['TenK']; ?></a>
             </li>
-            <li>
-              <a href="#">+ Công nghệ thực phẩm</a>
-            </li>
-            <li>
-              <a href="#">+ Điện điện tử</a>
-            </li>
+          <?php } ?>
           </ul>
         </div>
 
@@ -64,15 +66,12 @@
             <h3>Thể loại sách khác</h3>
           </div>
           <ul id="sach-theo-khoa">
+          <?php while ($row = mysqli_fetch_assoc($loaisach)) {
+          ?>
             <li>
-              <a href="#">+ Luận văn</a>
+              <a href="#">+ <?php echo $row['TenLS']; ?></a>
             </li>
-            <li>
-              <a href="#">+ Báo cáo đồ án</a>
-            </li>
-            <li>
-              <a href="#">+ Thương mại</a>
-            </li>
+          <?php } ?>
           </ul>
         </div>
 
@@ -92,95 +91,16 @@
         <div class="header-cot-hai">
           <h3>Sách mới</h3>
         </div>
+      <?php  while ($row = mysqli_fetch_assoc($sachmoi)) { ?>
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/sach.jpg');"></div>
-              <div class="ten-sach">Sách English A2 <span>(10)</span></div>
+              <div class="anh-bia-sach" style="background-image: url('<?php echo $row['HinhAnhS'] ?>');"></div>
+              <div class="ten-sach"><?php echo $row['TenS']; ?> <span>(10)</span></div>
             </div>
           </a>
         </div>
-
-        <div class="bao-sach">
-          <a href="#">
-            <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/ngaynang.jpg');"></div>
-              <div class="ten-sach">Ngày Nắng <span>(10)</span></div>
-            </div>
-          </a>
-        </div>
-
-        <div class="bao-sach">
-          <a href="#">
-            <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/kinhnghiem.jpg');"></div>
-              <div class="ten-sach">7 Thói Quen Của Bạn Trẻ <span>(10)</span></div>
-            </div>
-          </a>
-        </div>
-
-        <div class="bao-sach">
-          <a href="#">
-            <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/nhatban.jpg');"></div>
-              <div class="ten-sach">Nhật Bản Trong Tôi <span>(10)</span></div>
-            </div>
-          </a>
-        </div>
-
-        <div class="bao-sach">
-          <a href="#">
-            <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/khoingiep.jpg');"></div>
-              <div class="ten-sach">Quốc Gia Khởi Nghiệp <span>(10)</span></div>
-            </div>
-          </a>
-        </div>
-
-        <div class="bao-sach">
-          <a href="#">
-            <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/thanhxuan.jpg');"></div>
-              <div class="ten-sach">Thanh Xuân  <span>(10)</span></div>
-            </div>
-          </a>
-        </div>
-
-        <div class="bao-sach">
-          <a href="#">
-            <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/khac.jpg');"></div>
-              <div class="ten-sach">Ai Rồi Cũng Khác <span>(10)</span></div>
-            </div>
-          </a>
-        </div>
-
-        <div class="bao-sach">
-          <a href="#">
-            <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/thanhpho.jpg');"></div>
-              <div class="ten-sach">Thành Phố Tôi Yêu <span>(10)</span></div>
-            </div>
-          </a>
-        </div>
-
-        <div class="bao-sach">
-          <a href="#">
-            <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/hoahong.jpg');"></div>
-              <div class="ten-sach">Hoa Hồng Sớm Mai <span>(10)</span></div>
-            </div>
-          </a>
-        </div>
-
-        <div class="bao-sach">
-          <a href="#">
-            <div class="sach">
-              <div class="anh-bia-sach" style="background-image: url('images/tinhphutu.jpg');"></div>
-              <div class="ten-sach">Tình Phụ Tử <span>(10)</span></div>
-            </div>
-          </a>
-        </div>
+      <?php } ?>
       </div>
     </div><!-- Day la noi dung -->
   </div>  
