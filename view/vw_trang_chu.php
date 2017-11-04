@@ -50,7 +50,7 @@
           <?php while ($row = mysqli_fetch_assoc($loaisach)) {
           ?>
             <li>
-              <a href="?p=loai&id=<?php echo $row['MaLS']; ?>">+ <?php echo $row['TenLS']; ?></a>
+              <a href="?p=loai&id=<?php echo $row['MaLS']; ?>&ten=<?php echo $row['TenLS']; ?>">+ <?php echo $row['TenLS']; ?></a>
             </li>
           <?php } ?>
           </ul>

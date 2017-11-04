@@ -43,7 +43,7 @@
           <?php while ($row = mysqli_fetch_assoc($loaisach)) {
           ?>
             <li>
-              <a href="?p=loai&id=<?php echo $row['MaLS']; ?>">+ <?php echo $row['TenLS']; ?></a>
+              <a href="?p=loai&id=<?php echo $row['MaLS']; ?>&ten=<?php echo $row['TenLS']; ?>">+ <?php echo $row['TenLS']; ?></a>
             </li>
           <?php } ?>
           </ul>
@@ -63,9 +63,9 @@
       </div>
       <div class="cot-hai">
         <div class="header-cot-hai">
-          <h3>Xem sách theo loại</h3>
+          <h3>Xem sách theo loại: <b><?php echo $tenloai; ?></b></h3>
         </div>
-      <?php  while ($row = mysqli_fetch_assoc($sach)) { ?>
+      <?php while ($row = mysqli_fetch_assoc($sach)) { ?>
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
