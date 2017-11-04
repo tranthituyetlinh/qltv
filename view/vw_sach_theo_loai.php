@@ -72,7 +72,7 @@
         <div class="header-cot-hai">
           <h3>Sách mới</h3>
         </div>
-      <?php  while ($row = mysqli_fetch_assoc($sachmoi)) { ?>
+      <?php  while ($row = mysqli_fetch_assoc($sach)) { ?>
         <div class="bao-sach">
           <a href="#">
             <div class="sach">
