@@ -47,6 +47,7 @@ html{
 .cot-mot, .cot-hai, .cot-ba{
     float: left;
     border-radius: 8px 8px 0px 0px;
+    padding-bottom: 10px;
 }
 .header-cot-hai{
     float: left;

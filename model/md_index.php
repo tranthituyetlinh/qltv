@@ -14,4 +14,11 @@
 		$result = mysqli_query($conn, $query);
 		return $result;
 	}
+	function tv_get_sach_moi(){
+		$ketnoi = new clsKetnoi();
+		$conn = $ketnoi->ketnoi();
+		$query = "SELECT * FROM `sach` Order by MaS Desc";
+		$result = mysqli_query($conn, $query);
+		return $result;
+	}
  ?>
