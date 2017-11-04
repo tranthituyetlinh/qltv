@@ -4,8 +4,8 @@
 			case 'khoa':
 				include_once("control/ctrl_sach_theo_khoa.php");
 				break;
-			case 'nhapsach':
-				include_once("control/ctrl_nhap_sach.php");
+			case 'loai':
+				include_once("control/ctrl_sach_theo_loai.php");
 				break;
 			default:
 				# code...
