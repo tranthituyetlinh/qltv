@@ -1,3 +1,7 @@
+<?php include_once("model/md_index.php"); 
+      $loaisach = tv_get_loai_sach();
+      $khoa = tv_get_khoa();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,15 +51,12 @@
             <h3>Thể loại sách theo khoa</h3>
           </div>
           <ul id="sach-theo-khoa">
+          <?php while ($row = mysqli_fetch_assoc($khoa)) {
+          ?>
             <li>
-              <a href="#">+ Công nghệ thông tin</a>
+              <a href="#">+ <?php echo $row['TenK']; ?></a>
             </li>
-            <li>
-              <a href="#">+ Công nghệ thực phẩm</a>
-            </li>
-            <li>
-              <a href="#">+ Điện điện tử</a>
-            </li>
+          <?php } ?>
           </ul>
         </div>
 
@@ -64,15 +65,12 @@
             <h3>Thể loại sách khác</h3>
           </div>
           <ul id="sach-theo-khoa">
+          <?php while ($row = mysqli_fetch_assoc($loaisach)) {
+          ?>
             <li>
-              <a href="#">+ Luận văn</a>
+              <a href="#">+ <?php echo $row['TenLS']; ?></a>
             </li>
-            <li>
-              <a href="#">+ Báo cáo đồ án</a>
-            </li>
-            <li>
-              <a href="#">+ Thương mại</a>
-            </li>
+          <?php } ?>
           </ul>
         </div>
 
