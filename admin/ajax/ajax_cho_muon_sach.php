@@ -29,9 +29,17 @@
 		date_add($newnm,date_interval_create_from_date_string("$ds days"));
 		$nt =  date_format($newnm,"Y-m-d");
 
-
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
+		// Xét còn sách để cho mượn hay không
+		$soluongx = "SELECT `SL` FROM `sach` WHERE `MaS` = '$s'";
+		$resoluongx = mysqli_query($conn, $soluongx);
+		$demsoluongexx = mysqli_fetch_assoc($resoluongx);
+		$demsoluongx = $demsoluongexx['SL'];
+		if ($demsoluongx < $sl) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa cho mượn</strong> chỉ còn ".$demsoluongx." quyển sách này trong thư viện. Bạn có thể mượn tối đa ".$demsoluongx." quyển\")</script>";
+			exit();
+		}
 		// Ràng buộc 'Không được mượn thêm sách khi chưa trả sách'
 		// Số lượng mượn tối đa là 3 quyển
 		$soluong = "SELECT SUM(SLMuon) as sl FROM `muontra` WHERE `TrangThai` = 0 AND `MaDG` = '$dg'";
@@ -50,7 +58,14 @@
 		$hoi = "
 				INSERT INTO `muontra`(`MaNV`, `MaDG`, `MaS`, `NgayMuon`, `NgayTra`, `SLMuon`) VALUES ('$nv','$dg','$s','$nm','$nt','$sl')
 		";
-		if(mysqli_query($conn, $hoi)===TRUE)
+		$hoiu = "
+				UPDATE `sach` 
+				SET 
+					`SL` = SL - $sl 
+				WHERE 
+					`sach`.`MaS` = '$s';
+		";
+		if(mysqli_query($conn, $hoi)===TRUE && mysqli_query($conn, $hoiu)===TRUE)
 			return true;
 		else
 			return false;

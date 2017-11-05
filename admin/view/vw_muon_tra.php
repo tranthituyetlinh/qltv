@@ -59,16 +59,18 @@
                     </td>
                     <td class="giua" id="id-so-lan-gia-han-mt-<?php echo $row['Id']; ?>">
                     <?php 
-                      if ($row['GiaHan']==0) { ?>
+                      if ($row['GiaHan']==0 && $row['TrangThai']== 0) { ?>
                       <div class="nut nam-giua"><a class="btn btn-warning btn-gia-han" data-qltv="<?php echo $row['Id']; ?>" title="Gia hạn"><i class="fa fa-gavel" aria-hidden="true"></i></a></div>
+                    <?php } else if($row['TrangThai']==1){ ?>
+                        <span class="chuatra" >Đã trả</span>
                     <?php } else { ?>
-                        <span class="chuatra" >Đã được gia hạn</span>
+                        <span class="chuatra" >Đã gia hạn</span>
                     <?php } ?>
                     </td>
                     <td class="giua">
                     <?php 
                       if ($row['TrangThai']==0) { ?>
-                      <div class="nut nam-giua"><a class="btn btn-primary btn-sua-muon-tra" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></div>
+                      <div class="nut nam-giua"><a class="btn btn-primary btn-tra-sach" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></div>
                     <?php } ?>
 
                     </td>
@@ -124,7 +126,11 @@
       </div>
     </div>
   </div>
-</div><!-- Modal: Thêm lớp -->
+  </div>
+</div> <!-- Modal: Thêm lớp -->
+
+<!-- Modal: Thêm lớp -->
+
 
 <script type="text/javascript">
     document.title = "VLUTE LIB | Mượn - Trả";
@@ -182,7 +188,6 @@
             },
             success : function (data){
                 $("body").append(data);
-                //location.reload();
             }
           });
         });
@@ -190,6 +195,24 @@
           var id = $(this).attr("data-qltv");
           $.ajax({
             url : "ajax/ajax_gia_han_sach.php",
+            type : "post",
+            dataType:"text",
+            data : {
+              id: id
+            },
+            success : function (data){
+                $("body").append(data);
+                //location.reload();
+            }
+          });
+        });
+        $(".btn-tra-sach").click(function(){
+          $("#qltv-modal-tra-sach").modal("show");
+        });
+        $(".nut-tra").click(function(){
+          var id = $(this).attr("data-qltv");
+          $.ajax({
+            url : "ajax/ajax_tra_sach.php",
             type : "post",
             dataType:"text",
             data : {
