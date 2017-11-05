@@ -57,7 +57,7 @@
                     <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['SLMuon']; ?></a></td>
                     <td class="giua" id="id-so-lan-gia-han-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['SLGiaHan']; ?></a></td>
                     <td class="giua">
-                      <div class="nam-giua"><a class="btn btn-primary btn-sua-sach" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
+                      <div class="nut nam-giua"><a class="btn btn-primary btn-sua-muon-tra" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
                     </td>
                 </tr>
                 <?php
@@ -168,11 +168,13 @@
               nv: manv
             },
             success : function (data){
-              //alert(data);
                 $("body").append(data);
                 //location.reload();
             }
           });
+        });
+        $(".btn-sua-muon-tra").click(function(){
+          alert(1);
         });
       });
 </script>

@@ -19,8 +19,8 @@
 			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa cho mượn</strong> số lượng không hợp lệ!\")</script>";
 			exit();
 		}
-		if ($sl > 2 ) {
-			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa cho mượn</strong> số lượng sách mượn không quá 2 quyển!\")</script>";
+		if ($sl > 3 ) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa cho mượn</strong> số lượng sách mượn không quá 3 quyển!\")</script>";
 			exit();
 		}
 		// Khởi tạo ngày trả cách ngày mượn là 7 ngày
@@ -28,15 +28,25 @@
 		$ds = 7;
 		date_add($newnm,date_interval_create_from_date_string("$ds days"));
 		$nt =  date_format($newnm,"Y-m-d");
-		// Ràng buộc 'Không được mượn thêm sách khi chưa trả sách'
-		// Số lượng mượn tối đa là 2 quyển
 
 
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
-
-		exit();
-
+		// Ràng buộc 'Không được mượn thêm sách khi chưa trả sách'
+		// Số lượng mượn tối đa là 3 quyển
+		$soluong = "SELECT SUM(SLMuon) as sl FROM `muontra` WHERE `TrangThai` = 0 AND `MaDG` = '$dg'";
+		$resoluong = mysqli_query($conn, $soluong);
+		$demsoluongex = mysqli_fetch_assoc($resoluong);
+		$demsoluong = $demsoluongex['sl'];
+		$demsoluong = 3 - $demsoluong;
+		if ($demsoluong <= 0) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa cho mượn</strong> độc giả chỉ được mượn tối đa 3 quyển!\")</script>";
+			exit();
+		}
+		if ($demsoluong < $sl) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa cho mượn</strong> độc giả chỉ được mượn thêm ".$demsoluong." quyển!\")</script>";
+			exit();
+		}
 		$hoi = "
 				INSERT INTO `muontra`(`MaNV`, `MaDG`, `MaS`, `NgayMuon`, `NgayTra`, `SLMuon`) VALUES ('$nv','$dg','$s','$nm','$nt','$sl')
 		";
@@ -51,7 +61,7 @@
 		}
 		else{
 			if (vlu_them_khoa($_POST['s'],$_POST['dg'],$_POST['nm'],$_POST['sl'],$_POST['nv'])) {
-				echo "<script type=\"text/javascript\">thanhcong(\"<strong>Đã cho mượn</strong> thành công!\")</script>";
+				echo "<script type=\"text/javascript\">thanhcong(\"<strong>Đã cho mượn</strong> ".$_POST['sl']." quyển!\")</script>";
 				exit();
 			}
 			else{

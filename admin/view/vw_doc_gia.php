@@ -48,7 +48,7 @@
                     <td id="id-mail-dg-<?php echo $row['Id']; ?>"><a><?php echo $row['Mail']; ?></a></td>
                     <td id="id-ten-lop-dg-<?php echo $row['Id']; ?>"><?php echo $row['TenL']; ?></td>
                     <td><?php echo $row['TenK']; ?></td>
-                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-dg" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <td class="nut giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-dg" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 
                         <a class="btn btn-danger btn-xoa-dg" title="Xóa"
                         data-qltv="<?php echo $row['Id']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
