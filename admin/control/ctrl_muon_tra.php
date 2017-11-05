@@ -3,5 +3,6 @@
 	$dulieu = tv_get_muon();
 	$dulieu_sach_muon = tv_get_sach_muon();
 	$dulieu_doc_gia_muon = tv_get_doc_gia_muon();
+	$tra = tv_get_tra();
 	include_once("view/vw_muon_tra.php");
  ?>

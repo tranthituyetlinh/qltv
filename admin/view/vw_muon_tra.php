@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Mượn - Trả sách
+        Mượn sách
         <div class="line"></div>
       </h1>
     </section>
@@ -73,6 +73,53 @@
                       <div class="nut nam-giua"><a class="btn btn-primary btn-tra-sach" data-sl="<?php echo $row['SLMuon']; ?>" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></div>
                     <?php } ?>
 
+                    </td>
+                </tr>
+                <?php
+                $stt++;
+              }
+            ?>
+            </tbody>
+        </table>
+      </div>
+
+    <section class="content-header">
+      <h1>
+        Trả sách
+        <div class="line"></div>
+      </h1>
+    </section>
+      <div class="windows-table animated fadeIn">
+        <table id="qltv-tra-sach" class="table table-striped">
+            <thead>
+                <tr role="row">
+                  <tr style="background-color: #f1f1f1;color: #7d7d7d;border-top: 3px solid #9e9e9e;">
+                    <th class="giua">STT</th>
+                    <th class="giua">Tên NV</th>
+                    <th class="giua">Tên ĐG</th>
+                    <th class="giua">Tên sách</th>
+                    <th class="giua">Ngày trả</th>
+                    <th class="giua">SL trả</th>
+                  </tr>
+                </tr>
+            </thead>
+            <tbody>
+            <?php 
+              $stt = 1;
+              while ($row = mysqli_fetch_assoc($tra)) {
+                ?>
+                  <tr>
+                    <th class="giua"><?php echo $stt; ?></th>
+                    <input type="text" hidden="hidden" id="id-ma-nv-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaNV'] ?>" >
+                    <td id="id-ten-nv-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenNV']; ?></a></td>
+                    <input type="text" hidden="hidden" id="id-ma-dg-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaDG'] ?>" >
+                    <td id="id-ten-dg-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenDG']; ?></a></td>
+                    <input type="text" hidden="hidden" class="giua" id="id-ma-s-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaS'] ?>" >
+                    <td id="id-ten-s-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenS']; ?></a></td>
+                    <td class="giua" id="id-ngay-tra-mt-<?php echo $row['Id']; ?>"><?php echo $row['NgayTra']; ?></td>
+
+                    <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>">
+                        <span class="slmuon" ><?php echo $row['SLTra']; ?></span>
                     </td>
                 </tr>
                 <?php
@@ -176,6 +223,7 @@
               delay: 2000
             });
            $("#qltv-modal-muon-sach").modal("hide");
+           $("#qltv-modal-tra-sach").modal("hide");
       }
       function tailai() {
         setTimeout(function(){ location.reload(); }, 3000);
@@ -266,6 +314,7 @@
 <script src="../bootstrap/dist/js/bootstrap-select.min.js"></script>
 <script type="text/javascript">
   $('#qltv-loai-sach').DataTable();
+  $('#qltv-tra-sach').DataTable();
 </script>
 <style type="text/css">
   .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
