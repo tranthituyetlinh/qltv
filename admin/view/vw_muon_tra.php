@@ -17,7 +17,7 @@
         <table id="qltv-loai-sach" class="table table-striped">
             <thead>
                 <tr role="row">
-                  <tr style="background-color: #e0e0e0;color: #7d7d7d;border-top: 3px solid #9e9e9e;">
+                  <tr style="background-color: #f1f1f1;color: #7d7d7d;border-top: 3px solid #9e9e9e;">
                     <th class="giua">STT</th>
                     <th class="giua">Tên NV</th>
                     <th class="giua">Tên ĐG</th>
@@ -26,8 +26,8 @@
                     <th class="giua">Ngày trả</th>
                     <th class="giua">Trạng thái</th>
                     <th class="giua">Số lượng</th>
-                    <th class="giua">Số lần gia hạn</th>
-                    <th class="giua">Thao tác</th>
+                    <th class="giua">Gia hạn</th>
+                    <th class="giua">Trả sách</th>
                   </tr>
                 </tr>
             </thead>
@@ -44,8 +44,8 @@
                     <td id="id-ten-dg-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenDG']; ?></a></td>
                     <input type="text" hidden="hidden" class="giua" id="id-ma-s-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaS'] ?>" >
                     <td id="id-ten-s-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenS']; ?></a></td>
-                    <td class="giua" id="id-ngay-muon-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['NgayMuon']; ?></a></td>
-                    <td class="giua" id="id-ngay-tra-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['NgayTra']; ?></a></td>
+                    <td class="giua" id="id-ngay-muon-mt-<?php echo $row['Id']; ?>"><?php echo $row['NgayMuon']; ?></td>
+                    <td class="giua" id="id-ngay-tra-mt-<?php echo $row['Id']; ?>"><?php echo $row['NgayTra']; ?></td>
                     <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>">
                     <?php 
                       if ($row['TrangThai']==0) { ?>
@@ -54,10 +54,23 @@
                         <span class="datra" >Đã trả</span>
                     <?php } ?>
                     </td>
-                    <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['SLMuon']; ?></a></td>
-                    <td class="giua" id="id-so-lan-gia-han-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['SLGiaHan']; ?></a></td>
+                    <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>">
+                        <span class="slmuon" ><?php echo $row['SLMuon']; ?></span>
+                    </td>
+                    <td class="giua" id="id-so-lan-gia-han-mt-<?php echo $row['Id']; ?>">
+                    <?php 
+                      if ($row['GiaHan']==0) { ?>
+                      <div class="nut nam-giua"><a class="btn btn-warning btn-gia-han" data-qltv="<?php echo $row['Id']; ?>" title="Gia hạn"><i class="fa fa-gavel" aria-hidden="true"></i></a></div>
+                    <?php } else { ?>
+                        <span class="chuatra" >Đã được gia hạn</span>
+                    <?php } ?>
+                    </td>
                     <td class="giua">
-                      <div class="nut nam-giua"><a class="btn btn-primary btn-sua-muon-tra" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
+                    <?php 
+                      if ($row['TrangThai']==0) { ?>
+                      <div class="nut nam-giua"><a class="btn btn-primary btn-sua-muon-tra" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></div>
+                    <?php } ?>
+
                     </td>
                 </tr>
                 <?php
@@ -173,8 +186,20 @@
             }
           });
         });
-        $(".btn-sua-muon-tra").click(function(){
-          alert(1);
+        $(".btn-gia-han").click(function(){
+          var id = $(this).attr("data-qltv");
+          $.ajax({
+            url : "ajax/ajax_gia_han_sach.php",
+            type : "post",
+            dataType:"text",
+            data : {
+              id: id
+            },
+            success : function (data){
+                $("body").append(data);
+                //location.reload();
+            }
+          });
         });
       });
 </script>
