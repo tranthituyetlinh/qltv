@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 03, 2017 lúc 02:43 SA
+-- Thời gian đã tạo: Th10 05, 2017 lúc 07:11 SA
 -- Phiên bản máy phục vụ: 5.7.14
 -- Phiên bản PHP: 5.6.25
 
@@ -23,6 +23,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `cttra`
+--
+
+CREATE TABLE `cttra` (
+  `Id` bigint(20) NOT NULL,
+  `MaNV` bigint(10) NOT NULL,
+  `MaDG` bigint(10) NOT NULL,
+  `MaS` bigint(10) NOT NULL,
+  `NgayTra` date NOT NULL,
+  `SLTra` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `cttra`
+--
+
+INSERT INTO `cttra` (`Id`, `MaNV`, `MaDG`, `MaS`, `NgayTra`, `SLTra`) VALUES
+(2, 331892182, 14004005, 2, '2017-11-05', 1),
+(3, 331892182, 14004046, 2, '2017-11-05', 1),
+(4, 331892182, 14004006, 2, '2017-11-05', 2),
+(5, 331892182, 14004038, 4, '2017-11-05', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `docgia`
 --
 
@@ -37,7 +62,7 @@ CREATE TABLE `docgia` (
   `MatKhauDG` varchar(50) NOT NULL,
   `Mail` varchar(100) NOT NULL,
   `MaL` varchar(10) NOT NULL,
-  `TrangThai` int(2) NOT NULL DEFAULT '1'
+  `TrangThai` int(2) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -45,7 +70,11 @@ CREATE TABLE `docgia` (
 --
 
 INSERT INTO `docgia` (`Id`, `MaDG`, `TenDG`, `NgaySinh`, `DiaChiDG`, `NgayLapThe`, `TaiKhoanDG`, `MatKhauDG`, `Mail`, `MaL`, `TrangThai`) VALUES
-(1, '14004038', 'Trần Thị Tuyết Linh', '1996-11-15', 'Đồng Tháp', '2017-10-30', 'tuyetlinh', 'e10adc3949ba59abbe56e057f20f883e', 'tuyetlinhcntt2014@gmail.com', '1CTT14A', 0);
+(1, '14004038', 'Trần Thị Tuyết Linh', '1996-11-15', 'Đồng Tháp', '2017-10-30', 'tuyetlinh', 'e10adc3949ba59abbe56e057f20f883e', 'tuyetlinhcntt2014@gmail.com', '1CTT14A', 0),
+(2, '14004006', 'Phan Thế Anh', '1996-11-05', 'Vĩnh Long', '2017-11-05', '14004006', 'e10adc3949ba59abbe56e057f20f883e', '14004006@student.vlute.edu.vn', '1CTT14A', 0),
+(3, '14004005', 'Nguyễn Hoàng Anh', '1996-10-05', 'Vĩnh Long', '2017-11-05', '14004005', 'e10adc3949ba59abbe56e057f20f883e', '14004005@student.vlute.edu.vn', '1CTT14A', 0),
+(4, '14004046', 'Lê Thị Huế Minh', '1996-02-02', 'Vĩnh Long', '2017-11-05', '14004046', 'e10adc3949ba59abbe56e057f20f883e', '14004046@student.vlute.edu.vn', '1CTT14A', 0),
+(5, '14004045', 'Nguyễn Hoàng Hải', '1995-02-02', 'Vĩnh Long', '2017-11-05', '14004045', 'e10adc3949ba59abbe56e057f20f883e', '14004045@student.vlute.edu.vn', '1CTT14A', 0);
 
 -- --------------------------------------------------------
 
@@ -126,17 +155,24 @@ CREATE TABLE `muontra` (
   `MaS` bigint(10) NOT NULL,
   `NgayMuon` date NOT NULL,
   `NgayTra` date NOT NULL,
-  `TrangThai` tinyint(1) NOT NULL,
+  `TrangThai` tinyint(1) NOT NULL DEFAULT '0',
   `SLMuon` int(11) NOT NULL,
-  `SLGiaHan` int(1) NOT NULL DEFAULT '0'
+  `GiaHan` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `muontra`
 --
 
-INSERT INTO `muontra` (`Id`, `MaNV`, `MaDG`, `MaS`, `NgayMuon`, `NgayTra`, `TrangThai`, `SLMuon`, `SLGiaHan`) VALUES
-(1, 331892182, 14004038, 2, '2017-10-05', '2017-11-02', 1, 2, 0);
+INSERT INTO `muontra` (`Id`, `MaNV`, `MaDG`, `MaS`, `NgayMuon`, `NgayTra`, `TrangThai`, `SLMuon`, `GiaHan`) VALUES
+(5, 331892182, 14004046, 1, '2017-11-05', '2017-11-12', 0, 1, 0),
+(6, 331892182, 14004005, 2, '2017-11-05', '2017-11-12', 1, 0, 0),
+(7, 331892182, 14004045, 5, '2017-11-05', '2017-11-12', 0, 1, 0),
+(8, 331892182, 14004038, 4, '2017-11-05', '2017-11-12', 1, 0, 0),
+(9, 331892182, 14004046, 2, '2017-11-05', '2017-11-12', 1, 0, 0),
+(10, 331892182, 14004006, 4, '2017-11-05', '2017-11-12', 0, 1, 0),
+(11, 331892182, 14004046, 4, '2017-11-05', '2017-11-12', 0, 1, 0),
+(12, 331892182, 14004006, 2, '2017-11-05', '2017-11-12', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -239,11 +275,11 @@ CREATE TABLE `sach` (
 --
 
 INSERT INTO `sach` (`MaS`, `TenS`, `MaLS`, `MaTG`, `MaNXB`, `NamXB`, `SoTrang`, `HinhAnhS`, `SL`, `Gia`, `NgayNhap`, `XoaSach`) VALUES
-(1, 'Cơ Sở Dữ Liệu', 2, 1, 3, 1996, 60, 'images/hoahong.jpg', 26, '350000', '2017-10-01', 0),
-(2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, 'images/sach.jpg', 25, '20000', '2017-07-10', 0),
+(1, 'Cơ Sở Dữ Liệu', 2, 1, 3, 1996, 60, 'images/hoahong.jpg', 25, '350000', '2017-10-01', 0),
+(2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, 'images/sach.jpg', 26, '20000', '2017-07-10', 0),
 (3, 'Phân Tích Thiết Kế Hệ Thống', 3, 2, 2, 2003, 30, 'images/hoahong.jpg', 15, '40000', '2017-04-11', 0),
-(4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, 'images/kinhnghiem.jpg', 20, '30000', '2017-03-27', 0),
-(5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 50, 'images/thanhpho.jpg', 200, '123000', '2017-06-12', 0);
+(4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, 'images/kinhnghiem.jpg', 19, '30000', '2017-03-27', 0),
+(5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 100, 'images/thanhpho.jpg', 9, '123000', '2017-06-12', 0);
 
 -- --------------------------------------------------------
 
@@ -295,6 +331,12 @@ INSERT INTO `xuatsach` (`id`, `NgayXuat`, `MaS`, `SoLuong`, `GhiChu`) VALUES
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `cttra`
+--
+ALTER TABLE `cttra`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Chỉ mục cho bảng `docgia`
@@ -371,10 +413,15 @@ ALTER TABLE `xuatsach`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `cttra`
+--
+ALTER TABLE `cttra`
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT cho bảng `docgia`
 --
 ALTER TABLE `docgia`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT cho bảng `loaisach`
 --
@@ -384,7 +431,7 @@ ALTER TABLE `loaisach`
 -- AUTO_INCREMENT cho bảng `muontra`
 --
 ALTER TABLE `muontra`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT cho bảng `nhanvien`
 --

@@ -18,7 +18,7 @@
         <table id="qltv-loai-sach" class="table table-striped">
             <thead>
                 <tr role="row">
-                  <tr style="background-color: #2980b9;color: #fff;">
+                  <tr style="background-color: #e0e0e0;color: #7d7d7d;border-top: 3px solid #9e9e9e;">
                     <th class="giua">STT</th>
                     <th class="giua">Mã sách</th>
                     <th class="giua">Tên sách</th>
@@ -52,7 +52,7 @@
                     <td class="giua"><?php echo $row['SL']; ?></td>
                     <td><?php echo $row['Gia']; ?></td>
                     <td class="giua"><?php echo $row['NgayNhap']; ?></td>
-                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-sach" data-qltv="<?php echo $row['MaS']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <td class="giua"><div class="nut nam-giua"><a class="btn btn-primary btn-sua-sach" data-qltv="<?php echo $row['MaS']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         <a class="btn btn-danger btn-xoa-sach" title="Xóa"
                         data-qltv="<?php echo $row['MaS']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
                     </td>

@@ -68,16 +68,24 @@
 .trai{
     text-align: right;
 }
-.chuatra, .datra{
-    border-radius: 3px;
+.chuatra, .datra, .slmuon{
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 4px 6px;
 }
 .chuatra{
     background: #34495e;
     color: #fff;
-    padding: 3px 6px;
 }
 .datra{
     background: #27ae60;
     color: #fff;
-    padding: 3px 6px;
+}
+.slmuon{
+    background: #1abc9c;
+    color: #fff;
+    border-radius: 2px;
+}
+.nut .btn{
+    padding: 2px 6px;
 }
