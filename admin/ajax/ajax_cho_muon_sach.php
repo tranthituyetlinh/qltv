@@ -76,7 +76,7 @@
 		}
 		else{
 			if (vlu_them_khoa($_POST['s'],$_POST['dg'],$_POST['nm'],$_POST['sl'],$_POST['nv'])) {
-				echo "<script type=\"text/javascript\">thanhcong(\"<strong>Đã cho mượn</strong> ".$_POST['sl']." quyển!\")</script>";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã cho mượn</strong> ".$_POST['sl']." quyển!\")</script>";
 				exit();
 			}
 			else{

@@ -62,7 +62,7 @@
                       if ($row['GiaHan']==0 && $row['TrangThai']== 0) { ?>
                       <div class="nut nam-giua"><a class="btn btn-warning btn-gia-han" data-qltv="<?php echo $row['Id']; ?>" title="Gia hạn"><i class="fa fa-gavel" aria-hidden="true"></i></a></div>
                     <?php } else if($row['TrangThai']==1){ ?>
-                        <span class="chuatra" >Đã trả</span>
+                        <span class="datra" >Đã trả</span>
                     <?php } else { ?>
                         <span class="chuatra" >Đã gia hạn</span>
                     <?php } ?>
@@ -70,7 +70,7 @@
                     <td class="giua">
                     <?php 
                       if ($row['TrangThai']==0) { ?>
-                      <div class="nut nam-giua"><a class="btn btn-primary btn-tra-sach" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></div>
+                      <div class="nut nam-giua"><a class="btn btn-primary btn-tra-sach" data-sl="<?php echo $row['SLMuon']; ?>" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></div>
                     <?php } ?>
 
                     </td>
@@ -130,7 +130,30 @@
 </div> <!-- Modal: Thêm lớp -->
 
 <!-- Modal: Thêm lớp -->
+<!-- Modal: Thêm lớp -->
+<div class="modal fade bd-example-modal-sm" id="qltv-modal-tra-sach" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Mượn sách</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Chọn số lượng</label>
+          <select id="so-luong-tra" class="form-control"></select>
+        </div>
+        <input type="text" hidden="hidden" name="" id="id-id-muon-tra" value="">
 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary" id="nut-tra-sach">Xác nhận trả</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
 
 <script type="text/javascript">
     document.title = "VLUTE LIB | Mượn - Trả";
@@ -207,18 +230,32 @@
           });
         });
         $(".btn-tra-sach").click(function(){
+          var sl = $(this).attr("data-sl");
+          var id = $(this).attr("data-qltv");
+          $('#so-luong-tra')
+              .find('option')
+              .remove()
+          ;
+          for (var i = 1; i <= sl; i++) {
+            $("#so-luong-tra").append('<option value='+i+'>'+i+'</option>');
+          }
+          $("#id-id-muon-tra").val(id);
           $("#qltv-modal-tra-sach").modal("show");
         });
-        $(".nut-tra").click(function(){
-          var id = $(this).attr("data-qltv");
+        $("#nut-tra-sach").click(function(){
+          var id = $("#id-id-muon-tra").val();
           $.ajax({
             url : "ajax/ajax_tra_sach.php",
             type : "post",
             dataType:"text",
             data : {
-              id: id
+              sl: $("#so-luong-tra").val().trim(),
+              id: id,
+              s: $("#id-ma-s-mt-"+id).val(),
+              nv: '<?php echo $manv; ?>'
             },
             success : function (data){
+                //alert(data);
                 $("body").append(data);
                 //location.reload();
             }
