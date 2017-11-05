@@ -20,6 +20,7 @@
                   <tr style="background-color: #f1f1f1;color: #7d7d7d;border-top: 3px solid #9e9e9e;">
                     <th class="giua">STT</th>
                     <th class="giua">Tên NV</th>
+                    <th class="giua">Mã ĐG</th>
                     <th class="giua">Tên ĐG</th>
                     <th class="giua">Tên sách</th>
                     <th class="giua">Ngày mượn</th>
@@ -41,6 +42,7 @@
                     <input type="text" hidden="hidden" id="id-ma-nv-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaNV'] ?>" >
                     <td id="id-ten-nv-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenNV']; ?></a></td>
                     <input type="text" hidden="hidden" id="id-ma-dg-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaDG'] ?>" >
+                    <td id="id-ma-dg-2-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['MaDG']; ?></a></td>
                     <td id="id-ten-dg-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenDG']; ?></a></td>
                     <input type="text" hidden="hidden" class="giua" id="id-ma-s-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaS'] ?>" >
                     <td id="id-ten-s-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenS']; ?></a></td>
@@ -96,10 +98,11 @@
                   <tr style="background-color: #f1f1f1;color: #7d7d7d;border-top: 3px solid #9e9e9e;">
                     <th class="giua">STT</th>
                     <th class="giua">Tên NV</th>
+                    <th class="giua">Mã ĐG</th>
                     <th class="giua">Tên ĐG</th>
                     <th class="giua">Tên sách</th>
                     <th class="giua">Ngày trả</th>
-                    <th class="giua">SL trả</th>
+                    <th class="giua">SL đã trả</th>
                   </tr>
                 </tr>
             </thead>
@@ -110,15 +113,16 @@
                 ?>
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
-                    <input type="text" hidden="hidden" id="id-ma-nv-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaNV'] ?>" >
-                    <td id="id-ten-nv-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenNV']; ?></a></td>
-                    <input type="text" hidden="hidden" id="id-ma-dg-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaDG'] ?>" >
-                    <td id="id-ten-dg-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenDG']; ?></a></td>
-                    <input type="text" hidden="hidden" class="giua" id="id-ma-s-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaS'] ?>" >
-                    <td id="id-ten-s-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenS']; ?></a></td>
-                    <td class="giua" id="id-ngay-tra-mt-<?php echo $row['Id']; ?>"><?php echo $row['NgayTra']; ?></td>
+                    <input type="text" hidden="hidden" id="id-ma-nv-t-<?php echo $row['Id']; ?>" value="<?php echo $row['MaNV'] ?>" >
+                    <td id="id-ten-nv-t-<?php echo $row['Id']; ?>"><a><?php echo $row['TenNV']; ?></a></td>
+                    <input type="text" hidden="hidden" id="id-ma-dg-t-<?php echo $row['Id']; ?>" value="<?php echo $row['MaDG'] ?>" >
+                    <td id="id-ma-dg-2-t-<?php echo $row['Id']; ?>"><a><?php echo $row['MaDG']; ?></a></td>
+                    <td id="id-ten-dg-t-<?php echo $row['Id']; ?>"><a><?php echo $row['TenDG']; ?></a></td>
+                    <input type="text" hidden="hidden" class="giua" id="id-ma-s-t-<?php echo $row['Id']; ?>" value="<?php echo $row['MaS'] ?>" >
+                    <td id="id-ten-s-t-<?php echo $row['Id']; ?>"><a><?php echo $row['TenS']; ?></a></td>
+                    <td class="giua" id="id-ngay-tra-t-<?php echo $row['Id']; ?>"><?php echo $row['NgayTra']; ?></td>
 
-                    <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>">
+                    <td class="giua" id="id-trang-thai-t-<?php echo $row['Id']; ?>">
                         <span class="slmuon" ><?php echo $row['SLTra']; ?></span>
                     </td>
                 </tr>
@@ -184,7 +188,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Mượn sách</h4>
+        <h4 class="modal-title">Trả sách</h4>
       </div>
       <div class="modal-body">
         <div class="form-group">
@@ -195,7 +199,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary" id="nut-tra-sach">Xác nhận trả</button>
+        <button type="button" class="btn btn-success" id="nut-tra-sach">Xác nhận trả</button>
       </div>
     </div>
   </div>

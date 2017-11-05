@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 05, 2017 lúc 06:44 SA
+-- Thời gian đã tạo: Th10 05, 2017 lúc 07:11 SA
 -- Phiên bản máy phục vụ: 5.7.14
 -- Phiên bản PHP: 5.6.25
 
@@ -34,6 +34,16 @@ CREATE TABLE `cttra` (
   `NgayTra` date NOT NULL,
   `SLTra` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `cttra`
+--
+
+INSERT INTO `cttra` (`Id`, `MaNV`, `MaDG`, `MaS`, `NgayTra`, `SLTra`) VALUES
+(2, 331892182, 14004005, 2, '2017-11-05', 1),
+(3, 331892182, 14004046, 2, '2017-11-05', 1),
+(4, 331892182, 14004006, 2, '2017-11-05', 2),
+(5, 331892182, 14004038, 4, '2017-11-05', 1);
 
 -- --------------------------------------------------------
 
@@ -156,12 +166,13 @@ CREATE TABLE `muontra` (
 
 INSERT INTO `muontra` (`Id`, `MaNV`, `MaDG`, `MaS`, `NgayMuon`, `NgayTra`, `TrangThai`, `SLMuon`, `GiaHan`) VALUES
 (5, 331892182, 14004046, 1, '2017-11-05', '2017-11-12', 0, 1, 0),
-(6, 331892182, 14004005, 2, '2017-11-05', '2017-11-12', 0, 1, 0),
+(6, 331892182, 14004005, 2, '2017-11-05', '2017-11-12', 1, 0, 0),
 (7, 331892182, 14004045, 5, '2017-11-05', '2017-11-12', 0, 1, 0),
-(8, 331892182, 14004038, 4, '2017-11-05', '2017-11-12', 0, 1, 0),
-(9, 331892182, 14004046, 2, '2017-11-05', '2017-11-12', 0, 1, 0),
+(8, 331892182, 14004038, 4, '2017-11-05', '2017-11-12', 1, 0, 0),
+(9, 331892182, 14004046, 2, '2017-11-05', '2017-11-12', 1, 0, 0),
 (10, 331892182, 14004006, 4, '2017-11-05', '2017-11-12', 0, 1, 0),
-(11, 331892182, 14004046, 4, '2017-11-05', '2017-11-12', 0, 1, 0);
+(11, 331892182, 14004046, 4, '2017-11-05', '2017-11-12', 0, 1, 0),
+(12, 331892182, 14004006, 2, '2017-11-05', '2017-11-12', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -265,9 +276,9 @@ CREATE TABLE `sach` (
 
 INSERT INTO `sach` (`MaS`, `TenS`, `MaLS`, `MaTG`, `MaNXB`, `NamXB`, `SoTrang`, `HinhAnhS`, `SL`, `Gia`, `NgayNhap`, `XoaSach`) VALUES
 (1, 'Cơ Sở Dữ Liệu', 2, 1, 3, 1996, 60, 'images/hoahong.jpg', 25, '350000', '2017-10-01', 0),
-(2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, 'images/sach.jpg', 24, '20000', '2017-07-10', 0),
+(2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, 'images/sach.jpg', 26, '20000', '2017-07-10', 0),
 (3, 'Phân Tích Thiết Kế Hệ Thống', 3, 2, 2, 2003, 30, 'images/hoahong.jpg', 15, '40000', '2017-04-11', 0),
-(4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, 'images/kinhnghiem.jpg', 18, '30000', '2017-03-27', 0),
+(4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, 'images/kinhnghiem.jpg', 19, '30000', '2017-03-27', 0),
 (5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 100, 'images/thanhpho.jpg', 9, '123000', '2017-06-12', 0);
 
 -- --------------------------------------------------------
@@ -405,7 +416,7 @@ ALTER TABLE `xuatsach`
 -- AUTO_INCREMENT cho bảng `cttra`
 --
 ALTER TABLE `cttra`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT cho bảng `docgia`
 --
@@ -420,7 +431,7 @@ ALTER TABLE `loaisach`
 -- AUTO_INCREMENT cho bảng `muontra`
 --
 ALTER TABLE `muontra`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT cho bảng `nhanvien`
 --
