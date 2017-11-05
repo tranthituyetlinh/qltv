@@ -25,7 +25,7 @@
                     <th class="giua">Ngày mượn</th>
                     <th class="giua">Ngày trả</th>
                     <th class="giua">Trạng thái</th>
-                    <th class="giua">Số lượng</th>
+                    <th class="giua">SL chưa trả</th>
                     <th class="giua">Gia hạn</th>
                     <th class="giua">Trả sách</th>
                   </tr>
