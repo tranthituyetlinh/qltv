@@ -52,15 +52,15 @@
           <li><a href="?p=docgia">Độc giả</a></li>
         </ul>
       </li>
-      <li class="dropdown">
+      <li class="dropdown" id="thong-ke">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Thống kê <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Sách chưa mượn</a></li>
-          <li><a href="#">Sách đã mượn</a></li>
-          <li><a href="#">Sách đang mượn</a></li>
-          <li><a href="#">Số lượng sách theo năm</a></li>
-          <li><a href="#">Top 10 sách mượn nhiều nhất năm</a></li>
-          <li><a href="#">Sách theo nhà xuất bản</a></li> 
+          <li><a href="?p=sachchuamuon">Sách chưa mượn</a></li>
+          <li><a href="?p=sachdamuon">Sách đã mượn</a></li>
+          <li><a href="?psachdangmuon">Sách đang mượn</a></li>
+          <li><a href="?soluongtheonam">Số lượng sách theo năm</a></li>
+          <li><a href="?p=top10sachmuon">Top 10 sách mượn nhiều nhất năm</a></li>
+          <li><a href="?p=sachtheonxb">Sách theo nhà xuất bản</a></li> 
         </ul>
       </li>
       <li class="dropdown" id="nhanvien"><a href="?p=nhanvien">Quản lý nhân viên</a></li>
