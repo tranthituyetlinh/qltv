@@ -4,10 +4,6 @@
 	function qltv_xoa_tg($ma){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
-		if (qltv_kiem_tra_ton_tai("SELECT tg.MaTG FROM sach s, tacgia tg WHERE s.MaTG = tg.MaTG AND tg.MaTG = '$ma'")) {
-			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> không thể xóa tác giả. Hiện còn sách của tác giả trong thư viện!\")</script>";
-			exit();
-		}
 		$hoi = "
 				DELETE FROM `tacgia` WHERE `MaTG` = '$ma'
 		";
@@ -18,7 +14,7 @@
 		if ($dem_kiemtra > 0){
 			$mang_kiemtra = mysqli_fetch_array($kiemtra_ec);
 			if($mang_kiemtra[0] > 0){
-				echo "Bạn không thể xóa tác giả này\nĐang có $mang_kiemtra[0] quyển sách thuộc tác giả này trong thư viện!";
+				echo "<script>khongthanhcong(\"Bạn không thể xóa tác giả này. Đang có ".$mang_kiemtra[0]." quyển sách thuộc tác giả này trong thư viện!\")</script>";
 				exit();
 			}
 		}

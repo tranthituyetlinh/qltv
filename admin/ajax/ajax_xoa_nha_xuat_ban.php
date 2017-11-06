@@ -14,7 +14,7 @@
 		if ($dem_kiemtra > 0){
 			$mang_kiemtra = mysqli_fetch_array($kiemtra_ec);
 			if($mang_kiemtra[0] > 0){
-				echo "Bạn không thể xóa NXB này\nĐang có $mang_kiemtra[0] quyển sách thuộc NXB này trong thư viện!";
+				echo "<script>khongthanhcong(\"Bạn không thể xóa NXB này. Đang có ".$mang_kiemtra[0]." quyển sách thuộc NXB này trong thư viện!\")</script>";
 				exit();
 			}
 		}
@@ -29,10 +29,12 @@
 		}
 		else{
 			if (qltv_xoa_ls($_POST['ma'])) {
-				echo "Nhà xuất bản đã được xóa!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã xóa</strong> nhà xuất bản!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình xóa!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> có lỗi trong quá trình xóa!\")</script>";
+				exit();
 			}
 		}
 	}
