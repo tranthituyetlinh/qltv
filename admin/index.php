@@ -14,7 +14,6 @@
   <script src="../js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-
 <nav class="navbar navbar-default" style="box-shadow: 0px 3px 10px -5px #212121;">
   <div class="container-fluid">
     <div class="navbar-header">

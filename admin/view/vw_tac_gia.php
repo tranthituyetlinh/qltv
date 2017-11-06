@@ -38,7 +38,7 @@
                     <td><?php echo $row['TenTG']; ?></td>
                     <td><?php echo $row['DiaChiTG']; ?></td>
                     <td><?php echo $row['MoTa']; ?></td>
-                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-tg" data-qltv="<?php echo $row['MaTG']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <td class="giua"><div class="nam-giua nut"><a class="btn btn-primary btn-sua-tg" data-qltv="<?php echo $row['MaTG']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         <a class="btn btn-danger btn-xoa-tg" title="Xóa"
                         data-qltv="<?php echo $row['MaTG']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
                     </td>
@@ -151,7 +151,6 @@
 <script src="js/datatables.min.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8">
       $(document).ready(function() {
-        
         $("#themtacgia").click(function(){
         	$("#qltv-modal-them-tg").modal("show");
         });
