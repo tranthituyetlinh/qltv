@@ -2,8 +2,20 @@
 	session_start();
 	include_once("ajax_config.php");
 	function vlu_sua_lop($mal, $tenl, $mak, $malold){
+		if (empty($mal)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> mã lớp không để trống!\")</script>";
+			exit();
+		}
+		if (empty($tenl)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> tên lớp không để trống!\")</script>";
+			exit();
+		}
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
+		if (qltv_kiem_tra_ton_tai("SELECT `MaL` FROM `lop` WHERE (BINARY `MaL` = '$mal') and MaL NOT IN (SELECT MaL FROM lop WHERE MaL = '$malold')")) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> mã lop <b>".$mal."</b> đã tồn tại, vui lòng nhập mã khác!\")</script>";
+			exit();
+		}
 		$hoi = "
 				UPDATE `lop` 
 				SET 
@@ -24,10 +36,12 @@
 		}
 		else{
 			if (vlu_sua_lop($_POST['mal'],$_POST['tenl'],$_POST['mak'],$_POST['malold'])){
-				echo "Khoa đã được sửa!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã lưu</strong> lớp đã được cập nhật!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình sửa!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> có lỗi trong quá trình cập nhật!\")</script>";
+				exit();
 			}
 		}
 	}

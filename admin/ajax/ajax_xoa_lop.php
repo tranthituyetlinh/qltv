@@ -4,6 +4,10 @@
 	function qltv_xoa_lop($ma){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
+		if (qltv_kiem_tra_ton_tai("SELECT dg.MaL FROM lop l, docgia dg WHERE dg.MaL = l.MaL AND l.MaL = '$ma'")) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> không thể xóa lớp khi khi còn chứa sinh viên!\")</script>";
+			exit();
+		}
 		$hoi = "
 				DELETE FROM `lop` WHERE `MaL` = '$ma'
 		";
@@ -18,10 +22,12 @@
 		}
 		else{
 			if (qltv_xoa_lop($_POST['ma'])) {
-				echo "Khoa đã được xóa!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã xóa</strong> lớp ".$_POST['ma']."!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình xóa!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> có lỗi trong quá trình xóa!\")</script>";
+				exit();
 			}
 		}
 	}

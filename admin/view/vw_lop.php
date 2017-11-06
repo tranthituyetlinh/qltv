@@ -233,8 +233,7 @@
             malold: $("#ma-lop-sua-old").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });
@@ -252,8 +251,7 @@
 	          ma: $("#ma-lop-xoa").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });
