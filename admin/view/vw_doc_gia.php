@@ -211,8 +211,8 @@
         <div class="form-group">
           <label>Trạng thái</label>
           <select class="form-control" id="trang-thai-dg-sua">
-              <option value="1">Bình thường</option>
-              <option value="2">Tạm khóa (không cho đăng nhập)</option>
+              <option value="0">Bình thường</option>
+              <option value="1">Tạm khóa (không cho đăng nhập)</option>
           </select>
         </div>
         <p class="help-block"> (<b>*</b>) Mật khẩu mặc định khi reset là: <b style="color: red;">123456</b></p>

@@ -2,6 +2,7 @@
 	session_start();
 	include_once("ajax_config.php");
 	function vlu_them_lop($mal, $tenl, $mak){
+
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "

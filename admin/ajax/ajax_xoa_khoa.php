@@ -4,6 +4,8 @@
 	function qltv_xoa_ls($ma){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
+
+		
 		$hoi = "
 				DELETE FROM `khoa` WHERE `MaK` = '$ma'
 		";
@@ -18,10 +20,12 @@
 		}
 		else{
 			if (qltv_xoa_ls($_POST['ma'])) {
-				echo "Khoa đã được xóa!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã xóa</strong> khoa ".$_POST['ma']."!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình xóa!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> có lỗi trong quá trình xóa!\")</script>";
+				exit();
 			}
 		}
 	}

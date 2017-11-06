@@ -28,4 +28,16 @@
 		else
 			return false;
 	}
+	function qltv_kiem_tra_ton_tai($chuoi){
+		$ketnoi = new clsKetnoi();
+		$conn = $ketnoi->ketnoi();
+		$hoi = $chuoi;
+		$exhoi = mysqli_query($conn, $hoi);
+		$dem = mysqli_num_rows($exhoi);
+		if ($dem>0) {
+			return true;
+		}
+		else
+			return false;
+	}
  ?>
