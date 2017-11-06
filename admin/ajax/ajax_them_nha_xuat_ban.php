@@ -2,6 +2,10 @@
 	session_start();
 	include_once("ajax_config.php");
 	function vlu_them_nxb($ten){
+		if (empty($ten)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> tên NXB không để trống!\")</script>";
+			exit();
+		}
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
@@ -18,10 +22,12 @@
 		}
 		else{
 			if (vlu_them_nxb($_POST['ten'])) {
-				echo "Nhà xuất bản đã được thêm!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã thêm</strong> tác giả ".$_POST['ten']."!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình thêm!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa thêm</strong> có lỗi trong quá trình thêm!\")</script>";
+				exit();
 			}
 		}
 	}
