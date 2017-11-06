@@ -4,8 +4,10 @@
 	function qltv_xoa_ls($ma){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
-
-		
+		if (qltv_kiem_tra_ton_tai("SELECT MaL FROM lop l, khoa k WHERE l.MaK = k.MaK AND k.MaK = '$ma'")) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> không thể xóa khoa khi khi còn chứa các lớp!\")</script>";
+			exit();
+		}
 		$hoi = "
 				DELETE FROM `khoa` WHERE `MaK` = '$ma'
 		";
@@ -24,7 +26,7 @@
 				exit();
 			}
 			else{
-				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> có lỗi trong quá trình xóa!\")</script>";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> có lỗi trong quá trình xóa!\")</script>";
 				exit();
 			}
 		}

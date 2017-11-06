@@ -1,3 +1,38 @@
+<script type="text/javascript">
+      function thanhcong(chuoi) {
+           $.notify(chuoi, {
+              animate: {
+                enter: 'animated bounceIn',
+                exit: 'animated bounceOut'
+              },
+              type: 'success',
+              delay: 2000
+            });
+           $("#qltv-modal-them-lop").modal("hide");
+           $("#qltv-modal-sua-lop").modal("hide");
+           $("#qltv-modal-xoa-lop").modal("hide");
+      }
+      function tailai() {
+        setTimeout(function(){ location.reload(); }, 3000);
+      }
+      function dongsua() {
+        $("#qltv-modal-sua-dg").modal("hide");
+      }
+      function dongxoa(){
+        $("#qltv-modal-xoa-dg").modal("hide");
+      }
+      function khongthanhcong(chuoi) {
+           $.notify(chuoi, {
+              animate: {
+                enter: 'animated bounceIn',
+                exit: 'animated bounceOut'
+              },
+              type: 'danger',
+              delay: 4000
+            });
+
+      }
+</script>
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -174,8 +209,7 @@
             mak: $("#khoa-lop-them").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });

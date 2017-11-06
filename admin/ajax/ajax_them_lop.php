@@ -2,9 +2,20 @@
 	session_start();
 	include_once("ajax_config.php");
 	function vlu_them_lop($mal, $tenl, $mak){
-
+		if (empty($mal)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> mã lớp không để trống!\")</script>";
+			exit();
+		}
+		if (empty($tenl)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> tên lớp không để trống!\")</script>";
+			exit();
+		}
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
+		if (qltv_kiem_tra_ton_tai("SELECT `MaL` FROM `lop` WHERE BINARY `MaL` = '$mal'")) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> mã lop <b>".$mal."</b> đã tồn tại, vui lòng nhập mã khác!\")</script>";
+			exit();
+		}
 		$hoi = "
 				INSERT INTO `lop`(`MaL`, `TenL`, `MaK`) VALUES ('$mal','$tenl','$mak')
 		";
@@ -19,10 +30,12 @@
 		}
 		else{
 			if (vlu_them_lop($_POST['mal'],$_POST['tenl'],$_POST['mak'])) {
-				echo "Lớp đã được thêm!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã lưu</strong> lớp đã được thêm!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình thêm!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> có lỗi trong quá trình thêm!\")</script>";
+				exit();
 			}
 		}
 	}
