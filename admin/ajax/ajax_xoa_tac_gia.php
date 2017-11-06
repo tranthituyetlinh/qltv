@@ -4,6 +4,10 @@
 	function qltv_xoa_tg($ma){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
+		if (qltv_kiem_tra_ton_tai("SELECT tg.MaTG FROM sach s, tacgia tg WHERE s.MaTG = tg.MaTG AND tg.MaTG = '$ma'")) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> không thể xóa tác giả. Hiện còn sách của tác giả trong thư viện!\")</script>";
+			exit();
+		}
 		$hoi = "
 				DELETE FROM `tacgia` WHERE `MaTG` = '$ma'
 		";
