@@ -54,11 +54,11 @@
                 <tr role="row">
                   <tr style="background-color: #2980b9;color: #fff;">
                     <th class="giua">STT</th>
-                    <th class="giua">Mã tác giả</th>
-                    <th class="giua">Tên tác giả</th>
-                    <th class="giua">Địa chỉ tác giả</th>
+                    <th class="giua" style="width: 72px;">Mã tác giả</th>
+                    <th class="giua" style="width: 76px;">Tên tác giả</th>
+                    <th class="giua" style="width: 96px;">Địa chỉ tác giả</th>
                     <th class="giua">Mô tả về tác giả</th>
-                    <th class="giua">Thao tác</th>
+                    <th class="giua" style="width: 60px;">Thao tác</th>
                   </tr>
                 </tr>
             </thead>

@@ -40,6 +40,9 @@
 			case 'sachquahan':
 				include_once("control/ctrl_sach_qua_han.php");
 				break;
+			case 'sachtheonxb':
+				include_once("control/ctrl_export_sach_theo_nha_xuat_ban.php");
+				break;
 			default:
 				# code...
 				break;

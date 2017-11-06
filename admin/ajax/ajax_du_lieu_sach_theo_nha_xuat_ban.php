@@ -1,0 +1,119 @@
+<?php 
+	session_start();
+	include_once("ajax_config.php");
+	function tv_get_sach_tu_nha_xuat_ban($nxb){
+		$ketnoi = new clsKetnoi();
+		$conn = $ketnoi->ketnoi();
+		$query = "SELECT s.MaS, s.TenS, ls.MaLS, ls.TenLS, tg.MaTG, tg.TenTG, nxb.MaNXB, nxb.TenNXB,s.NamXB, s.SoTrang, s.HinhAnhS, s.SL, s.Gia, s.NgayNhap FROM sach s,tacgia tg, loaisach ls, nhaxuatban nxb WHERE s.MaLS = ls.MaLS and s.MaTG = tg.MaTG and s.MaNXB = nxb.MaNXB and `XoaSach`= '0' and nxb.`MaNXB` = '$nxb'";
+		$result = mysqli_query($conn, $query);
+		return $result;
+	}
+	if (isset($_SESSION['username']) && isset($_SESSION['password'])){
+		if(!qltv_login($_SESSION['username'],$_SESSION['password'])){
+			header("Location: ../login.php");
+		}
+		else{
+			$ma = $_POST['ma'];
+			$ten = $_POST['ten'];
+			$dulieu = tv_get_sach_tu_nha_xuat_ban($ma);
+			$dem = mysqli_num_rows($dulieu);
+	?>
+        <table id="qltv-loai-sach" class="table table-striped">
+            <thead>
+                <tr role="row">
+                  <tr style="background-color: #e0e0e0;color: #7d7d7d;border-top: 3px solid #9e9e9e;">
+                    <th class="giua">STT</th>
+                    <th class="giua">Mã sách</th>
+                    <th class="giua">Tên sách</th>
+                    <th class="giua">Loại sách</th>
+                    <th class="giua">Tác giả</th>
+                    <th class="giua">Nhà xuất bản</th>
+                    <th class="giua">Năm xuất bản</th>
+                    <th class="giua">Số trang</th>
+                    <th class="giua">Số lượng</th>
+                    <th class="giua">Giá</th>
+                    <th class="giua">Ngày nhập</th>
+                    <th class="giua">Thao tác</th>
+                  </tr>
+                </tr>
+            </thead>
+            <tbody>
+            <?php 
+              $stt = 1;
+              while ($row = mysqli_fetch_assoc($dulieu)) {
+                ?>
+                  <tr>
+                    <th class="giua"><?php echo $stt; ?></th>
+                    <td class="giua"><a>S<?php echo $row['MaS']; ?></a></td>
+                    <td><a class="ten-a btn-sua-sach" data-qltv="<?php echo $row['MaS']; ?>" alt="Image" Tooltip rel=thongbaonho content="<div id=imagcon>
+                            <img src='../<?php echo $row['HinhAnhS']; ?>' class=thongbaonho-image/></div>"><?php echo $row['TenS']; ?></a></td>
+                    <td><?php echo $row['TenLS']; ?></td>
+                    <td><?php echo $row['TenTG']; ?></td>
+                    <td><?php echo $row['TenNXB']; ?></td>
+                    <td class="giua"><?php echo $row['NamXB']; ?></td>
+                    <td class="giua"><?php echo $row['SoTrang']; ?></td>
+                    <td class="giua"><?php echo $row['SL']; ?></td>
+                    <td><?php echo $row['Gia']; ?></td>
+                    <td class="giua"><?php echo $row['NgayNhap']; ?></td>
+                    <td class="giua"><div class="nut nam-giua"><a class="btn btn-primary btn-sua-sach" data-qltv="<?php echo $row['MaS']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a class="btn btn-danger btn-xoa-sach" title="Xóa"
+                        data-qltv="<?php echo $row['MaS']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
+                    </td>
+                </tr>
+                <?php
+                $stt++;
+              }
+            ?>
+            </tbody>
+        </table>
+<?php	}
+	}
+	else
+		header("Location: ../login.php");
+	if ($dem > 0) {
+ ?>
+ 	<form action="ajax/ajax_export_sach_theo_nha_xuat_ban.php" method="post">
+ 		<input type="text" hidden="hidden" name="ma" value="<?php echo $ma; ?>">
+ 		<input type="text" hidden="hidden" name="ten" value="<?php echo $ten; ?>">
+ 		<input class="animated pulse btn btn-success" type="submit" name="" value="Tải xuống file Excel" target="_blank" style="position: absolute;bottom: 0;margin-bottom: 10px;left: 44%;" >
+ 	</form>
+ <?php } ?>
+ <style type="text/css">
+	 table.dataTable {
+	    clear: both;
+	    margin-top: 6px !important;
+	    margin-bottom: 6px !important;
+	    max-width: none !important;
+	    font-size: 12px;
+	}
+ </style>
+ <script type="text/javascript">
+$(document).ready(function(){
+    $('[rel=thongbaonho]').bind('mouseover', function(){
+     if ($(this).hasClass('ajax')) {
+        var ajax = $(this).attr('ajax');    
+      $.get(ajax,
+      function(noidungtooltip){
+        $('<div class="thongbaonho">'  + noidungtooltip + '</div>').appendTo('body').fadeIn('fast');});
+     }
+     else{
+            var noidungtooltip = $(this).attr('content');
+            $('<div class="thongbaonho">' + noidungtooltip + '</div>').appendTo('body').fadeIn('fast');
+            }
+            
+            $(this).bind('mousemove', function(e){
+                $('div.thongbaonho').css({
+                    'top': e.pageY - ($('div.thongbaonho').height() / 2) - 5,
+                    'left': e.pageX + 15
+                });
+            });
+        }).bind('mouseout', function(){
+            $('div.thongbaonho').fadeOut('fast', function(){
+                $(this).remove();
+            });
+        });
+});
+</script>
+ <script type="text/javascript">
+  $('#qltv-loai-sach').DataTable();
+</script>

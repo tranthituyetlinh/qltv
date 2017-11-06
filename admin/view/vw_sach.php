@@ -506,6 +506,13 @@ $(document).ready(function(){
 	padding: 4px 0px;
 	padding-left: 4px;
 }
+   table.dataTable {
+      clear: both;
+      margin-top: 6px !important;
+      margin-bottom: 6px !important;
+      max-width: none !important;
+      font-size: 12px;
+  }
 </style>
 <script type="text/javascript">
     $('#qltv-loai-sach').DataTable();
