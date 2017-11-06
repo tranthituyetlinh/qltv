@@ -5,8 +5,8 @@
 
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
-		if (qltv_kiem_tra_ton_tai("SELECT MaL FROM lop l, khoa k WHERE l.MaK = k.MaK AND k.MaK = '$ma'")) {
-			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> không thể xóa khoa khi khi còn chứa các lớp!\")</script>";
+		if (qltv_kiem_tra_ton_tai("SELECT mt.Id FROM muontra mt, sach s WHERE s.MaS = mt.MaS AND s.MaS = '$ma' AND mt.TrangThai = '0'")) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> không thể xóa sách này, sách này hiện đang được mượn (chưa thu hồi hết)!\")</script>";
 			exit();
 		}
 		$hoi = "
