@@ -30,7 +30,7 @@
 				exit();
 			}
 			else{
-				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> có lỗi trong quá trình lưu!\")</script>";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> có lỗi trong quá trình cập nhật!\")</script>";
 				exit();
 			}
 		}
