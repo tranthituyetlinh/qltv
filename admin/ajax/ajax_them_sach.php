@@ -2,6 +2,22 @@
 	session_start();
 	include_once("ajax_config.php");
 	function tv_them_sach($ten,$ls,$tg,$nxb,$nam,$trang,$luong,$gia,$nhap,$anh){
+		if (empty($ten)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> tên sách không để trống!\")</script>";
+			exit();
+		}
+		if (empty($nam)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> năm không để trống!\")</script>";
+			exit();
+		}
+		if (empty($trang)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> trang không để trống!\")</script>";
+			exit();
+		}
+		if (empty($gia)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> giá không để trống!\")</script>";
+			exit();
+		}
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
@@ -18,10 +34,12 @@
 		}
 		else{
 			if (tv_them_sach($_POST['ten'],$_POST['ls'],$_POST['tg'],$_POST['nxb'],$_POST['nam'],$_POST['trang'],$_POST['luong'],$_POST['gia'],$_POST['nhap'],$_POST['anh'])) {
-				echo "Sách đã được thêm!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã thêm</strong> sách ".$_POST['ten']."!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình thêm!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa thêm</strong> có lỗi trong quá trình thêm!\")</script>";
+				exit();
 			}
 		}
 	}

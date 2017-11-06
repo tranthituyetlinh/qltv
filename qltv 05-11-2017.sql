@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 05, 2017 lúc 07:11 SA
+-- Thời gian đã tạo: Th10 06, 2017 lúc 09:29 SA
 -- Phiên bản máy phục vụ: 5.7.14
 -- Phiên bản PHP: 5.6.25
 
@@ -70,11 +70,12 @@ CREATE TABLE `docgia` (
 --
 
 INSERT INTO `docgia` (`Id`, `MaDG`, `TenDG`, `NgaySinh`, `DiaChiDG`, `NgayLapThe`, `TaiKhoanDG`, `MatKhauDG`, `Mail`, `MaL`, `TrangThai`) VALUES
-(1, '14004038', 'Trần Thị Tuyết Linh', '1996-11-15', 'Đồng Tháp', '2017-10-30', 'tuyetlinh', 'e10adc3949ba59abbe56e057f20f883e', 'tuyetlinhcntt2014@gmail.com', '1CTT14A', 0),
-(2, '14004006', 'Phan Thế Anh', '1996-11-05', 'Vĩnh Long', '2017-11-05', '14004006', 'e10adc3949ba59abbe56e057f20f883e', '14004006@student.vlute.edu.vn', '1CTT14A', 0),
-(3, '14004005', 'Nguyễn Hoàng Anh', '1996-10-05', 'Vĩnh Long', '2017-11-05', '14004005', 'e10adc3949ba59abbe56e057f20f883e', '14004005@student.vlute.edu.vn', '1CTT14A', 0),
-(4, '14004046', 'Lê Thị Huế Minh', '1996-02-02', 'Vĩnh Long', '2017-11-05', '14004046', 'e10adc3949ba59abbe56e057f20f883e', '14004046@student.vlute.edu.vn', '1CTT14A', 0),
-(5, '14004045', 'Nguyễn Hoàng Hải', '1995-02-02', 'Vĩnh Long', '2017-11-05', '14004045', 'e10adc3949ba59abbe56e057f20f883e', '14004045@student.vlute.edu.vn', '1CTT14A', 0);
+(1, '14004038', 'Trần Thị Tuyết Linh', '1996-11-15', 'Đồng Tháp', '2017-10-30', 'tuyetlinh', 'e10adc3949ba59abbe56e057f20f883e', 'tuyetlinhcntt2014@gmail.com', '1CTT14A', 1),
+(2, '14004006', 'Phan Thế Anh', '1996-11-05', 'Vĩnh Long', '2017-11-05', '14004006', 'e10adc3949ba59abbe56e057f20f883e', '14004006@student.vlute.edu.vn', '1CTT14A', 1),
+(3, '14004005', 'Nguyễn Hoàng Anh', '1996-10-05', 'Vĩnh Long', '2017-11-05', '14004005', 'e10adc3949ba59abbe56e057f20f883e', '14004005@student.vlute.edu.vn', '1CTT14A', 1),
+(4, '14004046', 'Lê Thị Huế Minh', '1996-02-02', 'Vĩnh Long', '2017-11-05', '14004046', 'e10adc3949ba59abbe56e057f20f883e', '14004046@student.vlute.edu.vn', '1CTT14A', 1),
+(5, '14004045', 'Nguyễn Hoàng Hải', '1995-02-02', 'Vĩnh Long', '2017-11-05', '14004045', 'e10adc3949ba59abbe56e057f20f883e', '14004045@student.vlute.edu.vn', '1CTT14A', 1),
+(6, '14004002', 'Nguyễn Ngọc Lan Anh', '1996-11-06', 'Tiềng Giang', '2017-11-06', '14004002', 'e10adc3949ba59abbe56e057f20f883e', '14004002@student.vlute.edu.vn', '1CTT14A', 0);
 
 -- --------------------------------------------------------
 
@@ -138,7 +139,7 @@ CREATE TABLE `lop` (
 INSERT INTO `lop` (`MaL`, `TenL`, `MaK`) VALUES
 ('1CKC14A', 'Kỹ thuật Cơ Khí', 'CKC'),
 ('1CTP14A', 'Công Nghệ Thực Phẩm', 'CTP'),
-('1CTT14A', 'Công Nghệ Thông Tin', 'CTT'),
+('1CTT14A', 'Công Nghệ Thông Tin 2014', 'CTT'),
 ('1DDT14A', 'Điện Tử', 'DDT'),
 ('1OTO14A', 'Công Nghệ Ô Tô', 'OTO');
 
@@ -188,7 +189,7 @@ CREATE TABLE `nhanvien` (
   `TenDangNhap` varchar(50) NOT NULL,
   `MatKhau` varchar(50) NOT NULL,
   `Mail` varchar(100) NOT NULL,
-  `TrangThaiNV` int(1) DEFAULT '1',
+  `TrangThaiNV` int(1) DEFAULT '0',
   `HeSoPhuCap` float NOT NULL DEFAULT '1',
   `LoaiNV` int(2) NOT NULL DEFAULT '2',
   `DaXoa` int(1) NOT NULL DEFAULT '0'
@@ -226,7 +227,8 @@ INSERT INTO `nhapsach` (`id`, `NgayNhap`, `MaS`, `SoLuong`, `GhiChu`) VALUES
 (2, '2017-10-29', 5, 20, 'ghichu'),
 (3, '2017-10-29', 4, 1, 'ghichu'),
 (4, '2017-10-29', 4, 9, 'ghichu'),
-(5, '2017-10-29', 5, 1, '');
+(5, '2017-10-29', 5, 1, ''),
+(6, '2017-11-06', 1, 1, '');
 
 -- --------------------------------------------------------
 
@@ -275,11 +277,13 @@ CREATE TABLE `sach` (
 --
 
 INSERT INTO `sach` (`MaS`, `TenS`, `MaLS`, `MaTG`, `MaNXB`, `NamXB`, `SoTrang`, `HinhAnhS`, `SL`, `Gia`, `NgayNhap`, `XoaSach`) VALUES
-(1, 'Cơ Sở Dữ Liệu', 2, 1, 3, 1996, 60, 'images/hoahong.jpg', 25, '350000', '2017-10-01', 0),
-(2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, 'images/sach.jpg', 26, '20000', '2017-07-10', 0),
+(1, 'Cơ Sở Dữ Liệu', 2, 1, 3, 1996, 60, 'images/hoahong.jpg', 26, '350000', '2017-10-01', 0),
+(2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, 'images/sach.jpg', 26, '20000', '2017-07-10', 1),
 (3, 'Phân Tích Thiết Kế Hệ Thống', 3, 2, 2, 2003, 30, 'images/hoahong.jpg', 15, '40000', '2017-04-11', 0),
 (4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, 'images/kinhnghiem.jpg', 19, '30000', '2017-03-27', 0),
-(5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 100, 'images/thanhpho.jpg', 9, '123000', '2017-06-12', 0);
+(5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 100, 'images/thanhpho.jpg', 9, '123000', '2017-06-12', 0),
+(6, 'qdqwwqd', 3, 3, 4, 1992, 9, 'images/ngaynang.jpg', 0, '10000', '2017-11-06', 1),
+(7, 'Công nghệ phần mềm', 2, 2, 2, 1990, 100, 'images/kinhnghiem.jpg', 0, '10000', '2017-11-06', 1);
 
 -- --------------------------------------------------------
 
@@ -299,11 +303,11 @@ CREATE TABLE `tacgia` (
 --
 
 INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChiTG`, `MoTa`) VALUES
-(1, 'Xuân Quỳnh', 'Làng La Khê, xã Văn Khê, thị xã Hà Đông, tỉnh Hà Tây ', 'Xuân Quỳnh, sinh ngày 6 tháng 10 năm 1942 tại làng La Khê, xã Văn Khê, thị xã Hà Đông, tỉnh Hà Tây (nay là quận Hà Đông, Hà Nội). Xuất thân trong một gia đình công chức, mẹ mất sớm, bố thường xuyên công tác xa gia đình, bà được bà nội nuôi dạy từ nhỏ đến khi trưởng thành'),
+(1, 'Xuân Quỳnh', 'Làng La Khê, xã Văn Khê, thị xã Hà Đông, tỉnh Hà Tây', 'Xuân Quỳnh, sinh ngày 6 tháng 10 năm 1942 tại làng La Khê, xã Văn Khê, thị xã Hà Đông, tỉnh Hà Tây (nay là quận Hà Đông, Hà Nội). Xuất thân trong một gia đình công chức, mẹ mất sớm, bố thường xuyên công tác xa gia đình, bà được bà nội nuôi dạy từ nhỏ đến khi trưởng thành'),
 (2, 'Nam Cao', 'Làng Đại Hoàng, tổng Cao Đà, huyện Nam Sang, phủ Lý Nhân (nay là xã Hòa Hậu, huyện Lý Nhân, Hà Nam)', 'Ông xuất thân từ một gia đình Công giáo bậc trung. Cha ông là ông Trần Hữu Huệ, làm nghề thợ mộc và thầy lang trong làng. Mẹ ông là bà Trần Thị Minh, vừa là nội trợ, làm vườn, làm ruộng và dệt vải.\r\nThuở nhỏ, ông học sơ học ở trường làng. Đến cấp tiểu học và bậc trung học, gia đình gửi ông xuống Nam Định học ở trường Cửa Bắc rồi trường Thành Chung (nay là trường THPT Chuyên Lê Hồng Phong- Nam Định). Nhưng vì thể chất yếu, chưa kịp thi Thành Chung, ông đã phải về nhà chữa bệnh, rồi cưới vợ năm 18 tuổi.'),
 (3, 'Tô Hoài', 'Làng Nghĩa Đô, huyện Từ Liêm, phủ Hoài Đức, tỉnh Hà Đông ', 'Tô Hoài sinh ra tại quê nội ở thôn Cát Động, Thị trấn Kim Bài, huyện Thanh Oai, tỉnh Hà Đông cũ trong một gia đình thợ thủ công. Tuy nhiên, ông lớn lên ở quê ngoại là làng Nghĩa Đô, huyện Từ Liêm, phủ Hoài Đức, tỉnh Hà Đông (nay thuộc phường Nghĩa Đô, quận Cầu Giấy, Hà Nội, Việt Nam[2]). Bút danh Tô Hoài gắn với hai địa danh: sông Tô Lịch và phủ Hoài Đức.\r\n\r\nBước vào tuổi thanh niên, ông đã phải làm nhiều công việc để kiếm sống như dạy trẻ, bán hàng, kế toán hiệu buôn,... nhưng có những lúc thất nghiệp. Khi đến với văn chương, ông nhanh chóng được người đọc chú ý, nhất là qua truyện Dế Mèn phiêu lưu ký. Năm 1943, Tô Hoài gia nhập Hội Văn hóa cứu quốc. Trong chiến tranh Đông Dương, ông chủ yếu hoạt động trong lĩnh vực báo chí, nhưng vẫn có một số thành tựu quan trọng như Truyện Tây Bắc.'),
 (4, 'Nguyễn Tuân', 'Phố Hàng Bạc, Hà Nội, quê ở thôn Thượng Đình, xã Nhân Mục (tên nôm là làng Mọc), nay thuộc phường Nhân Chính, quận Thanh Xuân, Hà Nội', 'Nguyễn Tuân (10/ 7/ 1910 – 28 / 7/1987) quê ở Hà Nội, là một nhà văn của Việt Nam, sở trường về tùy bút và ký, được tặng Giải thưởng Hồ Chí Minh về văn học nghệ thuật năm 1996. Tác phẩm của Nguyễn Tuân luôn thể hiện phong cách độc đáo, tài hoa, sự hiểu biết phong phú nhiều mặt và vốn ngôn ngữ, giàu có, điêu luyện. Sách giáo khoa hiện hành xếp ông vào một trong 9 tác giả tiêu biểu của văn học Việt Nam hiện đại. Ông viết văn với một phong cách tài hoa uyên bác và được xem là bậc thầy trong việc sáng tạo và sử dụng Tiếng Việt. Hiện nay, ở Hà Nội có một con đường mang tên ông, nối từ đường Nguyễn Trãi cắt ngang qua các phố Nguyễn Huy Tưởng, Ngụy Như Kon Tum đến đường Lê Văn Lương, nối với phố Hoàng Minh Giám.'),
-(5, 'Tố Hữu', 'Làng Phù Lai, nay thuộc xã Quảng Thọ, huyện Quảng Điền, tỉnh Thừa Thiên-Huế.', 'Tố Hữu, tên thật là Nguyễn Kim Thành (4 tháng 10 năm 1920 – 9 tháng 12 năm 2002), quê gốc ở làng Phù Lai, nay thuộc xã Quảng Thọ, huyện Quảng Điền, tỉnh Thừa Thiên-Huế.\r\n\r\nÔng là một nhà thơ tiêu biểu của thơ cách mạng Việt Nam, đồng thời là một chính trị gia. Ông đã từng giữ các chức vụ quan trọng trong hệ thống chính trị của Việt Nam như Ủy viên Bộ Chính trị, Bí thư Ban Chấp hành Trung ương Đảng Cộng sản Việt Nam, Phó Chủ tịch thứ Nhất Hội đồng Bộ trưởng nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.');
+(5, 'Tố Hữu', 'Làng Phù Lai, nay thuộc xã Quảng Thọ, huyện Quảng Điền, tỉnh Thừa Thiên-Huế.', 'Tố Hữu, tên thật là Nguyễn Kim Thành (4 tháng 10 năm 1920 – 9 tháng 12 năm 2002), quê gốc ở làng Phù Lai, nay thuộc xã Quảng Thọ, huyện Quảng Điền, tỉnh Thừa Thiên-Huế.Ông là một nhà thơ tiêu biểu của thơ cách mạng Việt Nam, đồng thời là một chính trị gia. Ông đã từng giữ các chức vụ quan trọng trong hệ thống chính trị của Việt Nam như Ủy viên Bộ Chính trị, Bí thư Ban Chấp hành Trung ương Đảng Cộng sản Việt Nam, Phó Chủ tịch thứ Nhất Hội đồng Bộ trưởng nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.');
 
 -- --------------------------------------------------------
 
@@ -421,12 +425,12 @@ ALTER TABLE `cttra`
 -- AUTO_INCREMENT cho bảng `docgia`
 --
 ALTER TABLE `docgia`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT cho bảng `loaisach`
 --
 ALTER TABLE `loaisach`
-  MODIFY `MaLS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MaLS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT cho bảng `muontra`
 --
@@ -441,22 +445,22 @@ ALTER TABLE `nhanvien`
 -- AUTO_INCREMENT cho bảng `nhapsach`
 --
 ALTER TABLE `nhapsach`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT cho bảng `nhaxuatban`
 --
 ALTER TABLE `nhaxuatban`
-  MODIFY `MaNXB` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `MaNXB` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT cho bảng `sach`
 --
 ALTER TABLE `sach`
-  MODIFY `MaS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MaS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT cho bảng `tacgia`
 --
 ALTER TABLE `tacgia`
-  MODIFY `MaTG` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MaTG` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT cho bảng `xuatsach`
 --

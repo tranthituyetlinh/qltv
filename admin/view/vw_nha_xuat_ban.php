@@ -1,3 +1,38 @@
+<script type="text/javascript">
+      function thanhcong(chuoi) {
+           $.notify(chuoi, {
+              animate: {
+                enter: 'animated bounceIn',
+                exit: 'animated bounceOut'
+              },
+              type: 'success',
+              delay: 2000
+            });
+           $("#qltv-modal-them-nxb").modal("hide");
+           $("#qltv-modal-sua-nxb").modal("hide");
+           $("#qltv-modal-xoa-nxb").modal("hide");
+      }
+      function tailai() {
+        setTimeout(function(){ location.reload(); }, 3000);
+      }
+      function dongsua() {
+        $("#qltv-modal-sua-dg").modal("hide");
+      }
+      function dongxoa(){
+        $("#qltv-modal-xoa-dg").modal("hide");
+      }
+      function khongthanhcong(chuoi) {
+           $.notify(chuoi, {
+              animate: {
+                enter: 'animated bounceIn',
+                exit: 'animated bounceOut'
+              },
+              type: 'danger',
+              delay: 4000
+            });
+
+      }
+</script>
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -17,7 +52,7 @@
         <table id="qltv-loai-sach" class="table table-striped">
             <thead>
                 <tr role="row">
-                  <tr style="background-color: #32a4c3;color: #fff;">
+                  <tr style="background-color: #f1f1f1;color: #7d7d7d;border-top: 3px solid #9e9e9e;">
                     <th class="giua">STT</th>
                     <th class="giua">Mã nhà xuất bản</th>
                     <th class="giua">Tên nhà xuất bản</th>
@@ -35,7 +70,7 @@
                     <th class="giua"><?php echo $stt; ?></th>
                     <td class="giua"><a>NXB<?php echo $row['MaNXB']; ?></a></td>
                     <td><?php echo $row['TenNXB']; ?></td>
-                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-nxb" data-qltv="<?php echo $row['MaNXB']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <td class="giua"><div class="nut nam-giua"><a class="btn btn-primary btn-sua-nxb" data-qltv="<?php echo $row['MaNXB']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         <a class="btn btn-danger btn-xoa-nxb" title="Xóa"
                         data-qltv="<?php echo $row['MaNXB']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
                     </td>
@@ -145,8 +180,7 @@
 	          ten: $("#ten-nxb-sach-them").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });
@@ -166,8 +200,7 @@
 	          ten: $("#ten-nxb-sach-sua").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });
@@ -185,8 +218,7 @@
 	          ma: $("#ma-nxb-sach-xoa").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });

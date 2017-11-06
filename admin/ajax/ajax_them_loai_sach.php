@@ -2,6 +2,10 @@
 	session_start();
 	include_once("ajax_config.php");
 	function vlu_them_gv($ten){
+		if (empty($ten)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> tên loại không để trống!\")</script>";
+			exit();
+		}
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
@@ -18,10 +22,12 @@
 		}
 		else{
 			if (vlu_them_gv($_POST['ten'])) {
-				echo "Loại sách đã được thêm!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã thêm</strong> loại ".$_POST['ten']."!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình thêm!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> có lỗi trong quá trình thêm!\")</script>";
+				exit();
 			}
 		}
 	}

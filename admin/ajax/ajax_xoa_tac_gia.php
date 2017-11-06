@@ -14,7 +14,7 @@
 		if ($dem_kiemtra > 0){
 			$mang_kiemtra = mysqli_fetch_array($kiemtra_ec);
 			if($mang_kiemtra[0] > 0){
-				echo "Bạn không thể xóa tác giả này\nĐang có $mang_kiemtra[0] quyển sách thuộc tác giả này trong thư viện!";
+				echo "<script>khongthanhcong(\"Bạn không thể xóa tác giả này. Đang có ".$mang_kiemtra[0]." quyển sách thuộc tác giả này trong thư viện!\")</script>";
 				exit();
 			}
 		}
@@ -29,10 +29,12 @@
 		}
 		else{
 			if (qltv_xoa_tg($_POST['ma'])) {
-				echo "Tác giả đã được xóa!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã xóa</strong> tác giả!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình xóa!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> có lỗi trong quá trình xóa!\")</script>";
+				exit();
 			}
 		}
 	}

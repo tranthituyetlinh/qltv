@@ -1,3 +1,32 @@
+<script type="text/javascript">
+      function thanhcong(chuoi) {
+           $.notify(chuoi, {
+              animate: {
+                enter: 'animated bounceIn',
+                exit: 'animated bounceOut'
+              },
+              type: 'success',
+              delay: 2000
+            });
+           $("#qltv-modal-them-loai").modal("hide");
+           $("#qltv-modal-sua-loai").modal("hide");
+           $("#qltv-modal-xoa-loai").modal("hide");
+      }
+      function tailai() {
+        setTimeout(function(){ location.reload(); }, 3000);
+      }
+      function khongthanhcong(chuoi) {
+           $.notify(chuoi, {
+              animate: {
+                enter: 'animated bounceIn',
+                exit: 'animated bounceOut'
+              },
+              type: 'danger',
+              delay: 4000
+            });
+
+      }
+</script>
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -144,8 +173,7 @@
 	          ten: $("#ten-loai-sach-them").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });
@@ -165,8 +193,7 @@
 	          ten: $("#ten-loai-sach-sua").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });
@@ -184,8 +211,7 @@
 	          loai: $("#ma-loai-sach-xoa").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });

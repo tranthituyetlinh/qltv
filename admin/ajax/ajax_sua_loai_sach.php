@@ -2,6 +2,10 @@
 	session_start();
 	include_once("ajax_config.php");
 	function vlu_sua_ls($loaiold, $ten){
+		if (empty($ten)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> tên loại không để trống!\")</script>";
+			exit();
+		}
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
@@ -22,10 +26,12 @@
 		}
 		else{
 			if (vlu_sua_ls($_POST['loaiold'],$_POST['ten'])){
-				echo "Loại sách đã được sửa!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã lưu</strong> loại ".$_POST['ten']."!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình sửa!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> có lỗi trong quá trình cập nhật!\")</script>";
+				exit();
 			}
 		}
 	}
