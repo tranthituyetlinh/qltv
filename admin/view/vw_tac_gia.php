@@ -1,3 +1,38 @@
+<script type="text/javascript">
+      function thanhcong(chuoi) {
+           $.notify(chuoi, {
+              animate: {
+                enter: 'animated bounceIn',
+                exit: 'animated bounceOut'
+              },
+              type: 'success',
+              delay: 2000
+            });
+           $("#qltv-modal-them-sach").modal("hide");
+           $("#qltv-modal-sua-sach").modal("hide");
+           $("#qltv-modal-xoa-sach").modal("hide");
+      }
+      function tailai() {
+        setTimeout(function(){ location.reload(); }, 3000);
+      }
+      function dongsua() {
+        $("#qltv-modal-sua-dg").modal("hide");
+      }
+      function dongxoa(){
+        $("#qltv-modal-xoa-dg").modal("hide");
+      }
+      function khongthanhcong(chuoi) {
+           $.notify(chuoi, {
+              animate: {
+                enter: 'animated bounceIn',
+                exit: 'animated bounceOut'
+              },
+              type: 'danger',
+              delay: 4000
+            });
+
+      }
+</script>
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -165,8 +200,7 @@
             mota: $("#mo-ta-tac-gia-them").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });
@@ -190,8 +224,7 @@
             macu: $("#ma-tac-gia-cu-sua").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });
@@ -209,8 +242,7 @@
 	          ma: $("#ma-tac-gia-cu-xoa").val()
 	        },
 	        success : function (data){
-	            alert(data);
-	            location.reload();
+              $("body").append(data);
 	        }
 	      });
 	    });
