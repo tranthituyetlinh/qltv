@@ -33,10 +33,12 @@
 		}
 		else{
 			if (qltv_xoa_tg($_POST['ma'])) {
-				echo "Tác giả đã được xóa!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã xóa</strong> tác giả!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình xóa!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> có lỗi trong quá trình xóa!\")</script>";
+				exit();
 			}
 		}
 	}
