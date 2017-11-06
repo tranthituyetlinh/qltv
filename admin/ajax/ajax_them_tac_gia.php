@@ -2,6 +2,18 @@
 	session_start();
 	include_once("ajax_config.php");
 	function qltv_them_tg($ten, $diachi, $mota){
+		if (empty($ten)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> tên tác giả không để trống!\")</script>";
+			exit();
+		}
+		if (empty($diachi)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> địa chỉ tác giả không để trống!\")</script>";
+			exit();
+		}
+		if (empty($mota)) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> mô tả tác giả không để trống!\")</script>";
+			exit();
+		}
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
 		$hoi = "
@@ -18,10 +30,12 @@
 		}
 		else{
 			if (qltv_them_tg($_POST['ten'],$_POST['diachi'],$_POST['mota'])) {
-				echo "Tác giả đã được thêm!";
+				echo "<script type=\"text/javascript\">tailai();thanhcong(\"<strong>Đã thêm</strong> tác giả ".$_POST['ten']."!\")</script>";
+				exit();
 			}
 			else{
-				echo "Có lỗi trong quá trình thêm!";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa thêm</strong> có lỗi trong quá trình thêm!\")</script>";
+				exit();
 			}
 		}
 	}

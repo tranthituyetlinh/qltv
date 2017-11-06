@@ -8,9 +8,9 @@
               type: 'success',
               delay: 2000
             });
-           $("#qltv-modal-them-sach").modal("hide");
-           $("#qltv-modal-sua-sach").modal("hide");
-           $("#qltv-modal-xoa-sach").modal("hide");
+           $("#qltv-modal-them-tg").modal("hide");
+           $("#qltv-modal-sua-tg").modal("hide");
+           $("#qltv-modal-xoa-tac-gia").modal("hide");
       }
       function tailai() {
         setTimeout(function(){ location.reload(); }, 3000);
