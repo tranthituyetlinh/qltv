@@ -1,32 +1,3 @@
-<script type="text/javascript">
-      function thanhcong(chuoi) {
-           $.notify(chuoi, {
-              animate: {
-                enter: 'animated bounceIn',
-                exit: 'animated bounceOut'
-              },
-              type: 'success',
-              delay: 2000
-            });
-           $("#qltv-modal-them-khoa").modal("hide");
-           $("#qltv-modal-sua-khoa").modal("hide");
-           $("#qltv-modal-xoa-khoa").modal("hide");
-      }
-      function tailai() {
-        setTimeout(function(){ location.reload(); }, 3000);
-      }
-      function khongthanhcong(chuoi) {
-           $.notify(chuoi, {
-              animate: {
-                enter: 'animated bounceIn',
-                exit: 'animated bounceOut'
-              },
-              type: 'danger',
-              delay: 4000
-            });
-
-      }
-</script>
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -64,7 +35,6 @@
                     <th class="giua">Số lượng</th>
                     <th class="giua">Giá</th>
                     <th class="giua">Ngày nhập</th>
-                    <th class="giua">Thao tác</th>
                   </tr>
                 </tr>
             </thead>
@@ -73,7 +43,15 @@
         </table>
       </div>
     </section>
-
+ <style type="text/css">
+   table.dataTable {
+      clear: both;
+      margin-top: 6px !important;
+      margin-bottom: 6px !important;
+      max-width: none !important;
+      font-size: 12px;
+  }
+ </style>
 <script type="text/javascript">
     document.title = "VLUTE LIB | Thống kê sách theo nhà xuất bản";
 </script>

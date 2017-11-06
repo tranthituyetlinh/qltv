@@ -33,7 +33,6 @@
                     <th class="giua">Số lượng</th>
                     <th class="giua">Giá</th>
                     <th class="giua">Ngày nhập</th>
-                    <th class="giua">Thao tác</th>
                   </tr>
                 </tr>
             </thead>
@@ -45,8 +44,7 @@
                   <tr>
                     <th class="giua"><?php echo $stt; ?></th>
                     <td class="giua"><a>S<?php echo $row['MaS']; ?></a></td>
-                    <td><a class="ten-a btn-sua-sach" data-qltv="<?php echo $row['MaS']; ?>" alt="Image" Tooltip rel=thongbaonho content="<div id=imagcon>
-                            <img src='../<?php echo $row['HinhAnhS']; ?>' class=thongbaonho-image/></div>"><?php echo $row['TenS']; ?></a></td>
+                    <td><?php echo $row['TenS']; ?></td>
                     <td><?php echo $row['TenLS']; ?></td>
                     <td><?php echo $row['TenTG']; ?></td>
                     <td><?php echo $row['TenNXB']; ?></td>
@@ -55,10 +53,6 @@
                     <td class="giua"><?php echo $row['SL']; ?></td>
                     <td><?php echo $row['Gia']; ?></td>
                     <td class="giua"><?php echo $row['NgayNhap']; ?></td>
-                    <td class="giua"><div class="nut nam-giua"><a class="btn btn-primary btn-sua-sach" data-qltv="<?php echo $row['MaS']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a class="btn btn-danger btn-xoa-sach" title="Xóa"
-                        data-qltv="<?php echo $row['MaS']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
-                    </td>
                 </tr>
                 <?php
                 $stt++;
@@ -87,33 +81,6 @@
 	    font-size: 12px;
 	}
  </style>
- <script type="text/javascript">
-$(document).ready(function(){
-    $('[rel=thongbaonho]').bind('mouseover', function(){
-     if ($(this).hasClass('ajax')) {
-        var ajax = $(this).attr('ajax');    
-      $.get(ajax,
-      function(noidungtooltip){
-        $('<div class="thongbaonho">'  + noidungtooltip + '</div>').appendTo('body').fadeIn('fast');});
-     }
-     else{
-            var noidungtooltip = $(this).attr('content');
-            $('<div class="thongbaonho">' + noidungtooltip + '</div>').appendTo('body').fadeIn('fast');
-            }
-            
-            $(this).bind('mousemove', function(e){
-                $('div.thongbaonho').css({
-                    'top': e.pageY - ($('div.thongbaonho').height() / 2) - 5,
-                    'left': e.pageX + 15
-                });
-            });
-        }).bind('mouseout', function(){
-            $('div.thongbaonho').fadeOut('fast', function(){
-                $(this).remove();
-            });
-        });
-});
-</script>
  <script type="text/javascript">
   $('#qltv-loai-sach').DataTable();
 </script>
