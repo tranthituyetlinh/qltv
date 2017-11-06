@@ -2,8 +2,13 @@
 	session_start();
 	include_once("ajax_config.php");
 	function qltv_xoa_sach($ma){
+
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
+		if (qltv_kiem_tra_ton_tai("SELECT MaL FROM lop l, khoa k WHERE l.MaK = k.MaK AND k.MaK = '$ma'")) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> không thể xóa khoa khi khi còn chứa các lớp!\")</script>";
+			exit();
+		}
 		$hoi = "
 				UPDATE `sach` SET `XoaSach`= '1' WHERE `MaS`= '$ma'
 		";

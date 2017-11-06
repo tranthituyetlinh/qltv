@@ -38,7 +38,7 @@
 				exit();
 			}
 			else{
-				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> có lỗi trong quá trình thêm!\")</script>";
+				echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa thêm</strong> có lỗi trong quá trình thêm!\")</script>";
 				exit();
 			}
 		}
