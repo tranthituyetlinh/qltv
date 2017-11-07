@@ -64,7 +64,7 @@
                     <th class="giua"><?php echo $stt; ?></th>
                     <td class="giua"><a>LS<?php echo $row['MaLS']; ?></a></td>
                     <td><?php echo $row['TenLS']; ?></td>
-                    <td class="giua"><div class="nam-giua"><a class="btn btn-primary btn-sua-loai" data-qltv="<?php echo $row['MaLS']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <td class="giua"><div class="nut nam-giua"><a class="btn btn-primary btn-sua-loai" data-qltv="<?php echo $row['MaLS']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         <a class="btn btn-danger btn-xoa-loai" title="Xóa"
                         data-qltv="<?php echo $row['MaLS']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></div>
                     </td>

@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-4">
           <h4>Chọn nhà xuất bản</h4>
-          <select id="id-nam" class="form-control selectpicker" data-live-search="true" title="Chọn nhà xuất bản">
+          <select id="id-nam" class="form-control selectpicker" data-live-search="true" title="Chọn năm">
             <?php while ($row = mysqli_fetch_assoc($nam)) {
             ?>
               <option data-tokens="<?php echo $row['nam']; ?>" value="<?php echo $row['nam']; ?>"><?php echo $row['nam']; ?></option>
@@ -53,7 +53,7 @@
   }
  </style>
 <script type="text/javascript">
-    document.title = "VLUTE LIB | Thống kê sách theo nhà xuất bản";
+    document.title = "VLUTE LIB | Thống kê sách theo năm";
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
