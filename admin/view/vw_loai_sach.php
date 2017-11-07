@@ -46,7 +46,7 @@
         <table id="qltv-loai-sach" class="table table-striped">
             <thead>
                 <tr role="row">
-                  <tr style="background-color: #2980b9;color: #fff;">
+                  <tr style="background-color: #f1f1f1;color: #7d7d7d;border-top: 3px solid #9e9e9e;">
                     <th class="giua">STT</th>
                     <th class="giua">Mã loại sách</th>
                     <th class="giua">Tên loại sách</th>
