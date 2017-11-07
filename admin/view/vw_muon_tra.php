@@ -26,7 +26,7 @@
                     <th class="giua">Ngày mượn</th>
                     <th class="giua">Ngày trả</th>
                     <th class="giua">Trạng thái</th>
-                    <th class="giua">SL chưa trả</th>
+                    <th class="giua">SL mượn</th>
                     <th class="giua">Gia hạn</th>
                     <th class="giua">Trả sách</th>
                   </tr>
@@ -57,7 +57,7 @@
                     <?php } ?>
                     </td>
                     <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>">
-                        <span class="slmuon" ><?php echo $row['SLMuon']; ?></span>
+                        <span class="slmuon" ><?php echo $row['SLThucTe']; ?></span>
                     </td>
                     <td class="giua" id="id-so-lan-gia-han-mt-<?php echo $row['Id']; ?>">
                     <?php 
