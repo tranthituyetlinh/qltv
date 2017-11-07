@@ -84,7 +84,7 @@
                     <td id="id-ten-nv-<?php echo $row['Id']; ?>"><?php echo $row['TenNV']; ?></td>
                     <td id="id-ten-dang-nhap-nv-<?php echo $row['Id']; ?>"><?php echo $row['TenDangNhap']; ?></td>
                     <td id="id-mail-nv-<?php echo $row['Id']; ?>"><?php echo $row['Mail']; ?></td>
-                    <td class="giua">
+                    <td class="nut giua">
                       <?php if ($row['LoaiNV']=='1') {
                       ?>
                       <a class="btn btn-primary" data-l="1" data-qltv="<?php echo $row['Id']; ?>" title="Thủ thư">Thủ thư</a>
@@ -93,7 +93,7 @@
                       <a class="btn btn-success" data-l="0" data-qltv="<?php echo $row['Id']; ?>" title="Admin">Admin</i></a>
                       <?php } ?>
                     </td>
-                    <td class="giua trangthainhanvien" id="id-trang-thai-nhan-vien-<?php echo $row['Id']; ?>" data-qltv="<?php echo $row['Id']; ?>">
+                    <td class="nut giua trangthainhanvien" id="id-trang-thai-nhan-vien-<?php echo $row['Id']; ?>" data-qltv="<?php echo $row['Id']; ?>">
                       <?php if ($row['TrangThaiNV']=='1') {
                       ?>
                       <a class="btn btn-success" title="Bình thường"><i class="fa fa-check" aria-hidden="true"></i></a>
@@ -104,7 +104,7 @@
                     </td>
                     <td class="giua" id="id-hspc-nv-<?php echo $row['Id']; ?>"><?php echo $row['HeSoPhuCap']; ?></td>
                     <td class="giua">
-                      <div class="nam-giua">
+                      <div class="nut nam-giua">
                         <a class="btn btn-primary btn-sua-nhan-vien" data-l="<?php echo $row['LoaiNV']; ?>" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         <a class="btn btn-danger btn-xoa-nhan-vien" data-qltv="<?php echo $row['Id']; ?>" title="Xóa"><i class="fa fa-trash" aria-hidden="true"></i></a>
                       </div>
