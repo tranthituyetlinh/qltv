@@ -43,6 +43,9 @@
 			case 'sachtheonxb':
 				include_once("control/ctrl_export_sach_theo_nha_xuat_ban.php");
 				break;
+			case 'soluongtheonam':
+				include_once("control/ctrl_export_sach_theo_nam.php");
+				break;
 			default:
 				# code...
 				break;

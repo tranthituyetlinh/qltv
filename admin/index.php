@@ -57,8 +57,8 @@
         <ul class="dropdown-menu">
           <li><a href="?p=sachchuamuon">Sách chưa mượn</a></li>
           <li><a href="?p=sachdamuon">Sách đã mượn</a></li>
-          <li><a href="?psachdangmuon">Sách đang mượn</a></li>
-          <li><a href="?soluongtheonam">Số lượng sách theo năm</a></li>
+          <li><a href="?p=sachdangmuon">Sách đang mượn</a></li>
+          <li><a href="?p=soluongtheonam">Số lượng sách theo năm</a></li>
           <li><a href="?p=top10sachmuon">Top 10 sách mượn nhiều nhất năm</a></li>
           <li><a href="?p=sachtheonxb">Sách theo nhà xuất bản</a></li> 
         </ul>

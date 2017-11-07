@@ -1,10 +1,10 @@
 <?php 
 	session_start();
 	include_once("ajax_config.php");
-	function tv_get_sach_tu_nha_xuat_ban($nxb){
+	function tv_get_sach_tu_nha_xuat_ban($nam){
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
-		$query = "SELECT s.MaS, s.TenS, ls.TenLS, tg.TenTG, nxb.TenNXB,s.NamXB, s.SoTrang, s.SL, s.Gia, s.NgayNhap FROM sach s,tacgia tg, loaisach ls, nhaxuatban nxb WHERE s.MaLS = ls.MaLS and s.MaTG = tg.MaTG and s.MaNXB = nxb.MaNXB and `XoaSach`= '0' and nxb.`MaNXB` = '$nxb'";
+		$query = "SELECT s.MaS, s.TenS, ls.TenLS, tg.TenTG, nxb.TenNXB,s.NamXB, s.SoTrang, s.SL, s.Gia, s.NgayNhap FROM sach s,tacgia tg, loaisach ls, nhaxuatban nxb WHERE s.MaLS = ls.MaLS and s.MaTG = tg.MaTG and s.MaNXB = nxb.MaNXB and `XoaSach`= '0' and Year(s.NgayNhap) = '$nam'";
 		$result = mysqli_query($conn, $query);
 		return $result;
 	}
@@ -14,12 +14,11 @@
 		}
 		else{
 			include_once("../Classes/PHPExcel.php");
-			$ma=$_POST['ma'];
-			$ten=$_POST['ten'];
+			$nam=$_POST['nam'];
 			$objPHPExcel = new PHPExcel();
 			$objPHPExcel->setActiveSheetIndex(0);
 			// tiêu đề
-			$sheet = $objPHPExcel->getActiveSheet()->setTitle("THỐNG KÊ ".$ma); // tiêu đề
+			$sheet = $objPHPExcel->getActiveSheet()->setTitle("THỐNG KÊ ".$nam); // tiêu đề
 			$sheet->getColumnDimension('A')->setAutoSize(true);
 			$sheet->getColumnDimension('B')->setAutoSize(true);
 			$sheet->getColumnDimension('C')->setAutoSize(true);
@@ -45,8 +44,8 @@
 			$objPHPExcel->setActiveSheetIndex(0)->mergeCells('J4:J5');
 			$objPHPExcel->setActiveSheetIndex(0)->mergeCells('K4:K5');
 			// Tieu đề A1
-			//$ten = strtoupper($ten);
-			$sheet->setCellValue('A1','THỐNG KÊ SÁCH THEO '.$ten);
+			$ten = 'THỐNG KÊ SÁCH THEO NĂM '.$nam;
+			$sheet->setCellValue('A1','THỐNG KÊ SÁCH THEO NĂM '.$nam);
 			// Canh giữa A1:F4
 			$sheet->getStyle('A1:K4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 			$sheet->getStyle('A1:K4')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
@@ -68,7 +67,7 @@
 			$sheet->setCellValue('K'.$rowCount,'Ngày nhập');
 			$rowCount++;
 		  	// lệnh sql
-			$rul=tv_get_sach_tu_nha_xuat_ban($ma);
+			$rul=tv_get_sach_tu_nha_xuat_ban($nam);
 			while ($row=mysqli_fetch_array($rul)) {
 				$rowCount++;
 				$sheet->setCellValue('A'.$rowCount,$rowCount-5);
