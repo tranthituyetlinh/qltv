@@ -56,7 +56,7 @@
 			exit();
 		}
 		$hoi = "
-				INSERT INTO `muontra`(`MaNV`, `MaDG`, `MaS`, `NgayMuon`, `NgayTra`, `SLMuon`) VALUES ('$nv','$dg','$s','$nm','$nt','$sl')
+				INSERT INTO `muontra`(`MaNV`, `MaDG`, `MaS`, `NgayMuon`, `NgayTra`, `SLMuon`, `SLThucTe`) VALUES ('$nv','$dg','$s','$nm','$nt','$sl', '$sl')
 		";
 		$hoiu = "
 				UPDATE `sach` 

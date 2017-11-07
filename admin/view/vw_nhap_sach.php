@@ -38,7 +38,7 @@
                     <td><?php echo $row['TenLS']; ?></td>
                     <td class="giua"><?php echo $row['SoTrang']; ?></td>
                     <td class="giua"><?php echo $row['SL']; ?></td>
-                    <td class="giua"><div class="nam-giua"><a class="btn btn-success btn-nhap-sach" data-qltv="<?php echo $row['MaS']; ?>" title="Sửa"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                    <td class="giua"><div class="nut nam-giua"><a class="btn btn-success btn-nhap-sach" data-qltv="<?php echo $row['MaS']; ?>" title="Sửa"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
                     </td>
                     <input type="text" hidden="hidden" name="" id="id-ma-s-<?php echo $row['MaS']; ?>" value="<?php echo $row['MaS']; ?>">
                     <input type="text" hidden="hidden" name="" id="id-ten-s-<?php echo $row['MaS']; ?>" value="<?php echo $row['TenS']; ?>">
