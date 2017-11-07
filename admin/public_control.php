@@ -49,6 +49,9 @@
 			case 'top10sachmuon':
 				include_once("control/ctrl_export_sach_top_10_nhat_nam.php");
 				break;
+			case 'sachdangmuon':
+				include_once("control/ctrl_export_sach_dang_muon.php");
+				break;
 			default:
 				# code...
 				break;
