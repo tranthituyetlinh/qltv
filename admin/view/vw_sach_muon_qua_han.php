@@ -12,7 +12,6 @@
             <thead>
                 <tr role="row">
                   <tr style="background-color: #f1f1f1;color: #7d7d7d;border-top: 3px solid #9e9e9e;">
-                    <th class="giua">Chọn</th>
                     <th class="giua">STT</th>
                     <th class="giua">Tên NV</th>
                     <th class="giua">Mã ĐG</th>
@@ -32,7 +31,6 @@
               while ($row = mysqli_fetch_assoc($dulieu)) {
                 ?>
                   <tr>
-                    <td class="giua"><input type="checkbox" name="" id="id-chon-<?php echo $row['Id']; ?>"></td>
                     <th class="giua"><?php echo $stt; ?></th>
                     <input type="text" hidden="hidden" id="id-ma-nv-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaNV'] ?>" >
                     <td id="id-ten-nv-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenNV']; ?></a></td>
@@ -52,9 +50,8 @@
                     <td class="giua">
                     <?php 
                       if ($row['TrangThai']==0) { ?>
-                      <div class="nut nam-giua"><a class="btn btn-primary btn-gui-mail" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></div>
+                      <div class="nut nam-giua"><a class="btn btn-primary btn-gui-mail" data-mail="<?php echo $row['Mail']; ?>" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></div>
                     <?php } ?>
-
                     </td>
                 </tr>
                 <?php
@@ -128,73 +125,23 @@
             });
       }
       $(document).ready(function(){
-        document.getElementById('ngay-muon').valueAsDate = new Date();
-        document.getElementById("ngay-muon").readOnly = true;
         $("#muonsach").click(function(){
           $("#qltv-modal-muon-sach").modal("show");
         });
-        $("#nut-cho-muon").click(function(){
-          var manv = '<?php echo $manv; ?>';
-          $.ajax({
-            url : "ajax/ajax_cho_muon_sach.php",
-            type : "post",
-            dataType:"text",
-            data : {
-              s: $("#ma-ten-sach-muon").val(),
-              dg: $("#ma-ten-doc-gia-muon").val(),
-              nm: $("#ngay-muon").val(),
-              sl: $("#so-luong-muon").val(),
-              nv: manv
-            },
-            success : function (data){
-                $("body").append(data);
-            }
-          });
-        });
-        $(".btn-gia-han").click(function(){
+        $(".btn-gui-mail").click(function(){
           var id = $(this).attr("data-qltv");
+          var mail = $(this).attr("data-mail");
           $.ajax({
-            url : "ajax/ajax_gia_han_sach.php",
+            url : "ajax/ajax_gui_mail_qua_han.php",
             type : "post",
             dataType:"text",
             data : {
-              id: id
+              tens: $("#id-ten-dg-mt-"+id).text().trim(),
+              tendg: $("#id-ten-s-mt-"+id).text().trim(),
+              dc: mail
             },
             success : function (data){
-                $("body").append(data);
-                //location.reload();
-            }
-          });
-        });
-        $(".btn-tra-sach").click(function(){
-          var sl = $(this).attr("data-sl");
-          var id = $(this).attr("data-qltv");
-          $('#so-luong-tra')
-              .find('option')
-              .remove()
-          ;
-          for (var i = 1; i <= sl; i++) {
-            $("#so-luong-tra").append('<option value='+i+'>'+i+'</option>');
-          }
-          $("#id-id-muon-tra").val(id);
-          $("#qltv-modal-tra-sach").modal("show");
-        });
-        $("#nut-tra-sach").click(function(){
-          var id = $("#id-id-muon-tra").val();
-          $.ajax({
-            url : "ajax/ajax_tra_sach.php",
-            type : "post",
-            dataType:"text",
-            data : {
-              sl: $("#so-luong-tra").val().trim(),
-              id: id,
-              s: $("#id-ma-s-mt-"+id).val(),
-              nv: '<?php echo $manv; ?>'
-            },
-            success : function (data){
-                //alert(data);
-                $("body").append(data);
-                //location.reload();
+                  $("body").append(data);
             }
           });
         });
