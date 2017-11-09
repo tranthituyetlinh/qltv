@@ -1,23 +1,18 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Mượn sách
+        Sách mượn quá hạn
         <div class="line"></div>
       </h1>
     </section>
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-12 col-ms-12">
-          <a id="muonsach" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> Cho mượn sách</a>
-        </div>
-        <div class="col-md-12 col-ms-12 cach"></div>
-      </div>
       <div class="windows-table animated fadeIn">
         <table id="qltv-loai-sach" class="table table-striped">
             <thead>
                 <tr role="row">
                   <tr style="background-color: #f1f1f1;color: #7d7d7d;border-top: 3px solid #9e9e9e;">
+                    <th class="giua">Chọn</th>
                     <th class="giua">STT</th>
                     <th class="giua">Tên NV</th>
                     <th class="giua">Mã ĐG</th>
@@ -27,8 +22,7 @@
                     <th class="giua">Ngày trả</th>
                     <th class="giua">Trạng thái</th>
                     <th class="giua">SL mượn</th>
-                    <th class="giua">Gia hạn</th>
-                    <th class="giua">Trả sách</th>
+                    <th class="giua">Gửi mail</th>
                   </tr>
                 </tr>
             </thead>
@@ -38,6 +32,7 @@
               while ($row = mysqli_fetch_assoc($dulieu)) {
                 ?>
                   <tr>
+                    <td class="giua"><input type="checkbox" name="" id="id-chon-<?php echo $row['Id']; ?>"></td>
                     <th class="giua"><?php echo $stt; ?></th>
                     <input type="text" hidden="hidden" id="id-ma-nv-mt-<?php echo $row['Id']; ?>" value="<?php echo $row['MaNV'] ?>" >
                     <td id="id-ten-nv-mt-<?php echo $row['Id']; ?>"><a><?php echo $row['TenNV']; ?></a></td>
@@ -49,30 +44,15 @@
                     <td class="giua" id="id-ngay-muon-mt-<?php echo $row['Id']; ?>"><?php echo $row['NgayMuon']; ?></td>
                     <td class="giua" id="id-ngay-tra-mt-<?php echo $row['Id']; ?>"><?php echo $row['NgayTra']; ?></td>
                     <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>">
-                    <?php 
-                      if ($row['TrangThai']==0) { ?>
-                        <span class="chuatra" >Chưa trả</span>
-                    <?php } else { ?>
-                        <span class="datra" >Đã trả</span>
-                    <?php } ?>
+                        <span class="chuatra" style="background: #e74c3c;">Quá hạn</span>
                     </td>
                     <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>">
                         <span class="slmuon" ><?php echo $row['SLThucTe']; ?></span>
                     </td>
-                    <td class="giua" id="id-so-lan-gia-han-mt-<?php echo $row['Id']; ?>">
-                    <?php 
-                      if ($row['GiaHan']==0 && $row['TrangThai']== 0) { ?>
-                      <div class="nut nam-giua"><a class="btn btn-warning btn-gia-han" data-qltv="<?php echo $row['Id']; ?>" title="Gia hạn"><i class="fa fa-gavel" aria-hidden="true"></i></a></div>
-                    <?php } else if($row['TrangThai']==1){ ?>
-                        <span class="datra" >Đã trả</span>
-                    <?php } else { ?>
-                        <span class="chuatra" >Đã gia hạn</span>
-                    <?php } ?>
-                    </td>
                     <td class="giua">
                     <?php 
                       if ($row['TrangThai']==0) { ?>
-                      <div class="nut nam-giua"><a class="btn btn-primary btn-tra-sach" data-sl="<?php echo $row['SLMuon']; ?>" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></div>
+                      <div class="nut nam-giua"><a class="btn btn-primary btn-gui-mail" data-qltv="<?php echo $row['Id']; ?>" title="Sửa"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></div>
                     <?php } ?>
 
                     </td>
@@ -86,52 +66,6 @@
       </div>
     </section>
 
-<!-- Modal: Thêm lớp -->
-<div class="modal fade" id="qltv-modal-muon-sach" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Mượn sách</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label>Mã sách - Tên sách</label>
-          <select id="ma-ten-sach-muon" class="form-control selectpicker" data-live-search="true" title="chọn mã sách hoặc tên sách">
-            <?php while ($row = mysqli_fetch_assoc($dulieu_sach_muon)) {
-            ?>
-              <option data-tokens="<?php echo "S".$row['MaS']." ".$row['TenS']; ?>" value="<?php echo $row['MaS']; ?>"><?php echo "S".$row['MaS']." - ".$row['TenS']; ?></option>
-            <?php } ?>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Mã độc giả - Tên độc giả</label>
-          <select id="ma-ten-doc-gia-muon" class="form-control selectpicker" data-live-search="true" title="chọn mã độc giả hoặc tên độc giả">
-            <?php while ($row = mysqli_fetch_assoc($dulieu_doc_gia_muon)) {
-            ?>
-              <option data-tokens="<?php echo $row['MaDG']." ".$row['TenDG']; ?>" value="<?php echo $row['MaDG']; ?>"><?php echo $row['MaDG']." - ".$row['TenDG']; ?></option>
-            <?php } ?>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Ngày mượn</label>
-          <input type="date" class="form-control" name="" id="ngay-muon" required autocomplete="on">
-        </div>
-        <div class="form-group">
-          <label>Số lượng</label>
-          <input type="text" class="form-control" name="" id="so-luong-muon" placeholder="số lượng" required autocomplete="on">
-        </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary" id="nut-cho-muon">Cho mượn</button>
-      </div>
-    </div>
-  </div>
-  </div>
-</div> <!-- Modal: Thêm lớp -->
-
-<!-- Modal: Thêm lớp -->
 <!-- Modal: Thêm lớp -->
 <div class="modal fade bd-example-modal-sm" id="qltv-modal-tra-sach" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm" role="document">
