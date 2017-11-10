@@ -392,4 +392,11 @@
     vertical-align: top;
     border-top: 1px solid #ddd;
 }
+  table.dataTable {
+      clear: both;
+      margin-top: 6px !important;
+      margin-bottom: 6px !important;
+      max-width: none !important;
+      font-size: 11px;
+  }
 </style>
