@@ -138,6 +138,7 @@
             data : {
               tens: $("#id-ten-dg-mt-"+id).text().trim(),
               tendg: $("#id-ten-s-mt-"+id).text().trim(),
+              sl: $("#so-luong-tra")
               dc: mail
             },
             success : function (data){
