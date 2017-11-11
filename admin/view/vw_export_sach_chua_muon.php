@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Thống kê sách đang mượn
+        Thống kê sách chưa mượn
         <div class="line"></div>
       </h1>
     </section>
@@ -33,7 +33,7 @@
                     <td class="giua"><a>S<?php echo $row['MaS']; ?></a></td>
                     <td><?php echo $row['TenS']; ?></td>
                     <td><?php echo $row['TenLS']; ?></td>
-                    <td class="giua"><?php echo $row['SLMuon']; ?></td>
+                    <td class="giua"><?php echo $row['SL']; ?></td>
                 </tr>
                 <?php
                 $stt++;
@@ -46,8 +46,8 @@
 <?php 
   if ($dem > 0) {
 ?>
-    <form action="ajax/ajax_export_sach_dang_muon.php" method="post">
-    <input type="text" hidden="hidden" name="dangmuon" value="1">
+    <form action="ajax/ajax_du_lieu_sach_chua_muon.php" method="post">
+    <input type="text" hidden="hidden" name="chuamuon" value="1">
     <input class="animated pulse btn btn-success" type="submit" name="" value="Tải xuống file Excel" target="_blank" style="position: absolute;bottom: 0;margin-bottom: 10px;left: 44%;" >
   </form>
 <?php
@@ -63,7 +63,7 @@
   }
  </style>
 <script type="text/javascript">
-    document.title = "VLUTE LIB | Thống kê sách đang mượn";
+    document.title = "VLUTE LIB | Thống kê sách chưa mượn";
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -75,19 +75,6 @@
 <script type="text/javascript" charset="utf-8">
       $(document).ready(function() {
         $('#qltv-khoa-sach').DataTable();
-  	    $("#id-nam").change(function(){
-  	      $.ajax({
-  	        url : "ajax/ajax_du_lieu_sach_theo_nam.php",
-  	        type : "post",
-  	        dataType:"text",
-  	        data : {
-              nam: $("#id-nam").val()
-  	        },
-  	        success : function (data){
-                $("#bang-du-lieu").html(data);
-  	        }
-  	      });
-  	    });
       });
 </script>
 <script src="../bootstrap/dist/js/bootstrap-select.min.js"></script>
