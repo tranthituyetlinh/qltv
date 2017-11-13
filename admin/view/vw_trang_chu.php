@@ -1,6 +1,7 @@
 <div class="row">
 	<div class="col-md-1 col-sm-1"></div>
 	<div class="col-md-10 col-sm-10">
+		<?php if($loainv == '1'){ ?>
 		<div class="col-md-3 col-sm-3 col-4 thong-tin animated zoomIn" style="animation-delay: 0.1s;">
 			<a href="?p=sach">
 				<div class="hinh-thong-tin" style="text-align: center;">
@@ -161,7 +162,8 @@
 				</div>
 			</a>
 		</div>
-		<div class="col-md-3 col-sm-3 col-4 thong-tin animated zoomIn" style="animation-delay: 1.7s;">
+		<?php } else if($loainv=='0'){ ?>
+		<div class="col-md-3 col-sm-3 col-4 thong-tin animated zoomIn" style="animation-delay: 0.1s;">
 			<a href="?p=nhanvien">
 				<div class="hinh-thong-tin" style="text-align: center;">
 					<img src="../images/nhan-vien-icon-2017.png" style="width: 100px;">
@@ -171,6 +173,7 @@
 				</div>
 			</a>
 		</div>
+		<?php } ?>
 	</div>
 	<div class="col-md-1 col-sm-1"></col>
 </div>

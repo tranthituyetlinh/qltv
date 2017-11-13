@@ -53,8 +53,9 @@
 			return false;
 	}
 	if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
-		if(!qltv_login($_SESSION['username'],$_SESSION['password'])){
-			header("Location: ../login.php");
+		if(!qltv_login_ad($_SESSION['username'],$_SESSION['password'])){
+			echo "<script type=\"text/javascript\">trangdangnhap()</script>";
+			exit();
 		}
 		else{
 			if (vlu_them_lop($_POST['ma'],$_POST['mail'],$_POST['loai'],$_POST['hspc'],$_POST['id'],$_POST['maold'])) {
@@ -67,6 +68,8 @@
 			}
 		}
 	}
-	else
-		header("Location: ../login.php");
+	else{
+		echo "<script type=\"text/javascript\">trangdangnhap()</script>";
+		exit();
+	}
  ?>

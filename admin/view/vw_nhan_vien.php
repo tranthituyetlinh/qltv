@@ -37,6 +37,9 @@
           delay: 4000
         });
   }
+  function trangdangnhap(){
+    location.href = "<?php echo $qltv['HOST']; ?>/control/ctrl_login_out.php";
+  }
 </script>
 <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -94,7 +97,7 @@
                       <?php } ?>
                     </td>
                     <td class="nut giua trangthainhanvien" id="id-trang-thai-nhan-vien-<?php echo $row['Id']; ?>" data-qltv="<?php echo $row['Id']; ?>">
-                      <?php if ($row['TrangThaiNV']=='1') {
+                      <?php if ($row['TrangThaiNV']=='0') {
                       ?>
                       <a class="btn btn-success" title="Bình thường"><i class="fa fa-check" aria-hidden="true"></i></a>
                       <?php

@@ -48,6 +48,8 @@
 			}
 		}
 	}
-	else
-		header("Location: ../login.php");
+	else{
+		echo "<script type=\"text/javascript\">trangdangnhap()</script>";
+		exit();
+	}
  ?>
