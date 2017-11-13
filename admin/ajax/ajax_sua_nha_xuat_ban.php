@@ -20,7 +20,7 @@
 			return false;
 	}
 	if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
-		if(!qltv_login($_SESSION['username'],$_SESSION['password'])){
+		if(!qltv_login_tt($_SESSION['username'],$_SESSION['password'])){
 			header("Location: ../login.php");
 		}
 		else{
@@ -34,6 +34,8 @@
 			}
 		}
 	}
-	else
-		header("Location: ../login.php");
+	else{
+		echo "<script type=\"text/javascript\">trangdangnhap()</script>";
+		exit();
+	}
  ?>

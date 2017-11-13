@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 08, 2017 lúc 01:20 SA
+-- Thời gian đã tạo: Th10 13, 2017 lúc 09:57 CH
 -- Phiên bản máy phục vụ: 5.7.14
 -- Phiên bản PHP: 5.6.25
 
@@ -41,7 +41,8 @@ CREATE TABLE `cttra` (
 
 INSERT INTO `cttra` (`Id`, `MaNV`, `MaDG`, `MaS`, `NgayTra`, `SLTra`) VALUES
 (1, 331892182, 14004045, 5, '2017-11-07', 2),
-(2, 331892182, 14004045, 5, '2017-11-07', 1);
+(2, 331892182, 14004045, 5, '2017-11-07', 1),
+(3, 331892182, 14004038, 5, '2017-11-08', 1);
 
 -- --------------------------------------------------------
 
@@ -169,7 +170,7 @@ INSERT INTO `muontra` (`Id`, `MaNV`, `MaDG`, `MaS`, `NgayMuon`, `NgayTra`, `Tran
 (2, 331892182, 14004005, 3, '2017-11-07', '2017-11-17', 0, 1, 1, 1),
 (3, 331892182, 14004045, 5, '2017-11-07', '2017-11-14', 1, 0, 3, 0),
 (4, 331892182, 14004045, 3, '2017-11-07', '2017-11-14', 0, 3, 3, 0),
-(5, 331892182, 14004038, 5, '2017-11-07', '2017-11-14', 0, 3, 3, 0),
+(5, 331892182, 14004038, 5, '2017-10-31', '2017-11-07', 0, 2, 3, 0),
 (6, 331892182, 14004006, 4, '2017-11-07', '2017-11-14', 0, 1, 1, 0),
 (7, 331892182, 14004005, 4, '2017-11-07', '2017-11-14', 0, 1, 1, 0);
 
@@ -198,9 +199,9 @@ CREATE TABLE `nhanvien` (
 --
 
 INSERT INTO `nhanvien` (`Id`, `MaNV`, `TenNV`, `DiaChiNV`, `TenDangNhap`, `MatKhau`, `Mail`, `TrangThaiNV`, `HeSoPhuCap`, `LoaiNV`, `DaXoa`) VALUES
-(1, '331892182', 'Nguyễn Thị Ràng', '72 Nguyen Hue-P2-TPVL', 'rangvlute', 'fcea920f7412b5da7be0cf42b8c93759', 'lythanhngodev@gmail.com', 1, 2.53, 0, 0),
-(2, '331298374', 'Tran Thi Hoa', '82/7C Phó cơ điều-p3-TPVL', 'hoavlute', 'fcea920f7412b5da7be0cf42b8c93759', 'trenthituyetlinhcntt2014@gmail.com', 1, 2.1, 0, 0),
-(7, '331256324', 'Nguyễn Thanh Hoàng', 'TP. Vĩnh Long', 'thanhhoang', 'e10adc3949ba59abbe56e057f20f883e', 'nguyenth@vlite.edu.vn', 1, 3.2, 1, 0);
+(1, '331892182', 'Nguyễn Thị Ràng', '72 Nguyen Hue-P2-TPVL', 'rangvlute', 'fcea920f7412b5da7be0cf42b8c93759', 'lythanhngodev@gmail.com', 0, 2.53, 0, 0),
+(2, '331298374', 'Tran Thi Hoa', '82/7C Phó cơ điều-p3-TPVL', 'hoavlute', 'fcea920f7412b5da7be0cf42b8c93759', 'trenthituyetlinhcntt2014@gmail.com', 0, 2.1, 0, 0),
+(7, '331256324', 'Nguyễn Thanh Hoàng', 'TP. Vĩnh Long', 'thanhhoang', 'fcea920f7412b5da7be0cf42b8c93759', 'nguyenth@vlite.edu.vn', 0, 3.2, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -226,7 +227,9 @@ INSERT INTO `nhapsach` (`id`, `NgayNhap`, `MaS`, `SoLuong`, `GhiChu`) VALUES
 (3, '2017-10-29', 4, 1, 'ghichu'),
 (4, '2017-10-29', 4, 9, 'ghichu'),
 (5, '2017-10-29', 5, 1, ''),
-(6, '2017-11-06', 1, 1, '');
+(6, '2017-11-06', 1, 1, ''),
+(7, '2017-11-11', 6, 100, ''),
+(8, '2017-11-11', 7, 100, '');
 
 -- --------------------------------------------------------
 
@@ -279,9 +282,9 @@ INSERT INTO `sach` (`MaS`, `TenS`, `MaLS`, `MaTG`, `MaNXB`, `NamXB`, `SoTrang`, 
 (2, 'Nhập Môn Công Nghệ Phần Mềm', 1, 2, 1, 2001, 40, 'images/sach.jpg', 26, '20000', '2017-07-10', 1),
 (3, 'Phân Tích Thiết Kế Hệ Thống', 3, 2, 2, 2003, 30, 'images/hoahong.jpg', 11, '40000', '2017-04-11', 0),
 (4, 'Tin Học Cơ Sở', 2, 3, 1, 2009, 40, 'images/kinhnghiem.jpg', 17, '30000', '2017-03-27', 0),
-(5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 100, 'images/thanhpho.jpg', 6, '123000', '2017-06-12', 0),
-(6, 'qdqwwqd', 3, 3, 4, 1992, 9, 'images/ngaynang.jpg', 0, '10000', '2017-11-06', 1),
-(7, 'Công nghệ phần mềm', 2, 2, 2, 1990, 100, 'images/kinhnghiem.jpg', 0, '10000', '2017-11-06', 1);
+(5, 'Trí Tuệ Nhân Tạo', 1, 1, 2, 2000, 100, 'images/thanhpho.jpg', 7, '123000', '2017-06-12', 0),
+(6, 'qdqwwqd', 3, 3, 4, 1992, 9, 'images/ngaynang.jpg', 100, '10000', '2017-11-06', 1),
+(7, 'Công nghệ phần mềm', 2, 2, 2, 1990, 100, 'images/kinhnghiem.jpg', 88, '10000', '2017-11-06', 1);
 
 -- --------------------------------------------------------
 
@@ -328,7 +331,8 @@ CREATE TABLE `xuatsach` (
 INSERT INTO `xuatsach` (`id`, `NgayXuat`, `MaS`, `SoLuong`, `GhiChu`) VALUES
 (1, '2017-10-29', 1, 1, ''),
 (2, '2017-10-29', 5, 1, ''),
-(3, '2017-10-29', 5, 20, 'Tại thích');
+(3, '2017-10-29', 5, 20, 'Tại thích'),
+(4, '2017-11-13', 7, 12, '');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -418,7 +422,7 @@ ALTER TABLE `xuatsach`
 -- AUTO_INCREMENT cho bảng `cttra`
 --
 ALTER TABLE `cttra`
-  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT cho bảng `docgia`
 --
@@ -428,7 +432,7 @@ ALTER TABLE `docgia`
 -- AUTO_INCREMENT cho bảng `loaisach`
 --
 ALTER TABLE `loaisach`
-  MODIFY `MaLS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `MaLS` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT cho bảng `muontra`
 --
@@ -443,12 +447,12 @@ ALTER TABLE `nhanvien`
 -- AUTO_INCREMENT cho bảng `nhapsach`
 --
 ALTER TABLE `nhapsach`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT cho bảng `nhaxuatban`
 --
 ALTER TABLE `nhaxuatban`
-  MODIFY `MaNXB` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MaNXB` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT cho bảng `sach`
 --
@@ -458,12 +462,12 @@ ALTER TABLE `sach`
 -- AUTO_INCREMENT cho bảng `tacgia`
 --
 ALTER TABLE `tacgia`
-  MODIFY `MaTG` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `MaTG` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT cho bảng `xuatsach`
 --
 ALTER TABLE `xuatsach`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

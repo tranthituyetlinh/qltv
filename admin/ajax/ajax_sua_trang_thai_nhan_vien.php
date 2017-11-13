@@ -30,11 +30,11 @@
 		return $kq1['TrangThaiNV'];
 	}
 	if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
-		if(!qltv_login($_SESSION['username'],$_SESSION['password'])){
+		if(!qltv_login_ad($_SESSION['username'],$_SESSION['password'])){
 			header("Location: ../login.php");
 		}
 		else{
-			if(tv_cap_nhat_trang_thai_nhan_vien($_POST['ma'])==0) { ?>
+			if(tv_cap_nhat_trang_thai_nhan_vien($_POST['ma'])==1) { ?>
 					<a class="btn btn-success"><i class="fa fa-check" aria-hidden="true" title="Bình thường"></i></a>
 					<script type="text/javascript">thanhcongtt("<strong>Đã cập nhật trạng thái</strong> thành công, trang thái bình thường!")</script>
 			<?php } else { ?>
@@ -43,6 +43,8 @@
 			<?php }
 		}
 	}
-	else
-		header("Location: ../login.php");
+	else{
+		echo "<script type=\"text/javascript\">trangdangnhap()</script>";
+		exit();
+	}
  ?>

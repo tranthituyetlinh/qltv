@@ -21,6 +21,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li id="muc-trang-chu"><a href="">Trang chủ</a></li>
+      <?php if($loainv == '1'){ ?>
       <li class="dropdown" id="muc-sach">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sách <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -62,7 +63,9 @@
           <li><a href="?p=sachtheonxb">Sách theo nhà xuất bản</a></li> 
         </ul>
       </li>
+      <?php } else if($loainv=='0'){ ?>
       <li class="dropdown" id="nhanvien"><a href="?p=nhanvien">Quản lý nhân viên</a></li>
+      <?php } ?>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" id="quanlythongtin">

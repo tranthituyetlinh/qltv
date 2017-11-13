@@ -9,7 +9,7 @@
 		return $result;
 	}
 	if (isset($_SESSION['username']) && isset($_SESSION['password'])){
-		if(!qltv_login($_SESSION['username'],$_SESSION['password'])){
+		if(!qltv_login_tt($_SESSION['username'],$_SESSION['password'])){
 			header("Location: ../login.php");
 		}
 		else{
@@ -61,8 +61,10 @@
         </table>
 <?php	}
 	}
-	else
-		header("Location: ../login.php");
+    else{
+        echo "<script type=\"text/javascript\">trangdangnhap()</script>";
+        exit();
+    }
 	if ($dem > 0) {
  ?>
  	<form action="ajax/ajax_export_sach_theo_nam.php" method="post">

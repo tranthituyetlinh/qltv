@@ -20,13 +20,50 @@
 		$password = md5($password);
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
-		$hoi = "SELECT * FROM `nhanvien` WHERE BINARY `TenDangNhap` = '$username' and `MatKhau` = '$password' and trangthainv='1'";
+		$hoi = "SELECT * FROM `nhanvien` WHERE BINARY `TenDangNhap` = '$username' and `MatKhau` = '$password' and trangthainv='0'";
 		$thucthi = mysqli_query($conn, $hoi);
 		$dem_user = mysqli_num_rows($thucthi);
-		if ($dem_user > 0)
+		if ($dem_user > 0){
 			return true;
-		else
+		}
+		else{
+			echo "<script type=\"text/javascript\">trangdangnhap()</script>";
+			exit();
 			return false;
+		}
+	}
+	function qltv_login_ad($username, $password){	
+		$password = md5($password);
+		$ketnoi = new clsKetnoi();
+		$conn = $ketnoi->ketnoi();
+		$hoi = "SELECT * FROM `nhanvien` WHERE BINARY `TenDangNhap` = '$username' and `MatKhau` = '$password' and trangthainv='0' and DaXoa = '0' and LoaiNV = '0'";
+		$thucthi = mysqli_query($conn, $hoi);
+		$dem_user = mysqli_num_rows($thucthi);
+		if ($dem_user > 0){
+			return true;
+		}
+		else{
+			echo "<script type=\"text/javascript\">trangdangnhap()</script>";
+			exit();
+			return false;
+		}
+	}
+	function qltv_login_tt($username, $password){	
+		$password = md5($password);
+		$ketnoi = new clsKetnoi();
+		$conn = $ketnoi->ketnoi();
+		$hoi = "SELECT * FROM `nhanvien` WHERE BINARY `TenDangNhap` = '$username' and `MatKhau` = '$password' and trangthainv='0' and DaXoa = '0' and LoaiNV = '1'";
+		$thucthi = mysqli_query($conn, $hoi);
+		$dem_user = mysqli_num_rows($thucthi);
+		if ($dem_user > 0){
+			
+			return true;
+		}
+		else{
+			echo "<script type=\"text/javascript\">trangdangnhap()</script>";
+			exit();
+			return false;
+		}
 	}
 	function qltv_kiem_tra_ton_tai($chuoi){
 		$ketnoi = new clsKetnoi();
@@ -37,7 +74,10 @@
 		if ($dem>0) {
 			return true;
 		}
-		else
+		else{
 			return false;
+			echo "<script type=\"text/javascript\">trangdangnhap()</script>";
+			exit();
+		}
 	}
  ?>
