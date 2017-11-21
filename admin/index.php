@@ -15,6 +15,7 @@
 </head>
 <body>
 <nav class="navbar navbar-default" style="box-shadow: 0px 3px 10px -5px #212121;">
+  <div class="container" id="id-head"><img class="hinh-head" src="../images/header.png"></div>
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href=""><b style="font-family: sans-serif;">VLUTE LIB</b></a>

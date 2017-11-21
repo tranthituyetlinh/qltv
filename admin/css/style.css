@@ -99,3 +99,14 @@ img:hover{
     -webkit-transition:all 0.3456789s;
     transform: rotate(30deg);
 }
+.hinh-head:hover{
+    transform: rotate(0deg);
+}
+.hinh-head{
+    width: 100%;
+}
+#id-head{
+    padding:0;
+    margin: 0;
+    width: 100%;
+}
