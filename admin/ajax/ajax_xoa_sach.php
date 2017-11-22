@@ -9,6 +9,10 @@
 			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> không thể xóa sách này, sách này hiện đang được mượn (chưa thu hồi hết)!\")</script>";
 			exit();
 		}
+		if (qltv_kiem_tra_ton_tai("SELECT * FROM `sach` WHERE `MaS` = '$ma' AND SL > 0")) {
+			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa xóa</strong> không thể xóa sách này, chỉ xóa khi số lượng sách là 0!\")</script>";
+			exit();
+		}
 		$hoi = "
 				UPDATE `sach` SET `XoaSach`= '1' WHERE `MaS`= '$ma'
 		";
