@@ -16,7 +16,10 @@
 		}
 		$ketnoi = new clsKetnoi();
 		$conn = $ketnoi->ketnoi();
-		$hoi = "
+		$mota = Addslashes($mota);
+		echo $mota;
+		exit();
+		$hoi = @"
 				INSERT INTO `tacgia`(`MaTG`, `TenTG`, `DiaChiTG`, `MoTa`) VALUES (null,'$ten','$diachi','$mota')
 		";
 		if(mysqli_query($conn, $hoi)===TRUE)
