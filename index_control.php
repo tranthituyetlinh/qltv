@@ -7,6 +7,9 @@
 			case 'loai':
 				include_once("control/ctrl_sach_theo_loai.php");
 				break;
+			case 'profile':
+				include_once("control/ctrl_profile.php");
+				break;
 			default:
 				# code...
 				break;

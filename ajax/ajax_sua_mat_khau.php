@@ -1,6 +1,5 @@
 <?php 
-	session_start();
-	include_once("ajax_config.php");
+	include_once("../admin/config/config.php");
 	function tv_sua_profile($cu,$moi,$xnmoi,$ma){
 		if (empty($cu)) {
 			echo "<script type=\"text/javascript\">luukhongthanhcong(\"<strong>Chưa lưu</strong> mật khẩu cũ không để trống!\")</script>";
@@ -23,14 +22,14 @@
 		$moi=md5($moi);
 		$cu=md5($cu);
 		$hoi = "
-			UPDATE `nhanvien` 
+			UPDATE `docgia` 
 			SET 
-				`MatKhau`= '$moi'
+				`MatKhauDG`= '$moi'
 			WHERE
 				`Id`='$ma'
 		";
 		$hoimk = "
-			SELECT * from nhanvien where MatKhau = '$cu' and Id = '$ma'
+			SELECT * from docgia where MatKhauDG = '$cu' and Id = '$ma'
 		";
 		$ktmk = mysqli_query($conn, $hoimk);
 		$demmk = mysqli_num_rows($ktmk);
@@ -43,21 +42,11 @@
 		else
 			return false;
 	}
-	if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
-		if(!qltv_login($_SESSION['username'],$_SESSION['password'])){
-			header("Location: ../login.php");
+
+		if(tv_sua_profile($_POST['cu'],$_POST['moi'],$_POST['xnmoi'],$_POST['ma'])) {
+			echo "<script type=\"text/javascript\">tailai();luuthanhcong(\"<strong>Đã lưu</strong> mật khẩu đã được thay đổi!\")</script>";
 		}
 		else{
-			if(tv_sua_profile($_POST['cu'],$_POST['moi'],$_POST['xnmoi'],$_POST['ma'])) {
-				echo "<script type=\"text/javascript\">tailai();luuthanhcong(\"<strong>Đã lưu</strong> mật khẩu đã được thay đổi!\")</script>";
-			}
-			else{
-				echo "<script type=\"text/javascript\">luukhongthanhcong(\"<strong>Chưa lưu</strong> thông tin chưa đầy đủ hoặc chưa chính xác!\")</script>";
-			}
+			echo "<script type=\"text/javascript\">luukhongthanhcong(\"<strong>Chưa lưu</strong> thông tin chưa đầy đủ hoặc chưa chính xác!\")</script>";
 		}
-	}
-	else{
-		echo "<script type=\"text/javascript\">trangdangnhap()</script>";
-		exit();
-	}
  ?>

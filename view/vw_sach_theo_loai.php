@@ -21,19 +21,6 @@
     <!-- Day la noi dung -->
     <div id="noi-dung-trang-web">
       <div class="cot-mot">
-        <div class="bao-cot-mot">
-          <div class="header-cot-mot">
-            <h3>Thể loại sách theo khoa</h3>
-          </div>
-          <ul id="sach-theo-khoa">
-          <?php while ($row = mysqli_fetch_assoc($khoa)) {
-          ?>
-            <li>
-              <a href="?p=khoa&id=<?php echo $row['MaK']; ?>">+ <?php echo $row['TenK']; ?></a>
-            </li>
-          <?php } ?>
-          </ul>
-        </div>
 
         <div class="bao-cot-mot">
           <div class="header-cot-mot the-loai-khac">
