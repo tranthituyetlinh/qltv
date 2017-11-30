@@ -44,7 +44,7 @@
                     <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>">
                         <span class="chuatra" style="background: #e74c3c;">Quá hạn</span>
                     </td>
-                    <td class="giua" id="id-trang-thai-mt-<?php echo $row['Id']; ?>">
+                    <td class="giua" id="id-so-luong-muon-tra-<?php echo $row['Id']; ?>">
                         <span class="slmuon" ><?php echo $row['SLThucTe']; ?></span>
                     </td>
                     <td class="giua">
@@ -130,7 +130,7 @@
         });
         $(".btn-gui-mail").click(function(){
           var id = $(this).attr("data-qltv");
-          var mail = $(this).attr("data-mail");
+          
           $.ajax({
             url : "ajax/ajax_gui_mail_qua_han.php",
             type : "post",
@@ -138,8 +138,8 @@
             data : {
               tens: $("#id-ten-dg-mt-"+id).text().trim(),
               tendg: $("#id-ten-s-mt-"+id).text().trim(),
-              sl: $("#so-luong-tra")
-              dc: mail
+              sl: $("#id-so-luong-muon-tra-"+id).text().trim(),
+              dc: $(this).attr("data-mail")
             },
             success : function (data){
                   $("body").append(data);
