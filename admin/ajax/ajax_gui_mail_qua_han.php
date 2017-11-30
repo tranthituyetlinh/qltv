@@ -1,24 +1,6 @@
 <?php 
 	session_start();
 	include_once("ajax_config.php");
-	function tv_sua_doc_gia(){
-		// kiem tra ngay sinh
-		$ketnoi = new clsKetnoi();
-		$conn = $ketnoi->ketnoi();
-		$hoi = "
-				UPDATE `docgia` 
-				SET 
-					`MaDG` = '$ma',
-					`Mail`='$mail',
-					`TrangThai`='$tt' 
-				WHERE
-					`Id` = '$id'
-		";
-		if(mysqli_query($conn, $hoi)===TRUE)
-			return true;
-		else
-			return false;
-	}
 	if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 		if(!qltv_login_tt($_SESSION['username'],$_SESSION['password'])){
 			header("Location: ../login.php");
@@ -67,7 +49,7 @@
 			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; 
 			if(!$mail->Send())   
 			{   
-			    echo "Loi khi goi mail: " . $mail->ErrorInfo ;   
+			    echo "Loi khi goi mail!";   
 			}   
 			else   
 			{   
