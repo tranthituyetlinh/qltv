@@ -22,7 +22,7 @@
                     <th class="giua">Mã độc giả</th>
                     <th class="giua">Họ & Tên</th>
                     <th class="giua">Ngày sinh</th>
-                    <th class="giua">Địa chi</th>
+                    <th class="giua">Địa chỉ</th>
                     <th class="giua">Ngày lập thẻ</th>
                     <th class="giua">Tên đăng nhập</th>
                     <th class="giua">Mail</th>
@@ -201,7 +201,7 @@
         </div>
         <div class="form-group">
           <label>Thuộc khoa</label>
-          <select class="form-control" id="khoa-dg-sua" disabled="disabled">
+          <select class="form-control" id="khoa-dg-sua" >
             <?php while ($row = mysqli_fetch_assoc($dulieu_lop_s)) {
             ?>
               <option value="<?php echo $row['MaL']; ?>"><?php echo $row['TenL']; ?></option>
@@ -339,6 +339,7 @@
 	        data : {
 	          mail: $("#mail-dg-sua").val(),
             tt: $("#trang-thai-dg-sua").val(),
+            khoa: $("#khoa-dg-sua").val(),
             ma: $("#ma-dg-sua").val(),
             id: $("#id-id-dg-sua").val()
 	        },

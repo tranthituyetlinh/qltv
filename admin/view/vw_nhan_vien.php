@@ -144,7 +144,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                   <label>Tên đăng nhập(**)</label>
-                  <input type="text" class="form-control" name="" id="ten-dang-nhap-them" placeholder="số lượng" required autocomplete="on">
+                  <input type="text" class="form-control" name="" id="ten-dang-nhap-them" placeholder="Tên đăng nhập" required autocomplete="on">
                   <p class="help-block"> (<b>**</b>) Mật khẩu mặc định là: <b style="color: red;">123456</b></p>
                 </div>
             </div>
@@ -153,7 +153,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Họ & Tên</label>
-              <input type="text" class="form-control" name="" id="ho-ten-nhan-vien-them" placeholder="họ tên độc giả" required autocomplete="on">
+              <input type="text" class="form-control" name="" id="ho-ten-nhan-vien-them" placeholder="họ tên nhân viên" required autocomplete="on">
             </div>
           </div>
           <div class="col-md-6">
@@ -224,7 +224,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Họ & Tên</label>
-              <input type="text" class="form-control" name="" id="ho-ten-nhan-vien-sua" placeholder="họ tên độc giả" required autocomplete="on" disabled>
+              <input type="text" class="form-control" name="" id="ho-ten-nhan-vien-sua" placeholder="họ tên nhân viên" required autocomplete="on" disabled>
             </div>
           </div>
           <div class="col-md-6">

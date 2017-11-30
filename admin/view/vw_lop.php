@@ -136,7 +136,7 @@
       <div class="modal-body">
         <div class="form-group">
           <label>Mã lớp</label>
-          <input type="text" class="form-control" name="" id="ma-lop-sua" placeholder="mã lớp" required autocomplete="on">
+          <input type="text" class="form-control" name="" disabled id="ma-lop-sua" placeholder="mã lớp" required autocomplete="on">
         </div>
         <div class="form-group">
           <label>Tên lớp</label>

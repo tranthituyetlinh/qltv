@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	include_once("ajax_config.php");
-	function tv_sua_doc_gia($mail, $tt, $ma, $id){
+	function tv_sua_doc_gia($mail, $tt, $ma, $id,$mal){
 		if (empty($mail)) {
 			echo "<script type=\"text/javascript\">khongthanhcong(\"<strong>Chưa lưu</strong> địa chỉ mail không để trống!\")</script>";
 			exit();
@@ -14,7 +14,8 @@
 				SET 
 					`MaDG` = '$ma',
 					`Mail`='$mail',
-					`TrangThai`='$tt' 
+					`TrangThai`='$tt',
+					`MaL` = '$mal'
 				WHERE
 					`Id` = '$id'
 		";
@@ -28,7 +29,7 @@
 			header("Location: ../login.php");
 		}
 		else{
-			if (tv_sua_doc_gia($_POST['mail'],$_POST['tt'],$_POST['ma'],$_POST['id'])) {
+			if (tv_sua_doc_gia($_POST['mail'],$_POST['tt'],$_POST['ma'],$_POST['id'],$_POST['khoa'])) {
 				echo "<script type=\"text/javascript\">dongsua();thanhcong(\"<strong>Đã lưu</strong> thông tin độc giả!\");tailai();</script>";
 				exit();
 			}
