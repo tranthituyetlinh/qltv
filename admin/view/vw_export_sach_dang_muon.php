@@ -48,7 +48,7 @@
 ?>
     <form action="ajax/ajax_export_sach_dang_muon.php" method="post">
     <input type="text" hidden="hidden" name="dangmuon" value="1">
-    <input class="animated pulse btn btn-success" type="submit" name="" value="Tải xuống file Excel" target="_blank" style="position: absolute;bottom: 0;margin-bottom: 10px;left: 44%;" >
+    <input class="animated pulse btn btn-success" type="submit" name="" value="Tải xuống file Excel" target="_blank" style="position: relative;bottom: 0;margin-bottom: 10px;left: 44%;" >
   </form>
 <?php
   }

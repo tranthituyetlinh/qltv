@@ -106,7 +106,7 @@
           <input type="text" class="form-control" name="" id="ten-tac-gia-them" placeholder="tên tác giả" required autocomplete="on">
         </div>
         <div class="form-group">
-          <label>Địa chỉ tác giả tác giả</label>
+          <label>Địa chỉ tác giả</label>
           <input type="text" class="form-control" name="" id="dia-chi-tac-gia-them" placeholder="địa chỉ tác giả" required autocomplete="on">
         </div>
         <div class="form-group">

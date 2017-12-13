@@ -63,7 +63,7 @@
  ?>
  	<form action="ajax/ajax_export_top_10_sach_theo_nam.php" method="post">
  		<input type="text" hidden="hidden" name="nam" value="<?php echo $nam; ?>">
- 		<input class="animated pulse btn btn-success" type="submit" name="" value="Tải xuống file Excel" target="_blank" style="position: absolute;bottom: 0;margin-bottom: 10px;left: 44%;" >
+ 		<input class="animated pulse btn btn-success" type="submit" name="" value="Tải xuống file Excel" target="_blank" style="position: relative;bottom: 0;margin-bottom: 10px;left: 44%;" >
  	</form>
  <?php } ?>
  <style type="text/css">

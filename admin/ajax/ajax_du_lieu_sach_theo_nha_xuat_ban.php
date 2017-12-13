@@ -71,7 +71,7 @@
  	<form action="ajax/ajax_export_sach_theo_nha_xuat_ban.php" method="post">
  		<input type="text" hidden="hidden" name="ma" value="<?php echo $ma; ?>">
  		<input type="text" hidden="hidden" name="ten" value="<?php echo $ten; ?>">
- 		<input class="animated pulse btn btn-success" type="submit" name="" value="Tải xuống file Excel" target="_blank" style="position: absolute;bottom: 0;margin-bottom: 10px;left: 44%;" >
+ 		<input class="animated pulse btn btn-success" type="submit" name="" value="Tải xuống file Excel" target="_blank" style="position: relative;bottom: 0;margin-bottom: 10px;left: 44%;" >
  	</form>
  <?php } ?>
  <style type="text/css">

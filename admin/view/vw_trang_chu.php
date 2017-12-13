@@ -12,6 +12,8 @@
 				</div>
 			</a>
 		</div>
+		<!--
+    	-->
 		<div class="col-md-3 col-sm-3 col-4 thong-tin animated zoomIn" style="animation-delay: 0.2s;">
 			<a href="?p=nhapsach">
 				<div class="hinh-thong-tin" style="text-align: center;">
