@@ -9,7 +9,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-4">
-          <h4>Chọn nhà xuất bản</h4>
+          <h4>Chọn năm</h4>
           <select id="id-nam" class="form-control selectpicker" data-live-search="true" title="Chọn năm">
             <?php while ($row = mysqli_fetch_assoc($top10)) {
             ?>
