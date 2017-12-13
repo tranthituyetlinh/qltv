@@ -19,5 +19,14 @@
 			mysqli_query($conn, "set names 'utf8'");
 			return $conn;
 		}
+		public function tontai($hoi){
+			$conn = $this->ketnoi();
+			$ex  = mysqli_query($conn,$hoi);
+			$dem = mysqli_num_rows($ex);
+			if ($dem>0)
+				return true;
+			else
+				return false;
+		}
 	}
  ?>

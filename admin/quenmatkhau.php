@@ -1,6 +1,8 @@
+
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>VLUTE LIB | Đăng nhập hệ thống</title>
+<head>
+	<title>VLUTE-LIB | Quên mật khẩu</title>
 		<link rel="stylesheet" type="text/css" href="css/animate.css">
 		<style type="text/css">
 			@import url(https://fonts.googleapis.com/css?family=Roboto:300);
@@ -104,20 +106,41 @@
 			    -moz-osx-font-smoothing: grayscale;
 			}
 		</style>
-	</head>
-	<body>
-		<div class="login-page">
-		  <div class="logo animated bounceInDown" style="text-align: center; margin-bottom: 30px;margin-top: 30px;">
-		  	<img src="../images/vlute-logo.png" style="width: 100px;">
-		  </div>
-		  <div class="form animated bounceIn">
-		    <form class="login-form" action="control/ctrl_login.php" method="post">
-		      <input type="text" placeholder="tên đăng nhập" name="username">
-		      <input type="password" placeholder="mật khẩu" name="password">
-		      <input type="submit" name="" value="đăng nhập" class="nut-sub">
-		      <p class="message"><a href="quenmatkhau.php">Quên mật khẩu?</a></p>
-		    </form>
-		  </div>
-		</div>
-	</body>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/dist/css/bootstrap-select.min.css">
+  <link href="../css/vendor/font-awesome.min.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/animate.css">
+  <link href="../css/style.css" type="text/css" rel="stylesheet">
+  <script src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<div class="login-page">
+	  <div class="logo animated bounceInDown" style="text-align: center; margin-bottom: 30px;margin-top: 30px;">
+	  	<h2>Quên mật khẩu?</h2>
+	  </div>
+	  <div class="form animated bounceIn">
+	      <input type="mail" placeholder="nhập mail để lấy lại mật khẩu" id="omail" name="username">
+	      <button class="btn btn-primary nut-sub" id="guimail">Gửi mail quên mật khẩu</button>
+	      <br><br>
+	      <a href="index.php"><< Quay lại trang đăng nhập</a>
+	  </div>
+	</div>
+</body>
 </html>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#guimail").click(function(){
+          $.ajax({
+            url : "ajax/ajax_quen_mat_khau.php",
+            type : "post",
+            dataType:"text",
+            data : {
+              omail: $("#omail").val().trim()
+            },
+            success : function (data){
+              $("body").append(data);
+            }
+          });
+		});
+	});
+</script>
